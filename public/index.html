@@ -152,15 +152,6 @@
         .hero-title { font-family: 'Orbitron', sans-serif; font-size: 24px; margin: 0 0 5px 0; letter-spacing: 2px; }
         .hero-title span { color: #c084fc; text-shadow: 0 0 20px rgba(168, 85, 247, 1); }
         .hero-subtitle { font-size: 12px; color: #a0a0b0; margin: 0; letter-spacing: 1px; }
-        
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; margin-bottom: 15px; flex-shrink: 0; }
-        .stat-card { background: rgba(15,15,23,0.7); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 10px; padding: 10px; text-align: center; backdrop-filter: blur(10px); box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        .stat-title { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: #a0a0b0; margin-bottom: 3px; font-weight: 600; }
-        .stat-value { font-family: 'Orbitron', sans-serif; font-size: 18px; font-weight: bold; }
-        .stat-total { color: #fff; }
-        .stat-active { color: #4ade80; text-shadow: 0 0 10px rgba(74, 222, 128, 0.5); }
-        .stat-paused { color: #fbbf24; text-shadow: 0 0 10px rgba(251, 191, 36, 0.5); }
-        .stat-expired { color: #ef4444; text-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
 
         .admin-form-box { background: rgba(15,15,23,0.7); backdrop-filter: blur(20px); padding: 15px; border-radius: 12px; border: 1px solid rgba(168, 85, 247, 0.4); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); width: 100%; margin-bottom: 15px; flex-shrink: 0; }
         .expiry-row { display: flex; gap: 10px; margin-bottom: 12px; align-items: stretch; }
@@ -256,25 +247,6 @@
             <h1 class="hero-title">CONTROL <span>PANEL</span></h1>
             <p class="hero-subtitle">Generate and manage your license keys</p>
         </div>
-        
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-title">Total Keys</div>
-                <div class="stat-value stat-total" id="stat-total">0</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Active</div>
-                <div class="stat-value stat-active" id="stat-active">0</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Paused</div>
-                <div class="stat-value stat-paused" id="stat-paused">0</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">Expired</div>
-                <div class="stat-value stat-expired" id="stat-expired">0</div>
-            </div>
-        </div>
 
         <div class="admin-form-box">
             <label class="label-text">TIME EXPIRY</label>
@@ -302,12 +274,23 @@
         <div class="keys-container" id="keysList"></div>
     </div>
 
-    <div class="site-footer">All Rights Reserved &copy; <span>©Admin GeoDevs69</span> - 2024</div>
+    <div class="site-footer">All Rights Reserved &copy; <span>@Admin GeoDevs69</span> - 2024</div>
 
 <script>
     let RESELLER_KEY = ""; 
     let timerIntervals = {};
     let isAllExpanded = false;
+    let DEVICE_HWID = "";
+
+    function generateDeviceId() {
+        let savedHwid = localStorage.getItem('codex_device_id');
+        if (savedHwid) return savedHwid;
+        
+        const randomStr = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        const newHwid = "WEB-" + randomStr;
+        localStorage.setItem('codex_device_id', newHwid);
+        return newHwid;
+    }
 
     async function login() {
         const pass = document.getElementById('adminPass').value;
@@ -325,7 +308,7 @@
         errorEl.style.display = 'none';
 
         try {
-            const res = await fetch(`/list?password=${pass}`);
+            const res = await fetch(`/list?password=${pass}&hwid=${DEVICE_HWID}`);
             
             if (res.ok) {
                 RESELLER_KEY = pass;
@@ -361,16 +344,14 @@
         
         document.getElementById('loginError').style.display = 'none';
         document.getElementById('keysList').innerHTML = "";
-        document.getElementById('stat-total').innerText = "0";
-        document.getElementById('stat-active').innerText = "0";
-        document.getElementById('stat-paused').innerText = "0";
-        document.getElementById('stat-expired').innerText = "0";
         
         Object.values(timerIntervals).forEach(clearInterval);
         timerIntervals = {};
     }
 
     window.onload = async function() {
+        DEVICE_HWID = generateDeviceId();
+        
         const savedKey = localStorage.getItem('resellerKey');
         if (savedKey) {
             document.getElementById('adminPass').value = savedKey;
@@ -382,7 +363,7 @@
         const duration = document.getElementById('duration').value;
         const unit = document.getElementById('unit').value;
         
-        const res = await fetch(`/generate?password=${RESELLER_KEY}&duration=${duration}&unit=${unit}`);
+        const res = await fetch(`/generate?password=${RESELLER_KEY}&duration=${duration}&unit=${unit}&hwid=${DEVICE_HWID}`);
         const data = await res.json();
         
         if (data.status === "success") {
@@ -399,7 +380,7 @@
     }
 
     async function loadKeys() {
-        const res = await fetch(`/list?password=${RESELLER_KEY}`);
+        const res = await fetch(`/list?password=${RESELLER_KEY}&hwid=${DEVICE_HWID}`);
         
         if (!res.ok) {
             logout();
@@ -412,10 +393,6 @@
 
         if (Object.keys(data).length === 0) {
             container.innerHTML = "<div class='no-keys-text'>No keys generated yet. Click Generate to start.</div>";
-            document.getElementById('stat-total').innerText = "0";
-            document.getElementById('stat-active').innerText = "0";
-            document.getElementById('stat-paused').innerText = "0";
-            document.getElementById('stat-expired').innerText = "0";
             return;
         }
 
@@ -424,9 +401,6 @@
 
         const sortedKeys = Object.keys(data).sort((a, b) => data[a].createdAt - data[b].createdAt);
         let indexCounter = 1;
-        let countActive = 0;
-        let countPaused = 0;
-        let countExpired = 0;
 
         sortedKeys.forEach((k, index) => {
             const keyData = data[k];
@@ -443,10 +417,6 @@
             if (currentStatus === "ACTIVE" && keyData.expires && new Date() > new Date(keyData.expires)) {
                 currentStatus = "EXPIRED"; 
             }
-            if (currentStatus === "ACTIVE") countActive++;
-            else if (currentStatus === "PAUSED") countPaused++;
-            else if (currentStatus === "EXPIRED") countExpired++;
-
             const currentHwid = keyData.hwid || "WALA_PA";
 
             card.innerHTML = `
@@ -479,11 +449,6 @@
             container.appendChild(card);
             indexCounter++;
         });
-        
-        document.getElementById('stat-total').innerText = Object.keys(data).length;
-        document.getElementById('stat-active').innerText = countActive;
-        document.getElementById('stat-paused').innerText = countPaused;
-        document.getElementById('stat-expired').innerText = countExpired;
 
         sortedKeys.forEach(k => startTimer(k, data[k]));
     }
@@ -532,12 +497,12 @@
     }
 
     async function togglePause(key) {
-        await fetch(`/toggle-pause?password=${RESELLER_KEY}&key=${key}`);
+        await fetch(`/toggle-pause?password=${RESELLER_KEY}&key=${key}&hwid=${DEVICE_HWID}`);
         loadKeys(); 
     }
 
     async function deleteKey(key) {
-        await fetch(`/delete?password=${RESELLER_KEY}&key=${key}`);
+        await fetch(`/delete?password=${RESELLER_KEY}&key=${key}&hwid=${DEVICE_HWID}`);
         loadKeys(); 
     }
 
