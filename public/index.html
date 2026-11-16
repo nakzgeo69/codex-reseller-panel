@@ -176,25 +176,48 @@
     let currentKeysData = {}; 
 
     function generateDeviceId() {
-        let savedHwid = localStorage.getItem('codex_device_id');
-        if (savedHwid) return savedHwid;
-        
-        const userAgent = navigator.userAgent || "Unknown";
-        const screenWidth = window.screen.width || 0;
-        const screenHeight = window.screen.height || 0;
-        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
-        
-        const fingerprint = `${userAgent}-${screenWidth}x${screenHeight}-${timeZone}`;
-        
-        let hash = 0;
-        for (let i = 0; i < fingerprint.length; i++) {
-            const char = fingerprint.charCodeAt(i);
-            hash = ((hash << 5) - hash) + char;
-            hash = hash & hash;
+        try {
+            let savedHwid = null;
+            try {
+                savedHwid = localStorage.getItem('codex_device_id');
+            } catch(e) {
+                console.warn("LocalStorage is blocked.");
+            }
+            
+            if (savedHwid) return savedHwid;
+            
+            const userAgent = navigator.userAgent || "Unknown";
+            const screenWidth = window.screen.width || 0;
+            const screenHeight = window.screen.height || 0;
+            
+            let timeZone = "Unknown";
+            try {
+                timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown";
+            } catch(e) {}
+
+            const fingerprint = `${userAgent}-${screenWidth}x${screenHeight}-${timeZone}`;
+            
+            let hash = 0;
+            for (let i = 0; i < fingerprint.length; i++) {
+                const char = fingerprint.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            
+            let newHwid = "WEB-" + Math.abs(hash).toString(16);
+            if (!newHwid || newHwid === "WEB-NaN" || newHwid.length < 5) {
+                newHwid = "WEB-" + Math.random().toString(36).substring(2, 15);
+            }
+
+            try {
+                localStorage.setItem('codex_device_id', newHwid);
+            } catch(e) {}
+
+            return newHwid;
+
+        } catch (err) {
+            return "WEB-FALLBACK-" + Math.random().toString(36).substring(2, 8);
         }
-        const newHwid = "WEB-" + Math.abs(hash).toString(16);
-        localStorage.setItem('codex_device_id', newHwid);
-        return newHwid;
     }
 
     async function login() {
