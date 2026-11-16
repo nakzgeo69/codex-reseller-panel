@@ -10,8 +10,15 @@ const ADMIN_PASS = "CodexSquad101";
 
 app.get('/list', async (req, res) => {
     const resellerKey = req.query.password;
-    const deviceHwid = req.query.hwid;
-    if (!resellerKey || !deviceHwid) return res.status(401).json({ status: "error", message: "Missing Key or Device ID" });
+    let deviceHwid = req.query.hwid;
+    
+    // FIX: Fallback HWID kung sakaling hindi makapag-generate ang browser
+    if (!deviceHwid || deviceHwid === "undefined" || deviceHwid === "null" || deviceHwid.trim() === "") {
+        deviceHwid = "WEB-FALLBACK-" + Math.random().toString(36).substring(2, 10);
+    }
+    
+    if (!resellerKey) return res.status(401).json({ status: "error", message: "Missing Key" });
+
     try {
         const verifyRes = await fetch(`${MAIN_PANEL_URL}/verify-reseller`, {
             method: 'POST',
@@ -19,13 +26,19 @@ app.get('/list', async (req, res) => {
             body: JSON.stringify({ key: resellerKey, hwid: deviceHwid })
         });
         const verifyData = await verifyRes.json();
-        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Access Denied" });
+        
+        if (verifyData.status !== "success") {
+            return res.status(403).json({ status: "error", message: verifyData.message || "Access Denied" });
+        }
+        
         const response = await fetch(`${MAIN_PANEL_URL}/list?password=${ADMIN_PASS}`);
         const allKeys = await response.json();
         const resellerKeys = {};
         Object.keys(allKeys).forEach(k => { if (allKeys[k].source === "RESELLER") resellerKeys[k] = allKeys[k]; });
         res.json(resellerKeys);
-    } catch (err) { res.status(500).json({ status: "error", message: "Server Error" }); }
+    } catch (err) { 
+        res.status(500).json({ status: "error", message: "Server Error" }); 
+    }
 });
 
 app.get('/generate', async (req, res) => {
@@ -37,7 +50,7 @@ app.get('/generate', async (req, res) => {
             body: JSON.stringify({ key: password, hwid: hwid })
         });
         const verifyData = await verifyRes.json();
-        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: "Invalid or Expired Reseller Key" });
+        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid or Expired Reseller Key" });
         const response = await fetch(`${MAIN_PANEL_URL}/api/reseller-generate`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -57,7 +70,7 @@ app.get('/toggle-pause', async (req, res) => {
             body: JSON.stringify({ key: password, hwid: hwid })
         });
         const verifyData = await verifyRes.json();
-        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: "Invalid or Expired Reseller Key" });
+        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid or Expired Reseller Key" });
         const response = await fetch(`${MAIN_PANEL_URL}/toggle-pause?password=${ADMIN_PASS}&key=${key}`);
         const data = await response.json();
         res.json(data);
@@ -73,7 +86,7 @@ app.get('/delete', async (req, res) => {
             body: JSON.stringify({ key: password, hwid: hwid })
         });
         const verifyData = await verifyRes.json();
-        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: "Invalid or Expired Reseller Key" });
+        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid or Expired Reseller Key" });
         const response = await fetch(`${MAIN_PANEL_URL}/delete?password=${ADMIN_PASS}&key=${key}`);
         const data = await response.json();
         res.json(data);
