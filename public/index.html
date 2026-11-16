@@ -41,10 +41,14 @@
         .key-index { font-size: 10px; color: #888; font-weight: bold; margin-bottom: 2px; letter-spacing: 1px;}
         .key-name { font-family: monospace; color: #4ade80; font-size: 14px; font-weight: bold; text-shadow: 0 0 5px rgba(74, 222, 128, 0.5); }
         .card-right { display: flex; align-items: center; gap: 8px; }
+        
+        /* 🔥 STATUS BADGES */
         .status-badge { font-size: 10px; padding: 4px 6px; border-radius: 4px; font-weight: bold; text-transform: uppercase; min-width: 65px; text-align: center; }
         .status-UNUSED { background-color: #fbbf24; color: #000; }
         .status-ACTIVE { background-color: #4ade80; color: #000; }
-        .status-PAUSED { background-color: #f59e0b; color: #000; }
+        .status-PAUSED { background-color: #3b82f6; color: #fff; }
+        .status-EXPIRED { background-color: #ef4444; color: #fff; } /* 🔥 PULA NA MAY PUTING TEXT */
+
         .btn-icon { width: 32px; height: 32px; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; display: flex; justify-content: center; align-items: center; padding: 0; }
         .btn-pause { background-color: #f59e0b; color: white; }
         .btn-resume { background-color: #10b981; color: white; }
@@ -72,7 +76,7 @@
         <h1 class="hero-title" style="font-size: 22px; margin-bottom: 20px;">ADMIN <span>LOGIN</span></h1>
         <div class="form-box">
             <input type="password" id="adminPass" placeholder="Enter Valid Key">
-            <button class="sign-in-btn" onclick="login()">ENTER</button>
+            <button class="sign-in-btn" id="loginBtn" onclick="login()">ENTER</button>
             <p id="loginError" style="color: #ef4444; font-size: 12px; margin-top: 10px; display: none;"></p>
         </div>
         <p class="footer-text">Need access? Contact <span>Admin GeoDevs69?</span></p>
@@ -114,6 +118,7 @@
     async function login() {
         const pass = document.getElementById('adminPass').value;
         const errorEl = document.getElementById('loginError');
+        const btn = document.getElementById('loginBtn');
         
         if (!pass) {
             errorEl.textContent = "Please enter your key.";
@@ -122,7 +127,6 @@
         }
 
         // 🔥 Ipakita ang loading state
-        const btn = document.querySelector('.sign-in-btn');
         btn.textContent = "VERIFYING...";
         btn.disabled = true;
         errorEl.style.display = 'none';
@@ -148,8 +152,8 @@
             errorEl.textContent = "Server error. Please try again.";
             errorEl.style.display = 'block';
         } finally {
-            // Ibalik ang button state
-            btn.textContent = "SIGN IN";
+            // 🔥 Ibalik sa "ENTER" imbes na "SIGN IN"
+            btn.textContent = "ENTER";
             btn.disabled = false;
         }
     }
@@ -212,7 +216,11 @@
             let pauseIcon = "▶️", pauseClass = "btn-resume";
             if (keyData.status === "ACTIVE") { pauseIcon = "⏸️"; pauseClass = "btn-pause"; }
 
-            const currentStatus = keyData.status || "UNKNOWN";
+            // 🔥 LOGIC PARA DETECT KUNG EXPIRED NA (Para maging pula ang badge)
+            let currentStatus = keyData.status || "UNKNOWN";
+            if (currentStatus === "ACTIVE" && keyData.expires && new Date() > new Date(keyData.expires)) {
+                currentStatus = "EXPIRED"; 
+            }
             const currentHwid = keyData.hwid || "WALA_PA";
 
             card.innerHTML = `
@@ -283,11 +291,31 @@
 
         let timeLeftMs = new Date(keyData.expires) - new Date();
         
+        // 🔥 KUNG EXPIRED NA AGAD PAGKA-LOAD, IPAKITA AGAD
+        if (timeLeftMs <= 0) {
+            timeEl.innerText = "EXPIRED";
+            timeEl.style.color = "#ef4444";
+            
+            const badge = timeEl.closest('.key-card').querySelector('.status-badge');
+            if(badge) {
+                badge.className = 'status-badge status-EXPIRED';
+                badge.innerText = 'EXPIRED';
+            }
+            return;
+        }
+
         timerIntervals[key] = setInterval(() => {
             if (timeLeftMs <= 0) {
                 timeEl.innerText = "EXPIRED";
                 timeEl.style.color = "#ef4444";
                 clearInterval(timerIntervals[key]);
+                
+                // 🔥 PAG TAPOS NA ANG ORAS, PALITAN DIN ANG BADGE KULAY
+                const badge = timeEl.closest('.key-card').querySelector('.status-badge');
+                if(badge) {
+                    badge.className = 'status-badge status-EXPIRED';
+                    badge.innerText = 'EXPIRED';
+                }
                 return;
             }
             let totalSec = Math.floor(timeLeftMs / 1000);
