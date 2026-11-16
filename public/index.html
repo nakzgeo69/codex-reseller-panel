@@ -1,0 +1,144 @@
+<!-- public/index.html ng SECOND PANEL -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex Reseller Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .neon-text { text-shadow: 0 0 5px #a855f7, 0 0 10px #a855f7; }
+        .neon-border { box-shadow: 0 0 10px #a855f7; }
+        /* Kapag naka-login na, tatanggalin natin ang hidden class */
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-white font-sans min-h-screen flex flex-col items-center py-10 relative">
+
+    <!-- 🔒 LOGIN SCREEN (Lalabas muna ito) -->
+    <div id="loginOverlay" class="absolute inset-0 bg-[#0a0a0a] z-50 flex flex-col items-center justify-center">
+        <h1 class="text-3xl font-bold neon-text tracking-widest mb-8">CODEX MLBB</h1>
+        
+        <div class="text-center mb-8">
+            <div class="text-5xl mb-4">🛡️</div>
+            <h2 class="text-2xl font-semibold mb-2 tracking-widest">ADMIN LOGIN</h2>
+        </div>
+
+        <div class="w-full max-w-md px-6">
+            <div class="bg-[#1a1a1a] p-6 rounded-2xl neon-border">
+                <input type="password" id="accessKey" placeholder="••••••••••••••••" 
+                    class="w-full bg-black border border-gray-700 rounded-lg p-3 mb-4 text-center font-mono focus:outline-none focus:border-purple-500 tracking-widest">
+                
+                <button onclick="loginReseller()" 
+                    class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-3 rounded-lg transition shadow-[0_0_15px_rgba(168,85,247,0.5)]">
+                    SIGN IN
+                </button>
+                <p id="errorMsg" class="text-red-500 text-sm text-center mt-4 hidden"></p>
+            </div>
+            <p class="text-center text-gray-500 text-xs mt-8">Need access? Contact GeoDevs69</p>
+        </div>
+    </div>
+
+    <!-- 🟢 DASHBOARD (Same na same sa Main Panel mo, naka-hidden lang sa umpisa) -->
+    <div id="dashboardScreen" class="hidden w-full max-w-md px-4">
+        <h1 class="text-center text-2xl font-bold neon-text mb-8">ADMIN PANEL</h1>
+        
+        <!-- Generator Card -->
+        <div class="bg-[#1a1a1a] p-6 rounded-2xl neon-border mb-8">
+            <label class="block text-sm font-medium mb-2">Time Expiry</label>
+            <div class="flex gap-4 mb-4">
+                <input type="number" id="expiryAmount" value="1" class="w-1/2 bg-black border border-gray-700 rounded-lg p-2 text-center">
+                <select id="expiryUnit" class="w-1/2 bg-black border border-gray-700 rounded-lg p-2">
+                    <option>Minutes</option>
+                    <option>Hours</option>
+                    <option>Days</option>
+                </select>
+            </div>
+            <button onclick="generateKey()" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-3 rounded-lg transition">GENERATE KEY</button>
+        </div>
+
+        <!-- Active Licenses List -->
+        <div>
+            <h3 class="text-gray-400 text-sm mb-4">ACTIVE LICENSES</h3>
+            <div id="licenseList" class="space-y-3">
+                <!-- Dito papasok ang mga keys -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Login Function
+        async function loginReseller() {
+            const key = document.getElementById('accessKey').value;
+            const errorMsg = document.getElementById('errorMsg');
+            
+            if (!key) {
+                errorMsg.textContent = "Please enter a key.";
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/reseller-login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: key })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Itago ang login screen, ipakita ang dashboard
+                    document.getElementById('loginOverlay').classList.add('hidden');
+                    document.getElementById('dashboardScreen').classList.remove('hidden');
+                    loadLicenses(); // Load ang listahan ng keys
+                } else {
+                    errorMsg.textContent = data.message;
+                    errorMsg.classList.remove('hidden');
+                }
+            } catch (err) {
+                errorMsg.textContent = "Server error. Try again.";
+                errorMsg.classList.remove('hidden');
+            }
+        }
+
+        // Generate Key Function (Same sa main panel)
+        async function generateKey() {
+            const duration = document.getElementById('expiryAmount').value;
+            const unit = document.getElementById('expiryUnit').value;
+
+            const response = await fetch('/api/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ duration: parseInt(duration), unit: unit })
+            });
+            const data = await response.json();
+            if (data.success) {
+                loadLicenses();
+            }
+        }
+
+        // Load Licenses Function
+        async function loadLicenses() {
+            const response = await fetch('/api/licenses');
+            const licenses = await response.json();
+            const listContainer = document.getElementById('licenseList');
+            listContainer.innerHTML = '';
+
+            licenses.forEach(license => {
+                const div = document.createElement('div');
+                div.className = 'bg-[#1a1a1a] p-4 rounded-xl flex items-center justify-between';
+                div.innerHTML = `
+                    <div>
+                        <p class="text-xs text-gray-400">Key #${license.id}</p>
+                        <p class="font-mono text-green-400 font-bold">${license.key}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="bg-green-500 text-xs font-bold px-2 py-1 rounded">${license.status}</span>
+                    </div>
+                `;
+                listContainer.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>
