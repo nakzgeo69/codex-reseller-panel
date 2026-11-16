@@ -17,12 +17,22 @@
         .hero-title { font-family: 'Orbitron', sans-serif; font-size: 26px; margin: 0 0 8px 0; letter-spacing: 2px; }
         .hero-title span { color: #c084fc; text-shadow: 0 0 15px rgba(168, 85, 247, 0.8); }
         .hero-subtitle { font-size: 13px; color: #888; margin: 0; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; margin-bottom: 25px; }
+        .stat-card { background: rgba(15,15,23,0.6); border: 1px solid #2d2d3d; border-radius: 12px; padding: 15px; text-align: center; backdrop-filter: blur(5px); }
+        .stat-title { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #a0a0b0; margin-bottom: 5px; }
+        .stat-value { font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: bold; }
+        .stat-total { color: #fff; }
+        .stat-active { color: #4ade80; }
+        .stat-paused { color: #fbbf24; }
+        .stat-expired { color: #ef4444; }
+
         .login-container { width: 100%; max-width: 350px; display: flex; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.8s ease-out; margin-top: 12vh; flex: 1; }
         .form-box { background: rgba(15, 15, 23, 0.7); backdrop-filter: blur(10px); padding: 25px; border-radius: 16px; width: 100%; border: 1px solid rgba(168, 85, 247, 0.3); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); margin-bottom: 20px; }
         input { width: 100%; padding: 14px; border-radius: 8px; border: 1px solid #333; background-color: #050505; color: #fff; font-size: 14px; outline: none; margin-bottom: 15px; transition: 0.3s; font-family: 'Inter', sans-serif; text-align: center; letter-spacing: 2px; }
         input:focus { border-color: #a855f7; box-shadow: 0 0 10px rgba(168, 85, 247, 0.3); }
         .footer-text { font-size: 11px; color: #888; margin-top: 10px; }
         .footer-text span { color: #c084fc; cursor: pointer; }
+        
         .admin-form-box { background: rgba(15,15,23,0.8); backdrop-filter: blur(10px); padding: 20px; border-radius: 12px; border: 1px solid rgba(168, 85, 247, 0.4); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); width: 100%; margin-bottom: 25px; }
         .expiry-row { display: flex; gap: 10px; margin-bottom: 15px; align-items: stretch; }
         .expiry-row input, .expiry-row select { flex: 1; width: 0; height: 50px; margin: 0 !important; padding: 0 15px; border-radius: 8px; background: #050505; color: #fff; border: 1px solid #333; outline: none; text-align: center; font-family: 'Inter', sans-serif; font-size: 14px; -webkit-appearance: none; -moz-appearance: none; appearance: none; }
@@ -31,6 +41,7 @@
         .label-text { display: block; margin-bottom: 10px; font-size: 13px; color: #a0a0b0; text-align: left; font-weight: 600; }
         .sign-in-btn { background: linear-gradient(to right, #a855f7, #d946ef); color: white; border: none; border-radius: 8px; padding: 15px; font-size: 16px; font-family: 'Orbitron', sans-serif; font-weight: bold; width: 100%; cursor: pointer; box-shadow: 0 0 20px rgba(217, 70, 239, 0.4); transition: 0.3s; letter-spacing: 1px; }
         .sign-in-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(217, 70, 239, 0.8); }
+        
         .keys-section-title { width: 100%; font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; text-align: left; font-weight: bold; }
         .keys-container { width: 100%; display: flex; flex-direction: column; gap: 10px; }
         .key-card { background: rgba(15,15,23,0.8); border: 1px solid #2d2d3d; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: 0.3s; }
@@ -39,7 +50,11 @@
         .card-header:hover { background-color: #1a1a24; }
         .card-left { display: flex; flex-direction: column; flex: 1; }
         .key-index { font-size: 10px; color: #888; font-weight: bold; margin-bottom: 2px; letter-spacing: 1px;}
+        .key-name-wrapper { display: flex; align-items: center; gap: 8px; }
         .key-name { font-family: monospace; color: #4ade80; font-size: 14px; font-weight: bold; text-shadow: 0 0 5px rgba(74, 222, 128, 0.5); }
+        .btn-copy { background: transparent; border: none; color: #a0a0b0; font-size: 14px; cursor: pointer; padding: 0; transition: 0.2s; }
+        .btn-copy:hover { color: #fff; }
+
         .card-right { display: flex; align-items: center; gap: 8px; }
         
         .status-badge { font-size: 10px; padding: 4px 6px; border-radius: 4px; font-weight: bold; text-transform: uppercase; min-width: 65px; text-align: center; }
@@ -47,6 +62,7 @@
         .status-ACTIVE { background-color: #4ade80; color: #000; }
         .status-PAUSED { background-color: #3b82f6; color: #fff; }
         .status-EXPIRED { background-color: #ef4444; color: #fff; }
+
         .btn-icon { width: 32px; height: 32px; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; display: flex; justify-content: center; align-items: center; padding: 0; }
         .btn-pause { background-color: #f59e0b; color: white; }
         .btn-resume { background-color: #10b981; color: white; }
@@ -86,6 +102,24 @@
             <h1 class="hero-title">CONTROL <span>PANEL</span></h1>
             <p class="hero-subtitle">Generate and manage your license keys</p>
         </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-title">Total Keys</div>
+                <div class="stat-value stat-total" id="stat-total">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Active</div>
+                <div class="stat-value stat-active" id="stat-active">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Paused</div>
+                <div class="stat-value stat-paused" id="stat-paused">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Expired</div>
+                <div class="stat-value stat-expired" id="stat-expired">0</div>
+            </div>
+        </div>
 
         <div class="admin-form-box">
             <label class="label-text">Time Expiry</label>
@@ -123,7 +157,8 @@
             errorEl.style.display = 'block';
             return;
         }
-        btn.textContent = "VERIFYING.";
+
+        btn.textContent = "VERIFYING...";
         btn.disabled = true;
         errorEl.style.display = 'none';
 
@@ -132,7 +167,7 @@
             
             if (res.ok) {
                 RESELLER_KEY = pass;
-                localStorage.setItem('resellerKey', pass);
+                localStorage.setItem('resellerKey', pass); 
                 
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('adminPanel').style.display = 'flex';
@@ -151,6 +186,7 @@
             btn.disabled = false;
         }
     }
+
     window.onload = async function() {
         const savedKey = localStorage.getItem('resellerKey');
         if (savedKey) {
@@ -172,9 +208,18 @@
             alert(data.message);
         }
     }
+    function copyKey(key) {
+        navigator.clipboard.writeText(key).then(() => {
+            // Pwede mong palitan ito ng toast notification kung gusto mo
+            alert("Key copied to clipboard: " + key); 
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
 
     async function loadKeys() {
         const res = await fetch(`/list?password=${RESELLER_KEY}`);
+        
         if (!res.ok) {
             localStorage.removeItem('resellerKey');
             document.getElementById('loginScreen').style.display = 'flex';
@@ -189,6 +234,10 @@
 
         if (Object.keys(data).length === 0) {
             container.innerHTML = "<div class='no-keys-text'>No keys generated yet. Click Generate to start.</div>";
+            document.getElementById('stat-total').innerText = "0";
+            document.getElementById('stat-active').innerText = "0";
+            document.getElementById('stat-paused').innerText = "0";
+            document.getElementById('stat-expired').innerText = "0";
             return;
         }
 
@@ -197,6 +246,9 @@
 
         const sortedKeys = Object.keys(data).sort((a, b) => data[a].createdAt - data[b].createdAt);
         let indexCounter = 1;
+        let countActive = 0;
+        let countPaused = 0;
+        let countExpired = 0;
 
         sortedKeys.forEach(k => {
             const keyData = data[k];
@@ -209,13 +261,22 @@
             if (currentStatus === "ACTIVE" && keyData.expires && new Date() > new Date(keyData.expires)) {
                 currentStatus = "EXPIRED"; 
             }
+            if (currentStatus === "ACTIVE") countActive++;
+            else if (currentStatus === "PAUSED") countPaused++;
+            else if (currentStatus === "EXPIRED") countExpired++;
+
             const currentHwid = keyData.hwid || "WALA_PA";
 
             card.innerHTML = `
                 <div class="card-header">
                     <div class="card-left" onclick="toggleDetails('${k}')">
                         <span class="key-index">Key #${indexCounter}</span>
-                        <span class="key-name">${k}</span>
+                        <div class="key-name-wrapper">
+                            <span class="key-name">${k}</span>
+                            <button class="btn-copy" onclick="event.stopPropagation(); copyKey('${k}')" title="Copy Key">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="card-right">
                         <span class="status-badge status-${currentStatus}">${currentStatus}</span>
@@ -236,6 +297,10 @@
             container.appendChild(card);
             indexCounter++;
         });
+        document.getElementById('stat-total').innerText = Object.keys(data).length;
+        document.getElementById('stat-active').innerText = countActive;
+        document.getElementById('stat-paused').innerText = countPaused;
+        document.getElementById('stat-expired').innerText = countExpired;
 
         sortedKeys.forEach(k => startTimer(k, data[k]));
     }
@@ -278,6 +343,7 @@
         }
 
         let timeLeftMs = new Date(keyData.expires) - new Date();
+        
         if (timeLeftMs <= 0) {
             timeEl.innerText = "EXPIRED";
             timeEl.style.color = "#ef4444";
@@ -295,6 +361,7 @@
                 timeEl.innerText = "EXPIRED";
                 timeEl.style.color = "#ef4444";
                 clearInterval(timerIntervals[key]);
+                
                 const badge = timeEl.closest('.key-card').querySelector('.status-badge');
                 if(badge) {
                     badge.className = 'status-badge status-EXPIRED';
