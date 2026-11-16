@@ -42,13 +42,11 @@
         .key-name { font-family: monospace; color: #4ade80; font-size: 14px; font-weight: bold; text-shadow: 0 0 5px rgba(74, 222, 128, 0.5); }
         .card-right { display: flex; align-items: center; gap: 8px; }
         
-        /* 🔥 STATUS BADGES */
         .status-badge { font-size: 10px; padding: 4px 6px; border-radius: 4px; font-weight: bold; text-transform: uppercase; min-width: 65px; text-align: center; }
         .status-UNUSED { background-color: #fbbf24; color: #000; }
         .status-ACTIVE { background-color: #4ade80; color: #000; }
         .status-PAUSED { background-color: #3b82f6; color: #fff; }
-        .status-EXPIRED { background-color: #ef4444; color: #fff; } /* 🔥 PULA NA MAY PUTING TEXT */
-
+        .status-EXPIRED { background-color: #ef4444; color: #fff; }
         .btn-icon { width: 32px; height: 32px; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; display: flex; justify-content: center; align-items: center; padding: 0; }
         .btn-pause { background-color: #f59e0b; color: white; }
         .btn-resume { background-color: #10b981; color: white; }
@@ -125,19 +123,16 @@
             errorEl.style.display = 'block';
             return;
         }
-
-        // 🔥 Ipakita ang loading state
-        btn.textContent = "VERIFYING...";
+        btn.textContent = "VERIFYING.";
         btn.disabled = true;
         errorEl.style.display = 'none';
 
         try {
-            // 🔥 I-verify muna bago pumasok sa pamamagitan ng /list
             const res = await fetch(`/list?password=${pass}`);
             
             if (res.ok) {
                 RESELLER_KEY = pass;
-                localStorage.setItem('resellerKey', pass); // I-save para sa auto-login
+                localStorage.setItem('resellerKey', pass);
                 
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('adminPanel').style.display = 'flex';
@@ -146,24 +141,21 @@
                 const data = await res.json();
                 errorEl.textContent = data.message || "Invalid Key Found!";
                 errorEl.style.display = 'block';
-                localStorage.removeItem('resellerKey'); // Clear kung invalid
+                localStorage.removeItem('resellerKey');
             }
         } catch (err) {
             errorEl.textContent = "Server error. Please try again.";
             errorEl.style.display = 'block';
         } finally {
-            // 🔥 Ibalik sa "ENTER" imbes na "SIGN IN"
             btn.textContent = "ENTER";
             btn.disabled = false;
         }
     }
-
-    // 🔥 AUTO-LOGIN KAPAG NAG-REFRESH (Verified pa rin)
     window.onload = async function() {
         const savedKey = localStorage.getItem('resellerKey');
         if (savedKey) {
             document.getElementById('adminPass').value = savedKey;
-            await login(); // I-verify kung valid pa bago papasukin
+            await login();
         }
     };
 
@@ -183,8 +175,6 @@
 
     async function loadKeys() {
         const res = await fetch(`/list?password=${RESELLER_KEY}`);
-        
-        // 🔥 KUNG INVALID/EXPIRED NA ANG KEY, I-LOGOUT AGAD
         if (!res.ok) {
             localStorage.removeItem('resellerKey');
             document.getElementById('loginScreen').style.display = 'flex';
@@ -215,8 +205,6 @@
             
             let pauseIcon = "▶️", pauseClass = "btn-resume";
             if (keyData.status === "ACTIVE") { pauseIcon = "⏸️"; pauseClass = "btn-pause"; }
-
-            // 🔥 LOGIC PARA DETECT KUNG EXPIRED NA (Para maging pula ang badge)
             let currentStatus = keyData.status || "UNKNOWN";
             if (currentStatus === "ACTIVE" && keyData.expires && new Date() > new Date(keyData.expires)) {
                 currentStatus = "EXPIRED"; 
@@ -290,8 +278,6 @@
         }
 
         let timeLeftMs = new Date(keyData.expires) - new Date();
-        
-        // 🔥 KUNG EXPIRED NA AGAD PAGKA-LOAD, IPAKITA AGAD
         if (timeLeftMs <= 0) {
             timeEl.innerText = "EXPIRED";
             timeEl.style.color = "#ef4444";
@@ -309,8 +295,6 @@
                 timeEl.innerText = "EXPIRED";
                 timeEl.style.color = "#ef4444";
                 clearInterval(timerIntervals[key]);
-                
-                // 🔥 PAG TAPOS NA ANG ORAS, PALITAN DIN ANG BADGE KULAY
                 const badge = timeEl.closest('.key-card').querySelector('.status-badge');
                 if(badge) {
                     badge.className = 'status-badge status-EXPIRED';
