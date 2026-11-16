@@ -23,69 +23,46 @@
         
         #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; background: radial-gradient(circle at 50% 0%, #2e0a4f 0%, #030005 60%); }
 
-        .navbar { width: 100%; padding: 15px 20px; display: flex; justify-content: center; border-bottom: 1px solid rgba(168, 85, 247, 0.2); background: rgba(5,5,5,0.8); backdrop-filter: blur(15px); position: fixed; top: 0; z-index: 100; }
+        .navbar { width: 100%; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(168, 85, 247, 0.2); background: rgba(5,5,5,0.8); backdrop-filter: blur(15px); position: fixed; top: 0; z-index: 100; }
         .logo-text { font-family: 'Orbitron', sans-serif; font-size: 20px; color: #c084fc; margin: 0; letter-spacing: 3px; text-shadow: 0 0 20px rgba(168, 85, 247, 1); }
-
-        .login-container { 
-            position: relative;
-            z-index: 10;
-            width: 100%; 
-            max-width: 350px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            text-align: center; 
-            animation: fadeIn 0.8s ease-out; 
-        }
         
-        .form-box { 
-            background: rgba(15, 15, 23, 0.6); 
-            backdrop-filter: blur(20px); 
-            padding: 30px; 
-            border-radius: 20px; 
-            width: 100%; 
-            border: 1px solid rgba(168, 85, 247, 0.4); 
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(168, 85, 247, 0.1); 
-        }
-        
-        input { 
-            width: 100%; 
-            padding: 15px; 
-            border-radius: 10px; 
-            border: 1px solid rgba(168, 85, 247, 0.3); 
-            background-color: #050505; 
-            color: #fff; 
-            font-size: 14px; 
-            outline: none; 
-            margin-bottom: 20px; 
+        .logout-btn { 
+            background: rgba(168, 85, 247, 0.15); 
+            border: 1px solid #a855f7; 
+            color: #c084fc; 
+            padding: 6px 12px; 
+            border-radius: 6px; 
+            font-size: 11px; 
+            cursor: pointer; 
             transition: 0.3s; 
-            font-family: 'Inter', sans-serif; 
-            text-align: center; 
-            letter-spacing: 2px; 
-        }
-        
-        input:focus { 
-            border-color: #a855f7; 
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5); 
-            background-color: #0a0a0f;
-        }
-        
-        .main-container { 
-            position: relative;
-            z-index: 10;
-            width: 100%; 
-            max-width: 500px; 
-            padding: 80px 20px 20px 20px; 
             display: flex; 
-            flex-direction: column; 
             align-items: center; 
-            animation: fadeIn 0.8s ease-out; 
-            max-height: 100vh;
+            gap: 6px; 
+            font-family: 'Inter', sans-serif; 
+            font-weight: 600; 
         }
+        .logout-btn:hover { background: rgba(168, 85, 247, 0.4); color: #fff; box-shadow: 0 0 15px rgba(168, 85, 247, 0.5); }
+
+        .login-container { position: relative; z-index: 10; width: 100%; max-width: 350px; display: flex; flex-direction: column; align-items: center; text-align: center; animation: fadeIn 0.8s ease-out; }
+        
+        .form-box { background: rgba(15, 15, 23, 0.6); backdrop-filter: blur(20px); padding: 30px; border-radius: 20px; width: 100%; border: 1px solid rgba(168, 85, 247, 0.4); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(168, 85, 247, 0.1); }
+        
+        input { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid rgba(168, 85, 247, 0.3); background-color: #050505; color: #fff; font-size: 14px; outline: none; margin-bottom: 20px; transition: 0.3s; font-family: 'Inter', sans-serif; text-align: center; letter-spacing: 2px; }
+        
+        input:focus { border-color: #a855f7; box-shadow: 0 0 20px rgba(168, 85, 247, 0.5); background-color: #0a0a0f; }
+        
+        .main-container { position: relative; z-index: 10; width: 100%; max-width: 500px; padding: 80px 20px 20px 20px; display: flex; flex-direction: column; align-items: center; animation: fadeIn 0.8s ease-out; max-height: 100vh; }
         
         .hero-header { text-align: center; margin-bottom: 20px; width: 100%; flex-shrink: 0; }
-        .hero-icon { width: 70px; height: 70px; margin: 0 auto 15px auto; }
-        .hero-icon img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.9)); }
+        
+        .banner-image { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            border-radius: 15px; 
+            margin: 0 auto 15px auto; 
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
         
         .hero-title { font-family: 'Orbitron', sans-serif; font-size: 24px; margin: 0 0 5px 0; letter-spacing: 2px; }
         .hero-title span { color: #c084fc; text-shadow: 0 0 20px rgba(168, 85, 247, 1); }
@@ -168,7 +145,12 @@
 <body>
     <canvas id="particle-canvas"></canvas>
 
-    <div class="navbar"><h1 class="logo-text">CODEX VIP PANEL</h1></div>
+    <div class="navbar">
+        <h1 class="logo-text">CODEX VIP PANEL</h1>
+        <button class="logout-btn" id="logoutBtn" onclick="logout()" style="display: none;">
+            Logout <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+    </div>
 
     <div class="login-container" id="loginScreen">
         <div class="hero-icon" style="margin-bottom: 20px;"><img src="https://i.ibb.co/84R90TKX/ec3c737f1e0c.png" alt="Codex Logo"></div>
@@ -183,7 +165,7 @@
 
     <div class="main-container" id="adminPanel" style="display: none;">
         <div class="hero-header">
-            <div class="hero-icon"><img src="https://i.ibb.co/84R90TKX/ec3c737f1e0c.png" alt="Codex Logo"></div>
+            <img src="https://i.ibb.co/j9WqpjZY/329eb87c209a.png" alt="Codex Banner" class="banner-image">
             <h1 class="hero-title">CONTROL <span>PANEL</span></h1>
             <p class="hero-subtitle">Generate and manage your license keys</p>
         </div>
@@ -264,6 +246,7 @@
                 
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('adminPanel').style.display = 'flex';
+                document.getElementById('logoutBtn').style.display = 'flex';
                 loadKeys();
             } else {
                 const data = await res.json();
@@ -278,6 +261,26 @@
             btn.textContent = "ENTER";
             btn.disabled = false;
         }
+    }
+
+    function logout() {
+        localStorage.removeItem('resellerKey');
+        RESELLER_KEY = "";
+        
+        document.getElementById('loginScreen').style.display = 'flex';
+        document.getElementById('adminPanel').style.display = 'none';
+        document.getElementById('logoutBtn').style.display = 'none';
+        document.getElementById('adminPass').value = "";
+        
+        document.getElementById('loginError').style.display = 'none';
+        document.getElementById('keysList').innerHTML = "";
+        document.getElementById('stat-total').innerText = "0";
+        document.getElementById('stat-active').innerText = "0";
+        document.getElementById('stat-paused').innerText = "0";
+        document.getElementById('stat-expired').innerText = "0";
+        
+        Object.values(timerIntervals).forEach(clearInterval);
+        timerIntervals = {};
     }
 
     window.onload = async function() {
@@ -312,9 +315,7 @@
         const res = await fetch(`/list?password=${RESELLER_KEY}`);
         
         if (!res.ok) {
-            localStorage.removeItem('resellerKey');
-            document.getElementById('loginScreen').style.display = 'flex';
-            document.getElementById('adminPanel').style.display = 'none';
+            logout();
             return;
         }
 
