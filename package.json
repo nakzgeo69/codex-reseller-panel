@@ -1,5 +1,5 @@
 {
-  "name": "codex-reseller-server",
+  "name": "codex-reseller-panel",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
