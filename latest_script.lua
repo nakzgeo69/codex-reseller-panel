@@ -18,12 +18,6 @@ local function save_status(file, is_on)
         f:close()
     end
 end
-
-local is_maphack_on = get_status(maphack_file)
-
--- ==========================================
--- MAPHACK & CLEAR LOGS
--- ==========================================
 function Apply_Maphack()
     gg.toast("Injecting Maphack...")
     gg.setRanges(gg.REGION_ANONYMOUS)
@@ -107,92 +101,95 @@ function Clear_Logs_Only()
     gg.sleep(300)
     gg.toast("LOGS CLEARED SUCCESSFULLY")
 end
-
--- ==========================================
--- ADVANCED HEX PATCHER (SIGNATURE SCAN)
--- ==========================================
-function Anti_Ban_AOB()
-    gg.toast("Searching Anti-Ban...")
-    gg.setRanges(gg.REGION_CODE_APP | gg.REGION_C_ALLOC)
-    gg.clearResults()
+function Memory_Bypass()
+    gg.toast("Injecting Memory Bypass...")
     
-    gg.searchNumber("h000080D2C0035FD6", gg.TYPE_QWORD) 
-    local count = gg.getResultCount()
-    
-    if count > 0 then
-        local results = gg.getResults(500)
-        gg.editAll("h000080D2C0035FD6", gg.TYPE_QWORD)
-        gg.clearResults()
-        gg.toast("ANTI BAN PATCHED (" .. #results .. " addresses)")
-    else
-        gg.toast("Anti-Ban: Signature not found. Enter a match first.")
-        gg.clearResults()
+    -- Hex Patching para sa libcsharp at liblogic
+    local function PatchLib(lib, offset, hex)
+        local ranges = gg.getRangesList(lib)
+        if #ranges == 0 then return end
+        local start = ranges[1].start
+        local t = {}
+        local i = 0
+        for h in string.gmatch(hex, "%x+") do
+            if #h == 2 then 
+               table.insert(t, {address=start + offset + i, flags=4, value=h.."h"})
+               i = i + 1
+            end
+        end
+        gg.setValues(t)
     end
-end
 
-function Anti_Report_AOB()
-    gg.toast("Searching Anti-Report...")
-    gg.setRanges(gg.REGION_CODE_APP | gg.REGION_C_ALLOC)
-    gg.clearResults()
-    
-    gg.searchNumber("hC0035FD6", gg.TYPE_DWORD)
-    local count = gg.getResultCount()
-    
-    if count > 0 then
-        local results = gg.getResults(1000)
-        gg.editAll("h1F2003D5", gg.TYPE_DWORD)
-        gg.clearResults()
-        gg.toast("ANTI REPORT PATCHED (" .. #results .. " addresses)")
-    else
-        gg.toast("Anti-Report: Signature not found. Enter a match first.")
-        gg.clearResults()
-    end
-end
+    pcall(function()
+        PatchLib("libcsharp.so", 0x14742D4, "C0 03 5F D6")
+        PatchLib("libcsharp.so", 0x14743CC, "C0 03 5F D6")
+        PatchLib("libcsharp.so", 0x1474414, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x556858, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x556874, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x590B00, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x590B04, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x590BCC, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x590C40, "C0 03 5F D6")
+    end)
+    local stringsToPatch = {
+        ":AReport_Reputation", 
+        ":Report_Battle", 
+        ":Cmd_MatchReport_PostMatch_CS", 
+        ":Send_Battle_EndMiscDataReport_CS", 
+        ":Cmd_AIAd_LogReport_CS", 
+        ":OnReport"
+    }
 
--- ==========================================
--- MAIN MENU
--- ==========================================
+    pcall(function()
+        gg.setRanges(gg.REGION_C_ALLOC | gg.REGION_C_DATA | gg.REGION_ANONYMOUS)
+        gg.processResume()
+        for _, str in ipairs(stringsToPatch) do
+            gg.clearResults()
+            gg.searchNumber(str, gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1, 0)
+            gg.getResults(99999, nil, nil, nil, nil, nil, nil, nil, nil)
+            gg.editAll("0", gg.TYPE_BYTE)
+        end
+        gg.clearResults()
+    end)
+    
+    gg.toast("MEMORY BYPASS INJECTED")
+end
 function MainMenu()
     gg.setVisible(false)
     
     local on_maphack = get_status(maphack_file)
     
     local menu_list = {
-        "ANTI BAN ( LOBBY ))",
-        "ANTI REPORT ( LOBBY )",
+        "MEMORY BYPASS (ANTI BAN/REPORT)",
         "MAPHACK NO ICON",
         "CLEAR ALL LOGS",
         "CLOSE SCRIPT"
     }
     
-    -- Palaging false (unchecked) ang Anti-Ban at Anti-Report
-    local initial_state = { false, false, on_maphack, false, false }
+    local initial_state = { false, on_maphack, false, false }
     
-    local choice = gg.multiChoice(menu_list, initial_state, "🔰 𝐂𝐎𝐃𝐄𝐗 𝐌𝐋𝐁𝐁 𝐂𝐇𝐄𝐀𝐓𝐙 🔰\n📝 Version Updates: 1.2.0\n👤 Owners : GeoDevs69")
+    local choice = gg.multiChoice(menu_list, initial_state, "🔰 𝐂𝐎𝐃𝐄𝐗 𝐌𝐋𝐁𝐁 𝐂𝐇𝐄𝐀𝐓𝐙 🔰\n\n📝 𝐕𝐞𝐫𝐬𝐢𝐨𝐧 : 𝟏.𝟑.𝟎\n👤 𝐎𝐰𝐧𝐞𝐫 : 𝐆𝐞𝐨𝐃𝐞𝐯𝐬𝟔𝟗")
 
     if choice == nil then 
         gg.setVisible(false) 
         return 
     end
-
-    -- Gagamit tayo ng totoong logic dito
-    if choice[1] then Anti_Ban_AOB() end
-    if choice[2] then Anti_Report_AOB() end
+    if choice[1] then Memory_Bypass() end
     
-    if choice[3] and not on_maphack then 
+    if choice[2] and not on_maphack then 
         Apply_Maphack()
-    elseif not choice[3] and on_maphack then 
+    elseif not choice[2] and on_maphack then 
         Off_Maphack_Only() 
     end
     
-    if choice[4] then Clear_Logs_Only() end
+    if choice[3] then Clear_Logs_Only() end
 
-    if choice[5] then
+    if choice[4] then
         gg.setVisible(false)
         os.exit(0)
     end
     
-    gg.sleep(500) -- Pahinga saglit bago mag-loop ulit
+    gg.sleep(1000) 
     MainMenu()
 end
 
