@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs'); // <-- KAILANGAN ITO PARA SA AUTO-UPDATE
 const app = express();
 
 app.use(express.json());
@@ -11,48 +12,34 @@ const ADMIN_PASS = process.env.ADMIN_PASS || "CodexSquad101";
 // ==========================================
 // 1. VERIFY ENDPOINT (Para sa Lua Script)
 // ==========================================
-// Ito ang tatawagin ng GameGuardian. Siya ang magpapasa ng request sa Main Panel.
 app.post('/verify', async (req, res) => {
     const { key, hwid } = req.body;
-    
-    if (!key || !hwid) {
-        return res.status(400).json({ status: "error", message: "Missing Data" });
-    }
+    if (!key || !hwid) return res.status(400).json({ status: "error", message: "Missing Data" });
 
     try {
-        // Naka-hide ang MAIN_PANEL_URL sa server side. Hindi ito makikita sa frontend.
         const response = await fetch(`${MAIN_PANEL_URL}/verify`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ key: key, hwid: hwid })
         });
-        
         const data = await response.json();
-        
-        // Ibalik ang sagot ng Main Panel pabalik sa GameGuardian
-        if (response.ok) {
-            return res.json(data);
-        } else {
-            return res.status(response.status).json(data);
-        }
-
+        if (response.ok) return res.json(data);
+        else return res.status(response.status).json(data);
     } catch (err) {
         res.status(500).json({ status: "error", message: "Server Error" });
     }
 });
 
 // ==========================================
-// 2. LIST KEYS
+// 2. LIST KEYS (SECURED - Hindi na gagamit ng ADMIN_PASS)
 // ==========================================
 app.get('/list', async (req, res) => {
     const resellerKey = req.query.password;
     let deviceHwid = req.query.hwid;
     
-    // Fallback HWID
     if (!deviceHwid || deviceHwid === "undefined" || deviceHwid === "null" || deviceHwid.trim() === "") {
         deviceHwid = "WEB-FALLBACK-" + Math.random().toString(36).substring(2, 10);
     }
-    
     if (!resellerKey) return res.status(401).json({ status: "error", message: "Missing Key" });
 
     try {
@@ -67,22 +54,9 @@ app.get('/list', async (req, res) => {
             return res.status(403).json({ status: "error", message: verifyData.message || "Access Denied" });
         }
         
-        // Kunin lahat ng keys sa Main Panel
-        const response = await fetch(`${MAIN_PANEL_URL}/list?password=${ADMIN_PASS}`);
-        const allKeys = await response.json();
-        
-        // I-FILTER: Kanya lang
-        const myKeys = {};
-        Object.keys(allKeys).forEach(k => { 
-            if (
-                allKeys[k].source === "RESELLER" && 
-                allKeys[k].resellerId && 
-                allKeys[k].resellerId === resellerKey
-            ) {
-                myKeys[k] = allKeys[k]; 
-            }
-        });
-        
+        // KUHAIN LANG ANG MGA KEYS NA PARA SA RESELLER NA ITO (Gamit ang /list-reseller route)
+        const response = await fetch(`${MAIN_PANEL_URL}/list-reseller?resellerKey=${resellerKey}`);
+        const myKeys = await response.json();
         res.json(myKeys);
     } catch (err) { 
         res.status(500).json({ status: "error", message: "Server Error" }); 
@@ -101,7 +75,7 @@ app.get('/generate', async (req, res) => {
             body: JSON.stringify({ key: password, hwid: hwid })
         });
         const verifyData = await verifyRes.json();
-        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid or Expired Reseller Key" });
+        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid Key" });
         
         const response = await fetch(`${MAIN_PANEL_URL}/api/reseller-generate`, {
             method: 'POST',
@@ -125,7 +99,7 @@ app.get('/toggle-pause', async (req, res) => {
             body: JSON.stringify({ key: password, hwid: hwid })
         });
         const verifyData = await verifyRes.json();
-        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid or Expired Reseller Key" });
+        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid Key" });
         
         const response = await fetch(`${MAIN_PANEL_URL}/toggle-pause?password=${ADMIN_PASS}&key=${key}`);
         const data = await response.json();
@@ -145,12 +119,48 @@ app.get('/delete', async (req, res) => {
             body: JSON.stringify({ key: password, hwid: hwid })
         });
         const verifyData = await verifyRes.json();
-        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid or Expired Reseller Key" });
+        if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid Key" });
         
         const response = await fetch(`${MAIN_PANEL_URL}/delete?password=${ADMIN_PASS}&key=${key}`);
         const data = await response.json();
         res.json(data);
     } catch (err) { res.status(500).json({ status: "error" }); }
+});
+
+// ==========================================
+// 6. GET LATEST SCRIPT (DITO NA ANG AUTO-UPDATE)
+// ==========================================
+app.post('/get-latest-script', async (req, res) => {
+    const { key, hwid } = req.body;
+    if (!key || !hwid) return res.status(400).json({ status: "error", message: "Missing Data" });
+
+    try {
+        // I-verify muna sa Main Panel
+        const verifyRes = await fetch(`${MAIN_PANEL_URL}/verify`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ key: key, hwid: hwid })
+        });
+        const verifyData = await verifyRes.json();
+        
+        if (verifyData.status !== "success") {
+            return res.status(403).json({ status: "error", message: verifyData.message || "Invalid Key" });
+        }
+
+        // Kung valid, basahin ang latest_script.lua file
+        const scriptPath = path.join(__dirname, 'latest_script.lua');
+        if (!fs.existsSync(scriptPath)) {
+            return res.status(500).json({ status: "error", message: "Script file not found on server." });
+        }
+
+        const scriptContent = fs.readFileSync(scriptPath, 'utf8');
+
+        // Ipadala sa GameGuardian
+        return res.json({ status: "success", script: scriptContent });
+
+    } catch (err) {
+        res.status(500).json({ status: "error", message: "Server Error" });
+    }
 });
 
 const PORT = process.env.PORT || 10000;
