@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs'); // <-- KAILANGAN ITO PARA SA AUTO-UPDATE
+const fs = require('fs'); 
 const app = express();
 
 app.use(express.json());
@@ -10,14 +10,37 @@ const MAIN_PANEL_URL = process.env.MAIN_PANEL_URL || "https://codex-license-api.
 const ADMIN_PASS = process.env.ADMIN_PASS || "CodexSquad101"; 
 
 // ==========================================
-// 1. VERIFY ENDPOINT (Para sa Lua Script)
+// HELPER: FETCH WITH RETRY (Para hindi mag-error kung nagigising pa ang Main Panel)
+// ==========================================
+async function fetchWithRetry(url, options, retries = 3, delay = 3000) {
+    for (let i = 0; i < retries; i++) {
+        try {
+            const response = await fetch(url, options);
+            // Kung 502, 503, 504 (nagigising pa ang Render), maghintay at subukan muli
+            if ([502, 503, 504].includes(response.status) && i < retries - 1) {
+                await new Promise(r => setTimeout(r, delay));
+                continue;
+            }
+            return response;
+        } catch (err) {
+            if (i < retries - 1) {
+                await new Promise(r => setTimeout(r, delay));
+                continue;
+            }
+            throw err;
+        }
+    }
+}
+
+// ==========================================
+// 1. VERIFY ENDPOINT
 // ==========================================
 app.post('/verify', async (req, res) => {
     const { key, hwid } = req.body;
     if (!key || !hwid) return res.status(400).json({ status: "error", message: "Missing Data" });
 
     try {
-        const response = await fetch(`${MAIN_PANEL_URL}/verify`, {
+        const response = await fetchWithRetry(`${MAIN_PANEL_URL}/verify`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ key: key, hwid: hwid })
@@ -26,12 +49,12 @@ app.post('/verify', async (req, res) => {
         if (response.ok) return res.json(data);
         else return res.status(response.status).json(data);
     } catch (err) {
-        res.status(500).json({ status: "error", message: "Server Error" });
+        res.status(500).json({ status: "error", message: "Main Panel is waking up. Please try again." });
     }
 });
 
 // ==========================================
-// 2. LIST KEYS (SECURED - Hindi na gagamit ng ADMIN_PASS)
+// 2. LIST KEYS (SECURED)
 // ==========================================
 app.get('/list', async (req, res) => {
     const resellerKey = req.query.password;
@@ -43,7 +66,7 @@ app.get('/list', async (req, res) => {
     if (!resellerKey) return res.status(401).json({ status: "error", message: "Missing Key" });
 
     try {
-        const verifyRes = await fetch(`${MAIN_PANEL_URL}/verify-reseller`, {
+        const verifyRes = await fetchWithRetry(`${MAIN_PANEL_URL}/verify-reseller`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ key: resellerKey, hwid: deviceHwid })
@@ -54,8 +77,7 @@ app.get('/list', async (req, res) => {
             return res.status(403).json({ status: "error", message: verifyData.message || "Access Denied" });
         }
         
-        // KUHAIN LANG ANG MGA KEYS NA PARA SA RESELLER NA ITO (Gamit ang /list-reseller route)
-        const response = await fetch(`${MAIN_PANEL_URL}/list-reseller?resellerKey=${resellerKey}`);
+        const response = await fetchWithRetry(`${MAIN_PANEL_URL}/list-reseller?resellerKey=${resellerKey}`);
         const myKeys = await response.json();
         res.json(myKeys);
     } catch (err) { 
@@ -69,7 +91,7 @@ app.get('/list', async (req, res) => {
 app.get('/generate', async (req, res) => {
     const { password, duration, unit, hwid } = req.query;
     try {
-        const verifyRes = await fetch(`${MAIN_PANEL_URL}/verify-reseller`, {
+        const verifyRes = await fetchWithRetry(`${MAIN_PANEL_URL}/verify-reseller`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ key: password, hwid: hwid })
@@ -77,7 +99,7 @@ app.get('/generate', async (req, res) => {
         const verifyData = await verifyRes.json();
         if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid Key" });
         
-        const response = await fetch(`${MAIN_PANEL_URL}/api/reseller-generate`, {
+        const response = await fetchWithRetry(`${MAIN_PANEL_URL}/api/reseller-generate`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ resellerKey: password, duration, unit })
@@ -93,7 +115,7 @@ app.get('/generate', async (req, res) => {
 app.get('/toggle-pause', async (req, res) => {
     const { password, key, hwid } = req.query;
     try {
-        const verifyRes = await fetch(`${MAIN_PANEL_URL}/verify-reseller`, {
+        const verifyRes = await fetchWithRetry(`${MAIN_PANEL_URL}/verify-reseller`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ key: password, hwid: hwid })
@@ -101,7 +123,7 @@ app.get('/toggle-pause', async (req, res) => {
         const verifyData = await verifyRes.json();
         if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid Key" });
         
-        const response = await fetch(`${MAIN_PANEL_URL}/toggle-pause?password=${ADMIN_PASS}&key=${key}`);
+        const response = await fetchWithRetry(`${MAIN_PANEL_URL}/toggle-pause?password=${ADMIN_PASS}&key=${key}`);
         const data = await response.json();
         res.json(data);
     } catch (err) { res.status(500).json({ status: "error" }); }
@@ -113,7 +135,7 @@ app.get('/toggle-pause', async (req, res) => {
 app.get('/delete', async (req, res) => {
     const { password, key, hwid } = req.query;
     try {
-        const verifyRes = await fetch(`${MAIN_PANEL_URL}/verify-reseller`, {
+        const verifyRes = await fetchWithRetry(`${MAIN_PANEL_URL}/verify-reseller`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ key: password, hwid: hwid })
@@ -121,22 +143,21 @@ app.get('/delete', async (req, res) => {
         const verifyData = await verifyRes.json();
         if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid Key" });
         
-        const response = await fetch(`${MAIN_PANEL_URL}/delete?password=${ADMIN_PASS}&key=${key}`);
+        const response = await fetchWithRetry(`${MAIN_PANEL_URL}/delete?password=${ADMIN_PASS}&key=${key}`);
         const data = await response.json();
         res.json(data);
     } catch (err) { res.status(500).json({ status: "error" }); }
 });
 
 // ==========================================
-// 6. GET LATEST SCRIPT (DITO NA ANG AUTO-UPDATE)
+// 6. GET LATEST SCRIPT (AUTO-UPDATE)
 // ==========================================
 app.post('/get-latest-script', async (req, res) => {
     const { key, hwid } = req.body;
     if (!key || !hwid) return res.status(400).json({ status: "error", message: "Missing Data" });
 
     try {
-        // I-verify muna sa Main Panel
-        const verifyRes = await fetch(`${MAIN_PANEL_URL}/verify`, {
+        const verifyRes = await fetchWithRetry(`${MAIN_PANEL_URL}/verify`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ key: key, hwid: hwid })
@@ -147,15 +168,12 @@ app.post('/get-latest-script', async (req, res) => {
             return res.status(403).json({ status: "error", message: verifyData.message || "Invalid Key" });
         }
 
-        // Kung valid, basahin ang latest_script.lua file
         const scriptPath = path.join(__dirname, 'latest_script.lua');
         if (!fs.existsSync(scriptPath)) {
             return res.status(500).json({ status: "error", message: "Script file not found on server." });
         }
 
         const scriptContent = fs.readFileSync(scriptPath, 'utf8');
-
-        // Ipadala sa GameGuardian
         return res.json({ status: "success", script: scriptContent });
 
     } catch (err) {
