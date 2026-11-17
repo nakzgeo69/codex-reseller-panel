@@ -12,7 +12,7 @@ app.get('/list', async (req, res) => {
     const resellerKey = req.query.password;
     let deviceHwid = req.query.hwid;
     
-    // FIX: Fallback HWID kung sakaling hindi makapag-generate ang browser
+    // Fallback HWID
     if (!deviceHwid || deviceHwid === "undefined" || deviceHwid === "null" || deviceHwid.trim() === "") {
         deviceHwid = "WEB-FALLBACK-" + Math.random().toString(36).substring(2, 10);
     }
@@ -31,11 +31,24 @@ app.get('/list', async (req, res) => {
             return res.status(403).json({ status: "error", message: verifyData.message || "Access Denied" });
         }
         
+        // Kunin lahat ng keys sa Main Panel
         const response = await fetch(`${MAIN_PANEL_URL}/list?password=${ADMIN_PASS}`);
         const allKeys = await response.json();
-        const resellerKeys = {};
-        Object.keys(allKeys).forEach(k => { if (allKeys[k].source === "RESELLER") resellerKeys[k] = allKeys[k]; });
-        res.json(resellerKeys);
+        
+        // I-FILTER: Kanya lang
+        const myKeys = {};
+        Object.keys(allKeys).forEach(k => { 
+            // DAPAT: Source ay RESELLER, at ang resellerId ay kapareho ng kanyang resellerKey
+            if (
+                allKeys[k].source === "RESELLER" && 
+                allKeys[k].resellerId && // <--- Pipigil sa mga walang tag
+                allKeys[k].resellerId === resellerKey
+            ) {
+                myKeys[k] = allKeys[k]; 
+            }
+        });
+        
+        res.json(myKeys);
     } catch (err) { 
         res.status(500).json({ status: "error", message: "Server Error" }); 
     }
@@ -51,6 +64,7 @@ app.get('/generate', async (req, res) => {
         });
         const verifyData = await verifyRes.json();
         if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid or Expired Reseller Key" });
+        
         const response = await fetch(`${MAIN_PANEL_URL}/api/reseller-generate`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -71,6 +85,7 @@ app.get('/toggle-pause', async (req, res) => {
         });
         const verifyData = await verifyRes.json();
         if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid or Expired Reseller Key" });
+        
         const response = await fetch(`${MAIN_PANEL_URL}/toggle-pause?password=${ADMIN_PASS}&key=${key}`);
         const data = await response.json();
         res.json(data);
@@ -87,6 +102,7 @@ app.get('/delete', async (req, res) => {
         });
         const verifyData = await verifyRes.json();
         if (verifyData.status !== "success") return res.status(403).json({ status: "error", message: verifyData.message || "Invalid or Expired Reseller Key" });
+        
         const response = await fetch(`${MAIN_PANEL_URL}/delete?password=${ADMIN_PASS}&key=${key}`);
         const data = await response.json();
         res.json(data);
