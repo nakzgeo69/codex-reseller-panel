@@ -6,8 +6,44 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const MAIN_PANEL_URL = process.env.MAIN_PANEL_URL || "https://codex-license-api.onrender.com";
-const ADMIN_PASS = "CodexSquad101"; 
+const ADMIN_PASS = process.env.ADMIN_PASS || "CodexSquad101"; 
 
+// ==========================================
+// 1. VERIFY ENDPOINT (Para sa Lua Script)
+// ==========================================
+// Ito ang tatawagin ng GameGuardian. Siya ang magpapasa ng request sa Main Panel.
+app.post('/verify', async (req, res) => {
+    const { key, hwid } = req.body;
+    
+    if (!key || !hwid) {
+        return res.status(400).json({ status: "error", message: "Missing Data" });
+    }
+
+    try {
+        // Naka-hide ang MAIN_PANEL_URL sa server side. Hindi ito makikita sa frontend.
+        const response = await fetch(`${MAIN_PANEL_URL}/verify`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ key: key, hwid: hwid })
+        });
+        
+        const data = await response.json();
+        
+        // Ibalik ang sagot ng Main Panel pabalik sa GameGuardian
+        if (response.ok) {
+            return res.json(data);
+        } else {
+            return res.status(response.status).json(data);
+        }
+
+    } catch (err) {
+        res.status(500).json({ status: "error", message: "Server Error" });
+    }
+});
+
+// ==========================================
+// 2. LIST KEYS
+// ==========================================
 app.get('/list', async (req, res) => {
     const resellerKey = req.query.password;
     let deviceHwid = req.query.hwid;
@@ -38,10 +74,9 @@ app.get('/list', async (req, res) => {
         // I-FILTER: Kanya lang
         const myKeys = {};
         Object.keys(allKeys).forEach(k => { 
-            // DAPAT: Source ay RESELLER, at ang resellerId ay kapareho ng kanyang resellerKey
             if (
                 allKeys[k].source === "RESELLER" && 
-                allKeys[k].resellerId && // <--- Pipigil sa mga walang tag
+                allKeys[k].resellerId && 
                 allKeys[k].resellerId === resellerKey
             ) {
                 myKeys[k] = allKeys[k]; 
@@ -54,6 +89,9 @@ app.get('/list', async (req, res) => {
     }
 });
 
+// ==========================================
+// 3. GENERATE KEY
+// ==========================================
 app.get('/generate', async (req, res) => {
     const { password, duration, unit, hwid } = req.query;
     try {
@@ -75,6 +113,9 @@ app.get('/generate', async (req, res) => {
     } catch (err) { res.status(500).json({ status: "error", message: "Server Error" }); }
 });
 
+// ==========================================
+// 4. TOGGLE PAUSE
+// ==========================================
 app.get('/toggle-pause', async (req, res) => {
     const { password, key, hwid } = req.query;
     try {
@@ -92,6 +133,9 @@ app.get('/toggle-pause', async (req, res) => {
     } catch (err) { res.status(500).json({ status: "error" }); }
 });
 
+// ==========================================
+// 5. DELETE KEY
+// ==========================================
 app.get('/delete', async (req, res) => {
     const { password, key, hwid } = req.query;
     try {
