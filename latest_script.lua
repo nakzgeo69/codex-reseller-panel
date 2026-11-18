@@ -1,457 +1,217 @@
--- CODEX VIP OBFUSCATOR --
--- Encrypted by: GeoDevs69 (GEO V15 - Fort Knox)
--- All Right Reserved (C) Codex Squad Penetrator - 2024
-local _x = {
-[=[e𓅓e𓄈e𓅨e𓄂𓃰𓆟evede𓃷e𓅂eve𓅓e𓄃e𓄂e𓃸e𓄆𓃰e𓄉𓃹e𓄄ege𓃸𓃰G𓄉𓃺𓄉𓃷𓄉d𓄉𓃷eee𓃲ev𓄉𓃲𓄉𓃵𓄉𓄅𓄉𓃲𓄉6𓄉𓃸𓃰Ge𓄁e𓄁�]=],
-[=[�𓃹e9e𓄂e𓄆e𓃹e𓃷e9e𓃷e𓄇e𓄄e𓄂𓄉𓆟e𓃳e𓃸e𓄄e9e𓄂𓄉𓄉𓆟𓃵𓆟𓃵e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓅓e𓃸e𓅓e𓄃e𓄂eve𓅨e𓃷e𓆝𓆟𓅂𓄉𓄂𓆟�]=],
-[=[��e𓄁e𓄁𓄉𓃹𓄉𓆞e6eGev𓄉𓃺𓄉𓃷𓄉𓃺𓄉𓅂𓄉𓆞ev𓄉𓄄𓄉Eee𓆟𓅂e𓄈e𓆝𓆟𓅂𓆟𓆝𓄉𓃭e9e𓄆e𓄈e𓆝e𓃸e𓄁e𓄂𓄉𓃭e𓄂e𓆞ege𓄄e𓃸e𓄆]=],
-[=[e𓄂e𓅨𓄉𓃭𓄉6𓄉𓃭𓆟𓆝𓆟𓃵e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓆞e𓃸e𓅂e𓄃e𓃸e𓅓e𓃺eve𓃳e𓃷e𓄄e𓄂𓆟𓅂𓄉𓄂𓆟𓅂e𓅓e𓃸e𓅓e𓄃e𓄂eve𓅨e𓃷e�]=],
-[=[���𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝𓄉𓃭e𓆞e𓃸e𓅂e𓄃e𓃸e𓅓e𓃺eve9e𓄆e𓃸e𓄆ege9𓄉𓃹e𓄆𓃰𓆟e𓄆𓆟𓆝𓆟𓃵e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓄇𓃰𓄉e�]=],
-[=[��e𓃸e9e9eve𓃳e𓃷e𓄄e𓄂𓆟𓅂𓄉𓄂𓆟𓅂e𓅓e𓃸e𓅓e𓄃e𓄂eve𓅨e𓃷e𓆝𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝𓄉𓃭e𓄇𓃰𓄉e𓅂e𓃸e9e9eve9e𓄆e𓃸e𓄆ege9�]=],
-[=[�𓃹e𓄆𓃰𓆟e𓄆𓆟𓆝𓆟𓃵e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓅓e𓄄e𓄂e𓃸e𓆝eve𓃳e𓃷e𓄄e𓄂𓆟𓅂𓄉𓄂𓆟𓅂e𓅓e𓃸e𓅓e𓄃e𓄂eve𓅨e𓃷e𓆝𓆟𓅂𓄉�]=],
-[=[�𓄉𓃹𓆟𓅂𓆟𓆝𓄉𓃭e𓅓e𓄄e𓄂e𓃸e𓆝eve9e𓄆e𓃸e𓄆ege9𓄉𓃹e𓄆𓃰𓆟e𓄆𓆟𓆝𓆟𓃵𓆟𓃵e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e�]=],
-[=[�𓆟𓅂e𓄁e𓄂e𓄆eve9e𓄆e𓃸e𓄆ege9𓄉𓆟e𓃳e𓃷e𓄄e𓄂𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓃳𓆟𓅂𓄉𓄂𓆟𓅂e𓃷e𓄈𓄉�]=],
-[=[���e𓄈e𓅂e𓄂e𓃱𓄉𓆟e𓃳e𓃷e𓄄e𓄂𓄉G𓆟𓅂𓆟𓆝e𓆝𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓃳𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓃵𓆟𓅂]=],
-[=[𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓅓e𓄈e𓃱e𓄆e𓄂e𓃱e𓄆𓆟𓅂𓄉𓄂𓆟𓅂e𓃳𓄉𓄇e𓆝e𓄂e𓃸e𓅨𓄉𓆟𓆟𓆝�]=],
-[=[�ee𓃸𓆟𓆝𓄉𓄉𓄉𓅓𓆟𓅂e𓃳𓄉𓄇e𓅓e𓄄e𓄈e9e𓄂𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓅓e𓄈e𓃱e𓄆]=],
-[=[e𓄂e𓃱e𓄆𓆟𓅂𓄉𓄂𓄉𓄂𓆟𓅂𓆟𓆝𓄉𓃴𓄉d𓆟𓆝𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓅂e𓆝e𓄂e𓄆ege𓆝e𓃱𓆟𓅂e𓄆e𓆝ege𓄂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟�]=],
-[=[���𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆝e𓄂e𓄆ege𓆝e𓃱𓆟𓅂e𓃳e𓃸e𓄄e9e𓄂𓆟𓃵e𓄂e𓃱e𓅨𓆟𓃵𓆟𓃵e𓄄e𓄈e𓅓e𓃸e�]=],
-[=[���𓆟𓅂e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e𓃱𓆟𓅂e9e𓃸ede𓄂eve9e𓄆e𓃸e𓄆ege9𓄉𓆟e𓃳e𓃷e𓄄e𓄂𓄉G𓆟𓅂e𓃷e9eve𓄈e𓃱𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[�e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓃳𓆟𓅂𓄉𓄂𓆟𓅂e𓃷e𓄈𓄉𓃹e𓄈e𓅂e𓄂e𓃱𓄉𓆟e𓃳e𓃷e𓄄e𓄂𓄉G𓆟𓅂𓆟𓆝e𓃴𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟�]=],
-[=[���𓆟𓅂e𓃷e𓃳𓆟𓅂e𓃳𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓃷e9eve𓄈e𓃱𓆟𓅂e𓄆e𓄃e𓄂e𓃱�]=],
-[=[���𓅂e𓃳𓄉𓄇e𓃴e𓆝e𓃷e𓄆e𓄂𓄉𓆟𓆟𓆝𓄉𓃴𓄉d𓆟𓆝𓄉𓄉𓆟𓅂e𓄂e𓄄e9e𓄂𓆟𓅂e𓃳𓄉𓄇e𓃴e𓆝e𓃷e𓄆e𓄂𓄉𓆟𓆟𓆝𓄉𓃴𓄉𓃱𓄉�]=],
-[=[�𓆟𓆝𓄉𓄉𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃳𓄉𓄇e𓅓e𓄄e𓄈e9e𓄂𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[���e𓄂e𓃱e𓅨𓆟𓃵e𓄂e𓃱e𓅨𓆟𓃵𓆟𓃵e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e𓃱𓆟𓅂𓄉𓃷e𓅂e𓅂e𓄄𓃰𓄉ev𓄉ge𓃸e𓅂e𓄃e𓃸e𓅓e𓃺𓄉𓆟𓄉𓄉𓆟𓃵𓆟�]=],
-[=[��𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝𓄉Ee𓃱e𓃶e𓄂e𓅓e𓄆e𓃷e𓃱e𓄁𓆟𓅂𓄉ge𓃸e𓅂e𓄃e𓃸e𓅓e𓃺𓄉𓃹𓄉𓃹𓄉𓃹𓆟�]=],
-[=[��𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓄆eee𓃸e𓃱e𓄁e𓄂e9𓄉𓆟e𓄁e𓄁𓄉𓃹ee𓄉𓆞𓄉𓄈𓄉E𓄉𓃴𓄉dev𓄉𓃷𓄉d𓄉𓃴𓄉de𓃲�]=],
-[=[���g𓄉𓃴eoe𓃰𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓅓e𓄄e𓄂e𓃸e𓆝eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁�]=],
-[=[���𓃹e9e𓄂e𓃸e𓆝e𓅓e𓄃𓄉dege𓆞e𓄇e𓄂e𓆝𓄉𓆟𓆟𓆝𓄉𓃸𓄉𓄅𓄉G𓄉v𓄉𓄅𓄉𓄀𓄉G𓄉𓃵𓄉𓄀𓄉v𓄉G𓄉𓄅𓄉𓃵𓄉𓃵𓄉𓅓𓄉𓄀𓄉v𓄉G]=],
-[=[𓄉𓃵𓄉𓄀𓄉𓄀𓄉G𓄉𓅫𓄉𓄀𓄉6𓄉G𓄉𓃵𓄉v𓄉𓃸𓄉𓅓𓄉𓄀𓄉G𓄉𓂀𓄉𓃲𓄉6𓄉G𓄉𓄅𓄉6𓄉𓂀𓄉G𓄉s𓄉𓄅𓄉𓄅𓄉G𓄉𓄀𓄉𓃸𓄉𓃵�]=],
-[=[���G𓄉𓃵𓄉v𓄉𓂀𓄉G𓄉v𓄉𓃵𓄉s𓄉𓄇𓄉𓃸𓆟𓆝𓄉G𓆟𓅂e𓄁e𓄁𓄉𓃹eGe𓃲e𓆟𓄉𓆞eve𓄉e𓃭𓄉𓃴ee𓄉𓄄𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[�e𓃷e𓃳𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄁e𓄂e𓄆eee𓄂e9ege𓄄e𓄆𓄉𓃺e𓄈ege𓃱e𓄆𓄉𓆟𓄉𓄉𓆟𓅂𓄉𓄂𓄉𓄂𓆟𓅂𓄉6𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓃵𓆟𓅂𓆟�]=],
-[=[���𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝𓄉g𓄉𓃷e𓆟𓄉𓅂𓄉𓃷𓄉𓃺𓄉9𓆟𓅂𓄉d𓄉𓃴eG𓆟𓅂𓄉𓃱𓄉�]=],
-[=[�eo𓄉d𓄉𓄄𓄉𓃹𓆟𓆝𓄉𓄉𓄉𓅓𓆟𓅂e𓄁e𓄁𓄉𓃹e𓅓e𓄄e𓄂e𓃸e𓆝eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓄉𓄉𓅓𓆟𓅂e𓆝e𓄂e𓄆ege𓆝e𓃱𓆟𓅂e𓃳e𓃸e]=],
-[=[𓄄e9e𓄂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓆝e𓄂e𓃳e𓃷e𓃱e𓄂𓄉dege𓆞e𓄇e𓄂e𓆝𓄉𓆟𓆟𓆝�]=],
-[=[�𓃸𓄉𓄅𓄉G𓄉v𓄉𓄅𓄉𓄀𓄉G𓄉𓃵𓄉𓄀𓄉v𓄉G𓄉𓄅𓄉𓃵𓄉𓃵𓆟𓆝𓄉G𓆟𓅂e𓄁e𓄁𓄉𓃹eGe𓃲e𓆟𓄉𓆞eve𓄉e𓃭𓄉𓃴ee𓄉𓄄𓄉𓄉𓆟𓃵�]=],
-[=[���𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓆝e𓄂e9𓆟𓅂𓄉𓄂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄁e𓄂e𓄆eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓃸𓄉𓃸𓄉𓃸𓄉𓃸𓄉]=],
-[=[𓃸𓄉𓄉𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓆝e𓄂e9𓆟𓅂e𓃸e𓃱e𓅨𓆟𓅂𓆟9e𓆝e𓄂e9𓆟𓅂𓄉𓃳𓆟𓅂𓄉6𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟�]=],
-[=[���𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃳e𓄈e𓆝𓆟𓅂ev𓄉G𓆟𓅂ed𓆟𓅂e𓃷e𓃱𓆟𓅂e𓃷e𓅂e𓃸e𓃷e𓆝e9𓄉𓆟e𓆝e𓄂e9𓄉𓄉𓆟𓅂e�]=],
-[=[�e𓄈𓆟𓅂ed𓄉𓃹ede𓃸e𓄄ege𓄂𓆟𓅂𓄉𓄂𓆟𓅂𓆟𓆝𓄉𓃸𓄉𓄅𓄉G𓄉v𓄉𓄅𓄉𓄀𓄉G𓄉𓃵𓄉𓄀𓄉v𓄉G𓄉𓄅𓄉𓃵𓄉s𓆟𓆝𓄉𓅓𓆟𓅂ed𓄉�]=],
-[=[���e𓃳e𓆝e𓄂e𓄂𓃰ee𓄂𓆟𓅂𓄉𓄂𓆟𓅂e𓄆e𓆝ege𓄂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓄆e]=],
-[=[𓃹e𓃸e𓄄ege𓄂e9𓄉𓆟e𓆝e𓄂e9𓄉𓄉𓄉𓅓𓆟𓅂e𓄁e𓄁𓄉𓃹e𓃸e𓅨e𓅨𓄉𓄆e𓃷e9e𓄆𓄉Ee𓄆e𓄂e𓆞e9𓄉𓆟e𓆝e𓄂e9𓄉𓄉𓄉𓅓𓆟𓅂e𓄁e𓄁𓄉]=],
-[=[𓃹e𓅓e𓄄e𓄂e𓃸e𓆝eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e9e𓃸ede𓄂eve9e𓄆e𓃸e𓄆ege9𓄉𓆟e𓆞e𓃸e𓅂]=],
-[=[e𓄃e𓃸e𓅓e𓃺eve𓃳e𓃷e𓄄e𓄂𓄉G𓆟𓅂e𓄆e𓆝ege𓄂𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟]=],
-[=[𓆟𓆝𓄉g𓄉𓃷e𓆟𓄉𓅂𓄉𓃷𓄉𓃺𓄉9𓆟𓅂e𓃰eo𓄉𓃺𓄉𓃺𓄉𓆞e𓃰e𓃰𓄉𓃱eo𓄉𓄆𓄉𓄆e𓃲𓆟𓅂𓄉E𓄉d𓄉𓆝𓄉𓆞𓄉𓃺eG𓄉𓆞𓄉𓄄𓆟�]=],
-[=[���𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆝e𓄂e𓄆ege𓆝e𓃱𓆟𓅂e𓄆e𓆝ege𓄂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓄄e9e𓄂𓆟𓃵]=],
-[=[𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝ee𓄉𓆞𓄉𓃱𓄉E𓄉d𓄉𓆞𓆟𓅂𓄉𓃱𓄉𓃷𓄉E𓄉𓄆𓄉�]=],
-[=[�𓄉𓄄𓆟𓆝𓄉𓄉𓄉𓅓𓆟𓅂e𓄁e𓄁𓄉𓃹e𓅓e𓄄e𓄂e𓃸e𓆝eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓄉𓄉𓅓𓆟𓅂e𓆝e𓄂e𓄆ege𓆝e𓃱𓆟𓅂e𓃳e𓃸e𓄄e9e𓄂𓆟]=],
-[=[𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵e𓄂e𓃱e𓅨𓆟𓃵𓆟𓃵e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e𓃱𓆟𓅂𓄉𓃴e𓃳e𓃳ev𓄉ge𓃸e𓅂e𓄃e𓃸e𓅓e𓃺ev𓄉𓃴]=],
-[=[e𓃱e𓄄𓃰𓄉𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝eGege𓆝e𓃱e𓃷e𓃱e𓄁𓆟𓅂𓄉𓃴𓄉𓃱𓄉𓃱𓆟𓅂�]=],
-[=[���ge𓃸e𓅂e𓄃e𓃸e𓅓e𓃺𓄉𓃹𓄉𓃹𓄉𓃹𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓄄e𓃷e9e𓄆𓆟𓅂𓄉𓄂𓆟𓅂e𓄁e𓄁�]=],
-[=[��𓃹e𓄁e𓄂e𓄆𓄉𓄆e𓃷e9e𓄆𓄉Ee𓄆e𓄂e𓆞e9𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓄄e𓃷e9e𓄆𓆟𓅂e𓃸e𓃱e𓅨𓆟𓅂𓆟9e𓄄e𓃷]=],
-[=[e9e𓄆𓆟𓅂𓄉𓃳𓆟𓅂𓄉6𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃳e𓄈e𓆝𓆟𓅂ev𓄉G𓆟𓅂ed𓆟𓅂e𓃷e𓃱𓆟�]=],
-[=[��e𓃷e𓅂e𓃸e𓃷e𓆝e9𓄉𓆟e𓄄e𓃷e9e𓄆𓄉𓄉𓆟𓅂e𓅨e𓄈𓆟𓅂ed𓄉𓃹e𓃳e𓆝e𓄂e𓄂𓃰ee𓄂𓆟𓅂𓄉𓄂𓆟𓅂e𓃳e𓃸e𓄄e9e𓄂𓄉𓅓𓆟𓅂ed𓄉𓃹]=],
-[=[ede𓃸e𓄄ege𓄂𓆟𓅂𓄉𓄂𓆟𓅂𓆟𓆝𓄉𓃸𓄉𓄅𓄉G𓄉v𓄉𓄅𓄉𓄀𓄉G𓄉𓃵𓄉𓄀𓄉v𓄉G𓄉𓄅𓄉𓃵𓄉𓃵𓆟𓆝𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟�]=],
-[=[���𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓄆e𓃹e𓃸e𓄄ege𓄂e9𓄉𓆟e𓄄e𓃷e9e𓄆𓄉𓄉𓄉𓅓𓆟𓅂e𓄁e𓄁𓄉𓃹e𓆝e𓄂e𓆞e𓄈ede𓄂�]=],
-[=[���𓄆e𓃷e9e𓄆𓄉Ee𓄆e𓄂e𓆞e9𓄉𓆟e𓄄e𓃷e9e𓄆𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃳e𓄈e𓆝𓆟𓅂e𓃷�]=],
-[=[�𓅂𓄉𓄂𓆟𓅂𓄉𓃲𓄉G𓆟𓅂𓄉s𓆟𓅂e𓅨e𓄈𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓄆eee𓃸e𓃱e𓄁e𓄂e9𓄉𓆟e]=],
-[=[𓄁e𓄁𓄉𓃹ee𓄉𓆞𓄉𓄈𓄉E𓄉𓃴𓄉dev𓄉𓃷𓄉d𓄉𓃴𓄉de𓃲𓄉g𓄉𓃴eoe𓃰𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉]=],
-[=[𓃹e𓅓e𓄄e𓄂e𓃸e𓆝eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓃸e𓆝e𓅓e𓄃𓄉dege𓆞e�]=],
-[=[��e𓄂e𓆝𓄉𓆟𓆟𓆝𓄉𓃸𓄉𓄅𓄉G𓄉v𓄉𓄅𓄉𓄀𓄉G𓄉𓃵𓄉𓄀𓄉v𓄉G𓄉𓄅𓄉𓃵𓄉s𓆟𓆝𓄉G𓆟𓅂e𓄁e𓄁𓄉𓃹eGe𓃲e𓆟𓄉𓆞eve𓄉e𓃭𓄉�]=],
-[=[�ee𓄉𓄄𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓆞e𓃸e𓅂eve𓆝e𓄂e9𓆟𓅂𓄉𓄂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄁]=],
-[=[e𓄂e𓄆eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓃸𓄉𓃸𓄉𓃸𓄉𓃸𓄉𓃸𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓆞e𓃸e𓅂eve�]=],
-[=[�e𓄂e9𓆟𓅂e𓃸e𓃱e𓅨𓆟𓅂𓆟9e𓆞e𓃸e𓅂eve𓆝e𓄂e9𓆟𓅂𓄉𓃳𓆟𓅂𓄉6𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[��𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃳e𓄈e𓆝𓆟𓅂ev𓄉G𓆟𓅂ed𓆟𓅂e𓃷e𓃱𓆟𓅂e𓃷e𓅂e𓃸e𓃷e𓆝e9𓄉𓆟e𓆞e𓃸e𓅂eve𓆝e𓄂e9𓄉𓄉𓆟𓅂e𓅨e𓄈𓆟𓅂ed]=],
-[=[𓄉𓃹ede𓃸e𓄄ege𓄂𓆟𓅂𓄉𓄂𓆟𓅂𓆟𓆝𓄉𓃸𓄉𓄅𓄉G𓄉v𓄉𓄅𓄉𓄀𓄉G𓄉𓃵𓄉𓄀𓄉v𓄉G𓄉𓄅𓄉𓃵𓄉𓃵𓆟𓆝𓄉𓅓𓆟𓅂ed𓄉𓃹e𓃳e𓆝]=],
-[=[e𓄂e𓄂𓃰ee𓄂𓆟𓅂𓄉𓄂𓆟𓅂e𓃳e𓃸e𓄄e9e𓄂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e�]=],
-[=[���𓄉𓃹e9e𓄂e𓄆e𓃹e𓃸e𓄄ege𓄂e9𓄉𓆟e𓆞e𓃸e𓅂eve𓆝e𓄂e9𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟�]=],
-[=[���𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓅓e𓄄e𓄂e𓃸e𓆝eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[�𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓃸e𓆝e𓅓e𓄃𓄉dege𓆞e𓄇e𓄂e𓆝𓄉𓆟𓆟𓆝𓄉𓃸𓄉𓄅𓄉G𓄉v𓄉𓄅𓄉𓄀𓄉G𓄉𓃵𓄉𓄀𓄉v𓄉G𓄉𓄅𓄉𓃵𓄉𓃵𓄉𓅓�]=],
-[=[��𓄀𓄉v𓄉G𓄉𓃵𓄉𓄀𓄉𓄀𓄉G𓄉𓅫𓄉𓄀𓄉6𓄉G𓄉𓃵𓄉v𓄉𓃸𓄉𓅓𓄉𓄀𓄉G𓄉𓂀𓄉𓃲𓄉6𓄉G𓄉𓄅𓄉6𓄉𓂀𓄉G𓄉s𓄉𓄅𓄉𓄅𓄉G𓄉𓄀�]=],
-[=[���𓃸𓄉𓃵𓄉G𓄉𓃵𓄉v𓄉𓂀𓄉G𓄉v𓄉𓃵𓄉s𓄉𓄇𓄉𓃸𓆟𓆝𓄉G𓆟𓅂e𓄁e𓄁𓄉𓃹eGe𓃲e𓆟𓄉𓆞eve𓄉e𓃭𓄉𓃴ee𓄉𓄄𓄉𓄉𓆟𓃵𓆟𓅂𓆟�]=],
-[=[�𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄁e𓄂e𓄆eee𓄂e9ege𓄄e𓄆𓄉𓃺e𓄈ege𓃱e𓄆𓄉𓆟𓄉𓄉𓆟𓅂𓄉𓃳𓆟𓅂𓄉6𓆟𓅂e]=],
-[=[𓄆e𓄃e𓄂e𓃱𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓆝e𓄂e𓃳e𓃷e𓃱e𓄂𓄉dege𓆞e𓄇e𓄂e𓆝�]=],
-[=[��𓆟𓆟𓆝𓄉𓃸𓄉𓄅𓄉G𓄉v𓄉𓄅𓄉𓄀𓄉G𓄉𓃵𓄉𓄀𓄉v𓄉G𓄉𓄅𓄉𓃵𓄉𓃵𓆟𓆝𓄉G𓆟𓅂e𓄁e𓄁𓄉𓃹eGe𓃲e𓆟𓄉𓆞eve𓄉e𓃭𓄉𓃴ee𓄉𓄄]=],
-[=[𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓄂𓃰𓆟e𓄆e𓆝e𓃸eve𓆝e𓄂e9𓆟𓅂𓄉�]=],
-[=[���𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄁e𓄂e𓄆eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓃸𓄉𓃸𓄉𓃸𓄉𓃸𓄉𓃸𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[���𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓄂𓃰𓆟e𓄆e𓆝e𓃸eve𓆝e𓄂e9𓆟𓅂e𓃸e𓃱e𓅨𓆟𓅂𓆟9e𓄂𓃰𓆟e𓄆e𓆝e𓃸eve𓆝e𓄂e9𓆟𓅂𓄉𓃳𓆟𓅂𓄉6𓆟�]=],
-[=[��e𓄆e𓄃e𓄂e𓃱𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃳e𓄈e𓆝𓆟𓅂ev𓄉G𓆟𓅂ed�]=],
-[=[��𓅂e𓃷e𓃱𓆟𓅂e𓃷e𓅂e𓃸e𓃷e𓆝e9𓄉𓆟e𓄂𓃰𓆟e𓄆e𓆝e𓃸eve𓆝e𓄂e9𓄉𓄉𓆟𓅂e𓅨e𓄈𓆟𓅂ed𓄉𓃹ede𓃸e𓄄ege𓄂𓆟𓅂𓄉𓄂𓆟𓅂𓆟𓆝𓄉]=],
-[=[𓃸𓄉𓄅𓄉G𓄉v𓄉𓄅𓄉𓄀𓄉G𓄉𓃵𓄉𓄀𓄉v𓄉G𓄉𓄅𓄉𓃵𓄉𓃵𓆟𓆝𓄉𓅓𓆟𓅂ed𓄉𓃹e𓃳e𓆝e𓄂e𓄂𓃰ee𓄂𓆟𓅂𓄉𓄂𓆟𓅂e𓃳e𓃸e𓄄e9e�]=],
-[=[���𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓄆e𓃹e�]=],
-[=[��e𓄄ege𓄂e9𓄉𓆟e𓄂𓃰𓆟e𓄆e𓆝e𓃸eve𓆝e𓄂e9𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟�]=],
-[=[�𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓅓e𓄄e𓄂e𓃸e𓆝eee�]=],
-[=[��e9ege𓄄e𓄆e9𓄉𓆟𓄉𓄉𓄉𓅓𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄄e𓄂e𓄂e𓅂𓄉𓆟𓄉𓃲𓄉𓂀𓄉6𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂�]=],
-[=[��𓅂𓆟𓅂𓆟𓅂e9e𓃸ede𓄂eve9e𓄆e𓃸e𓄆ege9𓄉𓆟e𓆞e𓃸e𓅂e𓄃e𓃸e𓅓e𓃺eve𓃳e𓃷e𓄄e𓄂𓄉G𓆟𓅂e𓃳e𓃸e𓄄e9e𓄂𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[���𓅂e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝𓄉g𓄉𓃷e𓆟𓄉𓅂𓄉𓃷𓄉𓃺𓄉9𓆟𓅂e𓃰eo𓄉𓃺𓄉𓃺𓄉𓆞e𓃰e𓃰𓄉𓃱eo𓄉𓄆𓄉𓄆e𓃲𓆟𓅂�]=],
-[=[��𓃴𓄉𓃱𓄉𓃱𓆟𓆝𓄉𓄉𓆟𓃵e𓄂e𓃱e𓅨𓆟𓃵𓆟𓃵e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e𓃱𓆟𓅂𓄉𓃺e𓄄e𓄂e𓃸e𓆝ev𓄉𓄆e𓄈e𓄁e9ev𓄉𓃴e𓃱e𓄄𓃰𓄉]=],
-[=[𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝𓄉𓃺e𓄄e𓄂e𓃸e𓆝e𓃷e𓃱e𓄁𓆟𓅂𓄉𓄆e𓄈e𓄁e9𓄉𓃹𓄉𓃹�]=],
-[=[���𓃹𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓄇e𓃸e9e𓄂evede𓃷e𓆝e𓄆ege𓃸e𓄄𓆟𓅂𓄉𓄂𓆟𓅂𓆟𓆝𓄉𓃭e9e𓄆e𓄈e�]=],
-[=[�e𓃸e𓄁e𓄂𓄉𓃭e𓄂e𓆞ege𓄄e𓃸e𓄆e𓄂e𓅨𓄉𓃭𓄉6𓄉𓃭𓄉𓃷e𓃱e𓅨e𓆝e𓄈e𓃷e𓅨𓄉𓃭e𓅨e𓃸e𓄆e𓃸𓄉𓃭e𓅓e𓄈e𓆞𓄉𓃹e9e𓅂e𓃸e𓅓e�]=],
-[=[�𓄉𓃹ede𓃷e𓆝e𓄆ege𓃸e𓄄𓄉𓃭e𓃳e𓃷e𓄄e𓄂e9𓄉𓃭𓄉𓆞𓃰𓆟e𓄆e𓄂e𓆝e𓃱e𓃸e𓄄𓄉𓃭𓄉6𓄉𓃭e𓅓e𓄈e𓆞𓄉𓃹e𓆞e𓄈e𓄇e𓃷e𓄄e𓄂𓄉]=],
-[=[𓃹e𓄄e𓄂e𓄁e𓄂e𓃱e𓅨e9𓄉𓃭𓆟𓆝𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓅓e𓃸e𓅓e𓄃e𓄂eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓄂𓆟𓅂e�]=],
-[=[�e𓃸e9e𓄂evede𓃷e𓆝e𓄆ege𓃸e𓄄𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝e𓅓e𓃸e𓅓e𓄃e𓄂𓄉𓃭𓆟𓆝𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e�]=],
-[=[���e𓃷e𓄄e𓄂e9eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓄂𓆟𓅂e𓄇e𓃸e9e𓄂evede𓃷e𓆝e𓄆ege𓃸e𓄄𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝e𓃳e𓃷e𓄄e𓄂e9𓄉𓃭𓆟𓆝𓆟𓃵]=],
-[=[𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e9e𓅂e𓃸e𓅓e𓄂eve𓄄e𓄈e𓄁e9𓆟𓅂𓄉𓄂𓆟𓅂𓆟𓆝𓄉𓃭e9e𓄆e𓄈e𓆝e𓃸e𓄁e𓄂𓄉𓃭e𓄂e𓆞ege�]=],
-[=[���e𓃸e𓄆e𓄂e𓅨𓄉𓃭𓄉6𓄉𓃭𓄉𓃷e𓃱e𓅨e𓆝e𓄈e𓃷e𓅨𓄉𓃭e𓅨e𓃸e𓄆e𓃸𓄉𓃭e𓅓e𓄈e𓆞𓄉𓃹e9e𓅂e𓃸e𓅓e𓄂𓄉𓃹ede𓃷e𓆝e𓄆ege𓃸e𓄄]=],
-[=[𓄉𓃭e𓃳e𓃷e𓄄e𓄂e9𓄉𓃭𓄉𓄆e𓄈e𓄁𓄉𓃭𓆟𓆝𓆟𓃵𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓅂e𓅓e𓃸e𓄄e𓄄𓄉𓆟e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e𓃱𓄉𓆟�]=],
-[=[��𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓆞e𓄈ede𓄂𓄉𓆟e9e𓅂e𓃸e𓅓e𓄂eve𓄄e𓄈e𓄁e9𓆟𓅂𓄉𓃹𓄉𓃹𓆟�]=],
-[=[�𓆟𓆝𓄉𓅂e𓃷𓄉𓃷e𓅨𓄉9e𓃷e𓄆𓄉𓄆e𓄈e𓄁𓄉𓃹e𓄄e𓄈e𓄁𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e]=],
-[=[𓄂e𓆞e𓄈ede𓄂𓄉𓆟e9e𓅂e𓃸e𓅓e𓄂eve𓄄e𓄈e𓄁e9𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝𓄉𓅂e𓃷𓄉𓃷e𓅨e𓃰𓄉𓄄𓄉9𓄉𓄆e𓄈e𓄁𓄉𓃹e𓄄e𓄈e𓄁𓆟�]=],
-[=[���𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓆞e𓄈ede𓄂𓄉𓆟e𓃳e𓃷e𓄄e𓄂e9eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉�]=],
-[=[�𓆟𓅂𓆟𓆝e𓄆e𓄈e𓆞e𓄇e9e𓄆e𓄈e𓃱e𓄂ev𓄉6𓄉6𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓆞e𓄈ede�]=],
-[=[�𓄉𓆟e𓃳e𓃷e𓄄e𓄂e9eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝e𓄆e𓄈e𓆞e𓄇e9e𓄆e𓄈e𓃱e𓄂ev𓄉6𓄉𓃲𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[��𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓆞e𓄈ede𓄂𓄉𓆟e𓃳e𓃷e𓄄e𓄂e9eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝e𓄆e𓄈e𓆞e𓄇e9e𓄆e]=],
-[=[𓄈e𓃱e𓄂ev𓄉6𓄉𓃵𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓆞e𓄈ede𓄂𓄉𓆟e𓃳e𓃷e𓄄e𓄂e9eve𓅂e�]=],
-[=[�e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝𓄉𓃺e𓄈ege𓃱e𓄆𓄉𓃶e𓃸e𓄆e𓄆e𓄄e𓄂𓄉𓃺e𓃸e𓅓e𓄃e𓄂𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[�𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓆞e𓄈ede𓄂𓄉𓆟e𓃳e𓃷e𓄄e𓄂e9eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝𓄉𓃺e𓆝e𓃸e9e𓄃𓄉𓃷e9e9e�]=],
-[=[�e𓄆𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓃱e𓃸e𓆞e𓄂𓄉𓆟e𓅓e𓃸e𓅓e𓄃e𓄂eve𓅂e𓃸e𓄆e𓄃𓆟�]=],
-[=[��𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝𓄉g𓄉𓄆𓄉o𓄉𓅂e𓃷e9e𓄆e𓄈e𓆝e𓃷e𓅓e𓃸e𓄄𓄉𓆞𓃰𓆟e𓅓e𓄂e𓅂e𓄆e𓃷e𓄈e𓃱𓆟𓆝𓄉G𓆟𓅂e𓅓e𓃸e𓅓e𓄃e𓄂e]=],
-[=[ve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝𓄉g𓄉𓄆𓄉o𓄉𓅂e𓃷e9e𓄆e𓄈e𓆝e𓃷e𓅓e𓃸e𓄄𓄉𓆞𓃰𓆟e𓅓e𓄂e𓅂e𓄆e𓃷e𓄈e𓃱eve𓄇e𓃸e𓃺�]=],
-[=[�𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓃱e𓃸e𓆞e𓄂𓄉𓆟e𓅓e𓃸e𓅓e𓄃e𓄂eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉�]=],
-[=[�𓄉𓃹𓆟𓅂𓆟𓆝𓄉g𓄉𓄆𓄉o𓄉𓄆e𓄈e𓄁e𓅓e𓃸e𓄆e9𓆟𓆝𓄉G𓆟𓅂e𓅓e𓃸e𓅓e𓄃e𓄂eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝𓄉g𓄉𓄆�]=],
-[=[���o𓄉𓄆e𓄈e𓄁e𓅓e𓃸e𓄆e9eve𓄇e𓃸e𓃺𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓃱e𓃸e𓆞e𓄂𓄉𓆟e�]=],
-[=[��e𓃸e𓅓e𓄃e𓄂eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝eoe𓃱e𓃷e𓄆𓃰𓄉e𓃰e𓄃e𓃸e𓅨e𓄂e𓆝𓄉𓃺e𓃸e𓅓e𓄃e𓄂𓆟𓆝𓄉G𓆟𓅂e𓅓e𓃸e�]=],
-[=[���e𓄃e𓄂eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝eoe𓃱e𓃷e𓄆𓃰𓄉e𓃰e𓄃e𓃸e𓅨e𓄂e𓆝𓄉𓃺e𓃸e𓅓e𓄃e𓄂eve𓄇e𓃸e𓃺𓆟𓆝𓄉𓄉𓆟𓃵�]=],
-[=[���𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓃱e𓃸e𓆞e𓄂𓄉𓆟e𓅓e𓃸e𓅓e𓄃e𓄂eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟�]=],
-[=[���e9e𓅨e𓃺𓆟𓆝𓄉G𓆟𓅂e𓅓e𓃸e𓅓e𓄃e𓄂eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝e9e𓅨e𓃺eve𓄇e𓃸e𓃺𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂]=],
-[=[𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓃱e𓃸e𓆞e𓄂𓄉𓆟e𓃳e𓃷e𓄄e𓄂e9eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝e𓅨e𓆝e𓃸e𓄁e�]=],
-[=[��e𓃱𓄉𓃵𓄉6𓄉𓃲𓄉v𓄉𓃭𓄉𓃶e𓃸e𓄆e𓄆e𓄄e𓄂eee𓄂e𓅓e𓄈e𓆝e𓅨𓆟𓆝𓄉G𓆟𓅂e𓃳e𓃷e𓄄e𓄂e9eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂�]=],
-[=[��𓆝e𓅨e𓆝e𓃸e𓄁e𓄈e𓃱𓄉𓃵𓄉6𓄉𓃲𓄉v𓄉𓃭𓄉𓃶e𓃸e𓄆e𓄆e𓄄e𓄂eee𓄂e𓅓e𓄈e𓆝e𓅨eve𓄇e𓃸e𓃺𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[���𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓃱e𓃸e𓆞e𓄂𓄉𓆟e𓃳e𓃷e𓄄e𓄂e9eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝𓄉ge𓄈e𓅨e𓄂e𓃹e�]=],
-[=[��e𓆝e9e𓃷e𓄈e𓃱𓆟𓆝𓄉G𓆟𓅂e𓃳e𓃷e𓄄e𓄂e9eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝𓄉ge𓄈e𓅨e𓄂e𓃹e𓄂e𓆝e9e𓃷e𓄈e𓃱eve𓄇e𓃸e𓃺�]=],
-[=[��𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓄄e𓄈e𓄁e𓃷e𓃱eve𓅨e𓃸e𓄆e𓃸eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉]=],
-[=[𓄂𓆟𓅂e𓃳e𓃷e𓄄e𓄂e9eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝e𓅨e𓆝e𓃸e𓄁e𓄈e𓃱𓄉𓃵𓄉6𓄉𓃲𓄉v𓄉𓃭e𓄄e𓄈e𓄁e𓃷e𓃱eve𓅨e𓃸e�]=],
-[=[��e𓃸𓄉𓃭𓆟𓆝𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓆞e𓄈ede𓄂𓄉𓆟e𓄄e𓄈e𓄁e𓃷e𓃱eve𓅨e𓃸e𓄆e𓃸eve𓅂e]=],
-[=[𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝e𓄄e𓄈e𓄁e𓃷e𓃱eve𓃸ege𓄆e𓄃eve𓅓e𓃸e𓅓e𓄃e𓄂𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[�𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓆞e𓄈ede𓄂𓄉𓆟e𓄄e𓄈e𓄁e𓃷e𓃱eve𓅨e𓃸e𓄆e𓃸eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝e𓄄e𓄈e𓄁e𓃷e𓃱eve]=],
-[=[𓃸ege𓄆e𓄃eve𓆞e𓅨𓄉𓂀𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄈e9𓄉𓃹e𓆝e𓄂e𓆞e𓄈ede𓄂𓄉𓆟e𓄄e𓄈e𓄁e𓃷e𓃱e]=],
-[=[ve𓅨e𓃸e𓄆e𓃸eve𓅂e𓃸e𓄆e𓄃𓆟𓅂𓄉𓃹𓄉𓃹𓆟𓅂𓆟𓆝e𓅓e𓄃e𓄂e𓅓e𓃺evege𓅂e𓄁e𓆝e𓃸e𓅨e𓄂eve𓅓e𓃸e𓅓e𓄃e𓄂𓆟𓆝𓄉𓄉𓆟𓃵𓆟�]=],
-[=[�𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄄e𓄂e𓄂e𓅂𓄉𓆟𓄉s𓄉6𓄉6𓄉𓄉�]=],
-[=[���𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e9e𓃸ede𓄂eve9e𓄆e𓃸e𓄆ege9𓄉𓆟e𓅓e𓄄e𓄂e𓃸e𓆝eve𓃳e𓃷e𓄄e𓄂𓄉G𓆟𓅂e𓄆e𓆝ege𓄂𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟�]=],
-[=[�𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝𓄉𓄆𓄉𓃴𓄉𓄈e𓃰𓆟𓅂𓄉𓃺𓄉𓄆𓄉𓆞𓄉𓃷ee𓄉𓆞𓄉𓄄𓆟𓅂e𓃰eo𓄉𓃺𓄉𓃺𓄉𓆞e𓃰e�]=],
-[=[�𓄉𓃱eo𓄉𓄆𓄉𓄆e𓃲𓆟𓆝𓄉𓄉𓆟𓃵e𓄂e𓃱e𓅨𓆟𓃵𓆟𓃵e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e𓃱𓆟𓅂𓄉ge𓄂e𓆞e𓄈e𓆝𓃰𓄉ev𓄉𓃶𓃰𓄉e𓅂e𓃸e9e9�]=],
-[=[�𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝𓄉Ee𓃱e𓃶e𓄂e𓅓e𓄆e𓃷e𓃱e𓄁𓆟𓅂𓄉ge𓄂e𓆞e𓄈e𓆝𓃰𓄉𓆟�]=],
-[=[���𓄉𓃶𓃰𓄉e𓅂e𓃸e9e9𓄉𓃹𓄉𓃹𓄉𓃹𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e𓃱𓆟𓅂e𓆟e�]=],
-[=[�e𓄆e𓅓e𓄃𓄉𓄆e𓃷e𓄇𓄉𓆟e𓄄e𓃷e𓄇𓄉G𓆟𓅂e𓄈e𓃳e𓃳e9e𓄂e𓄆𓄉G𓆟𓅂e𓄃e𓄂𓃰𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂]=],
-[=[𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓆝e𓃸e𓃱e𓄁e𓄂e9𓆟𓅂𓄉𓄂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄁e𓄂e𓄆eee𓃸e𓃱e𓄁e𓄂e9𓄉𓄆e𓃷e9e𓄆𓄉𓆟e𓄄e𓃷e𓄇𓄉𓄉]=],
-[=[𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂𓆟9e𓆝e𓃸e𓃱e𓄁e𓄂e9𓆟𓅂𓄉𓄂𓄉𓄂𓆟𓅂𓄉6𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓅂e𓆝]=],
-[=[e𓄂e𓄆ege𓆝e𓃱𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e9e𓄆e𓃸e𓆝e𓄆𓆟𓅂𓄉𓄂𓆟𓅂e�]=],
-[=[�e𓃸e𓃱e𓄁e𓄂e9es𓄉𓃲e𓂀𓄉𓃹e9e𓄆e𓃸e𓆝e𓄆𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓄆𓆟𓅂𓄉𓄂𓆟�]=],
-[=[��𓃰𓃰𓃰o𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓃷𓆟𓅂𓄉𓄂𓆟𓅂𓄉6𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[��𓆟𓅂𓆟𓅂𓆟𓅂e𓃳e𓄈e𓆝𓆟𓅂e𓄃𓆟𓅂e𓃷e𓃱𓆟𓅂e9e𓄆e𓆝e𓃷e𓃱e𓄁𓄉𓃹e𓄁e𓆞e𓃸e𓄆e𓅓e𓄃𓄉𓆟e𓄃e𓄂𓃰𓆟𓄉G𓆟𓅂𓆟𓆝𓆟g�]=],
-[=[�𓆟𓄉𓃰𓆟𓆝𓄉𓄉𓆟𓅂e𓅨e𓄈𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂𓆟9e𓄃𓆟𓅂𓄉𓄂𓄉�]=],
-[=[���𓆟𓅂𓄉𓃵𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄆e𓃸e𓄇e�]=],
-[=[���e𓄂𓄉𓃹e𓃷e𓃱e9e𓄂e𓆝e𓄆𓄉𓆟e𓄆𓄉G𓆟𓅂𓃰𓃰e𓃸e𓅨e𓅨e𓆝e𓄂e9e9𓄉𓄂e9e𓄆e𓃸e𓆝e𓄆𓆟𓅂𓄉𓃰𓆟𓅂e𓄈e𓃳e𓃳e9e𓄂e𓄆𓆟𓅂𓄉�]=],
-[=[���𓆟𓅂e𓃷𓄉G𓆟𓅂e𓃳e𓄄e𓃸e𓄁e9𓄉𓄂𓄉𓄀𓄉G𓆟𓅂ede𓃸e𓄄ege𓄂𓄉𓄂e𓄃𓄉𓃹𓄉𓃹𓆟𓆝e𓄃𓆟𓆝𓃰o𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[��𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷𓆟𓅂𓄉𓄂𓆟𓅂e𓃷𓆟𓅂𓄉𓃰𓆟𓅂𓄉𓃲𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟]=],
-[=[𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[��𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓄆e𓃹e𓃸e𓄄ege𓄂e9𓄉𓆟e𓄆𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓃵𓆟𓅂𓆟𓅂𓆟]=],
-[=[𓅂𓆟𓅂e𓅂e𓅓e𓃸e𓄄e𓄄𓄉𓆟e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e𓃱𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆟e𓃸e𓄆e𓅓e𓄃𓄉�]=],
-[=[���e𓃷e𓄇𓄉𓆟𓆟𓆝e𓄄e𓃷e𓄇e𓅓e9e𓄃e𓃸e𓆝e𓅂𓄉𓃹e9e𓄈𓆟𓆝𓄉G𓆟𓅂𓄉6𓃰𓆟𓄉𓃲𓄉𓄀𓄉v𓄉𓄀𓄉𓃵𓄉𓄄𓄉𓄀𓄉G𓆟𓅂𓆟𓆝𓄉�]=],
-[=[��𓄉6𓆟𓅂𓄉6𓄉s𓆟𓅂𓄉𓂀𓄉𓃱𓆟𓅂𓄉𓄄𓄉𓅫𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆟e𓃸e𓄆e𓅓e𓄃𓄉𓄆e𓃷e]=],
-[=[𓄇𓄉𓆟𓆟𓆝e𓄄e𓃷e𓄇e𓅓e9e𓄃e𓃸e𓆝e𓅂𓄉𓃹e9e𓄈𓆟𓆝𓄉G𓆟𓅂𓄉6𓃰𓆟𓄉𓃲𓄉𓄀𓄉v𓄉𓄀𓄉s𓄉𓃺𓄉𓃺𓄉G𓆟𓅂𓆟𓆝𓄉𓃺𓄉6𓆟�]=],
-[=[���𓄉6𓄉s𓆟𓅂𓄉𓂀𓄉𓃱𓆟𓅂𓄉𓄄𓄉𓅫𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆟e𓃸e𓄆e𓅓e𓄃𓄉𓄆e𓃷e𓄇𓄉𓆟]=],
-[=[𓆟𓆝e𓄄e𓃷e𓄇e𓅓e9e𓄃e𓃸e𓆝e𓅂𓄉𓃹e9e𓄈𓆟𓆝𓄉G𓆟𓅂𓄉6𓃰𓆟𓄉𓃲𓄉𓄀𓄉v𓄉𓄀𓄉𓄀𓄉𓃲𓄉𓄀𓄉G𓆟𓅂𓆟𓆝𓄉𓃺𓄉6𓆟𓅂𓄉6�]=],
-[=[���s𓆟𓅂𓄉𓂀𓄉𓃱𓆟𓅂𓄉𓄄𓄉𓅫𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆟e𓃸e𓄆e𓅓e𓄃𓄉𓄆e𓃷e𓄇𓄉𓆟𓆟𓆝e]=],
-[=[𓄄e𓃷e𓄇e𓄄e𓄈e𓄁e𓃷e𓅓𓄉𓃹e9e𓄈𓆟𓆝𓄉G𓆟𓅂𓄉6𓃰𓆟𓄉𓂀𓄉𓂀𓄉𓅫𓄉𓄅𓄉𓂀𓄉𓄅𓄉G𓆟𓅂𓆟𓆝𓄉𓃺𓄉6𓆟𓅂𓄉6𓄉s𓆟𓅂𓄉]=],
-[=[𓂀𓄉𓃱𓆟𓅂𓄉𓄄𓄉𓅫𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆟e𓃸e𓄆e𓅓e𓄃𓄉𓄆e𓃷e𓄇𓄉𓆟𓆟𓆝e𓄄e𓃷e𓄇e�]=],
-[=[���e𓄈e𓄁e𓃷e𓅓𓄉𓃹e9e𓄈𓆟𓆝𓄉G𓆟𓅂𓄉6𓃰𓆟𓄉𓂀𓄉𓂀𓄉𓅫𓄉𓄅𓄉v𓄉𓄀𓄉G𓆟𓅂𓆟𓆝𓄉𓃺𓄉6𓆟𓅂𓄉6𓄉s𓆟𓅂𓄉𓂀𓄉𓃱𓆟�]=],
-[=[�𓄉𓄄𓄉𓅫𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆟e𓃸e𓄆e𓅓e𓄃𓄉𓄆e𓃷e𓄇𓄉𓆟𓆟𓆝e𓄄e𓃷e𓄇e𓄄e𓄈e𓄁e𓃷e]=],
-[=[𓅓𓄉𓃹e9e𓄈𓆟𓆝𓄉G𓆟𓅂𓄉6𓃰𓆟𓄉𓂀𓄉𓃸𓄉6𓄉𓃶𓄉6𓄉6𓄉G𓆟𓅂𓆟𓆝𓄉𓃺𓄉6𓆟𓅂𓄉6𓄉s𓆟𓅂𓄉𓂀𓄉𓃱𓆟𓅂𓄉𓄄𓄉𓅫𓆟𓆝]=],
-[=[𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆟e𓃸e𓄆e𓅓e𓄃𓄉𓄆e𓃷e𓄇𓄉𓆟𓆟𓆝e𓄄e𓃷e𓄇e𓄄e𓄈e𓄁e𓃷e𓅓𓄉𓃹e9e𓄈𓆟�]=],
-[=[��𓄉G𓆟𓅂𓄉6𓃰𓆟𓄉𓂀𓄉𓃸𓄉6𓄉𓃶𓄉6𓄉𓄀𓄉G𓆟𓅂𓆟𓆝𓄉𓃺𓄉6𓆟𓅂𓄉6𓄉s𓆟𓅂𓄉𓂀𓄉𓃱𓆟𓅂𓄉𓄄𓄉𓅫𓆟𓆝𓄉𓄉𓆟𓃵𓆟�]=],
-[=[��𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆟e𓃸e𓄆e𓅓e𓄃𓄉𓄆e𓃷e𓄇𓄉𓆟𓆟𓆝e𓄄e𓃷e𓄇e𓄄e𓄈e𓄁e𓃷e𓅓𓄉𓃹e9e𓄈𓆟𓆝𓄉G𓆟𓅂𓄉6�]=],
-[=[��𓆟𓄉𓂀𓄉𓃸𓄉6𓄉𓃶𓄉𓃺𓄉𓃺𓄉G𓆟𓅂𓆟𓆝𓄉𓃺𓄉6𓆟𓅂𓄉6𓄉s𓆟𓅂𓄉𓂀𓄉𓃱𓆟𓅂𓄉𓄄𓄉𓅫𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[���𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆟e𓃸e𓄆e𓅓e𓄃𓄉𓄆e𓃷e𓄇𓄉𓆟𓆟𓆝e𓄄e𓃷e𓄇e𓄄e𓄈e𓄁e𓃷e𓅓𓄉𓃹e9e𓄈𓆟𓆝𓄉G𓆟𓅂𓄉6𓃰𓆟𓄉𓂀𓄉�]=],
-[=[���𓄉6𓄉𓃺𓄉𓄀𓄉6𓄉G𓆟𓅂𓆟𓆝𓄉𓃺𓄉6𓆟𓅂𓄉6𓄉s𓆟𓅂𓄉𓂀𓄉𓃱𓆟𓅂𓄉𓄄𓄉𓅫𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨]=],
-[=[𓄉𓄉𓆟𓃵𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e9e𓄆e𓆝e𓃷e𓃱e𓄁e9eGe𓄈e𓆟e𓃸e𓄆e𓅓e𓄃𓆟𓅂𓄉𓄂𓆟𓅂𓃰𓃰𓆟𓃵𓆟𓅂�]=],
-[=[��𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓆝𓄉𓄇𓄉𓃷eee𓄂e𓅂e𓄈e𓆝e𓄆eveee𓄂e𓅂ege𓄆e𓃸e𓄆e𓃷e𓄈e𓃱𓆟𓆝𓄉G𓆟𓅂𓆟𓆝𓄉𓄇eee𓄂e𓅂]=],
-[=[e𓄈e𓆝e𓄆ev𓄉𓃶e𓃸e𓄆e𓄆e𓄄e𓄂𓆟𓆝𓄉G𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓆝𓄉𓄇𓄉𓃺e𓆞e𓅨ev𓄉ge𓃸e𓄆e𓅓e]=],
-[=[𓄃eee𓄂e𓅂e𓄈e𓆝e𓄆eve𓆟e𓄈e9e𓄆𓄉ge𓃸e𓄆e𓅓e𓄃ev𓄉𓃺e𓃰𓆟𓆝𓄉G𓆟𓅂𓆟𓆝𓄉𓄇e𓃰e𓄂e𓃱e𓅨ev𓄉𓃶e𓃸e𓄆e𓄆e𓄄e𓄂ev𓄉𓆞e𓃱e�]=],
-[=[��𓄉ge𓃷e9e𓅓𓄉𓄄e𓃸e𓄆e𓃸eee𓄂e𓅂e𓄈e𓆝e𓄆ev𓄉𓃺e𓃰𓆟𓆝𓄉G𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓆝𓄉𓄇𓄉�]=],
-[=[�e𓆞e𓅨ev𓄉𓃷𓄉E𓄉𓃷e𓅨ev𓄉𓄆e𓄈e𓄁eee𓄂e𓅂e𓄈e𓆝e𓄆ev𓄉𓃺e𓃰𓆟𓆝𓄉G𓆟𓅂𓆟𓆝𓄉𓄇𓄉𓃴e𓃱eee𓄂e𓅂e𓄈e𓆝e𓄆𓆟𓆝𓆟𓃵𓆟�]=],
-[=[��𓆟𓅂𓆟𓅂𓆟𓅂𓃰o𓆟𓃵𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓅂e𓅓e𓃸e𓄄e𓄄𓄉𓆟e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e𓃱𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[�𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓄆eee𓃸e𓃱e𓄁e𓄂e9𓄉𓆟e𓄁e𓄁𓄉𓃹ee𓄉𓆞𓄉𓄈𓄉E𓄉𓃴𓄉dev𓄉𓃺ev𓄉𓃷𓄉𓄆𓄉𓄆𓄉𓃴�]=],
-[=[�𓃺𓆟𓅂𓃰G𓆟𓅂e𓄁e𓄁𓄉𓃹ee𓄉𓆞𓄉𓄈𓄉E𓄉𓃴𓄉dev𓄉𓃺ev𓄉𓄄𓄉𓃷eG𓄉𓃷𓆟𓅂𓃰G𓆟𓅂e𓄁e𓄁𓄉𓃹ee𓄉𓆞𓄉𓄈𓄉E𓄉𓃴𓄉dev𓄉�]=],
-[=[���𓄉d𓄉𓃴𓄉de𓃲𓄉g𓄉𓃴eoe𓃰𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓅂e𓆝e𓄈e𓅓e𓄂e9e9eee𓄂e9ege𓆞e𓄂𓄉�]=],
-[=[��𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃳e𓄈e𓆝𓆟𓅂ev𓄉G𓆟𓅂e9e𓄆e𓆝𓆟𓅂e𓃷e𓃱𓆟𓅂e𓃷e𓅂e𓃸e𓃷e𓆝e9𓄉𓆟e9e𓄆]=],
-[=[e𓆝e𓃷e𓃱e𓄁e9eGe𓄈e𓆟e𓃸e𓄆e𓅓e𓄃𓄉𓄉𓆟𓅂e𓅨e𓄈𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉�]=],
-[=[��e𓅓e𓄄e𓄂e𓃸e𓆝eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓃸]=],
-[=[e𓆝e𓅓e𓄃𓄉dege𓆞e𓄇e𓄂e𓆝𓄉𓆟e9e𓄆e𓆝𓄉G𓆟𓅂e𓄁e𓄁𓄉𓃹eGe𓃲e𓆟𓄉𓆞ev𓄉𓃶e𓃲eG𓄉𓆞𓄉G𓆟𓅂e𓃳e𓃸e𓄄e9e𓄂𓄉G𓆟𓅂e𓄁e𓄁𓄉]=],
-[=[𓃹e𓃰𓄉E𓄉𓄈𓄉dev𓄉𓆞e𓄉eo𓄉𓃷𓄉𓄆𓄉G𓆟𓅂𓄉6𓄉G𓆟𓅂𓄉o𓄉𓃲𓄉G𓆟𓅂𓄉6𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[��𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄁e𓄂e𓄆eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓃸𓄉𓃸𓄉𓃸𓄉𓃸𓄉𓃸𓄉G𓆟𓅂e𓃱e𓃷e𓄄𓄉G𓆟𓅂e𓃱e𓃷e𓄄𓄉G�]=],
-[=[���𓅂e𓃱e𓃷e𓄄𓄉G𓆟𓅂e𓃱e𓃷e𓄄𓄉G𓆟𓅂e𓃱e𓃷e𓄄𓄉G𓆟𓅂e𓃱e𓃷e𓄄𓄉G𓆟𓅂e𓃱e𓃷e𓄄𓄉G𓆟𓅂e𓃱e𓃷e𓄄𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟�]=],
-[=[��𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄂e𓅨e𓃷e𓄆𓄉𓃷e𓄄e𓄄𓄉𓆟𓆟𓆝𓄉6𓆟𓆝𓄉G𓆟𓅂e𓄁e𓄁𓄉𓃹eGe𓃲e�]=],
-[=[��𓄉𓆞ev𓄉𓃶e𓃲eG𓄉𓆞𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[��e𓄁e𓄁𓄉𓃹e𓅓e𓄄e𓄂e𓃸e𓆝eee𓄂e9ege𓄄e𓄆e9𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓃵𓆟�]=],
-[=[���𓆟𓅂𓆟𓅂𓆟𓅂e9e𓃸ede𓄂eve9e𓄆e𓃸e𓄆ege9𓄉𓆟e𓄇𓃰𓄉e𓅂e𓃸e9e9eve𓃳e𓃷e𓄄e𓄂𓄉G𓆟𓅂e𓄆e𓆝ege𓄂𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e]=],
-[=[𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝𓄉g𓄉𓆞𓄉g𓄉𓃴eee𓃲𓆟𓅂𓄉𓃶e𓃲e𓆟𓄉𓃷e𓃰e𓃰𓆟𓅂𓄉E𓄉d𓄉𓆝𓄉𓆞𓄉𓃺eG𓄉𓆞𓄉𓄄𓆟𓆝]=],
-[=[𓄉𓄉𓆟𓃵e𓄂e𓃱e𓅨𓆟𓃵𓆟𓃵e𓃳ege𓃱e𓅓e𓄆e𓃷e𓄈e𓃱𓆟𓅂𓄉ge𓃸e𓃷e𓃱𓄉ge𓄂e𓃱eg𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉�]=],
-[=[���e9e𓄂e𓄆e𓃹e𓃷e9e𓃷e𓄇e𓄄e𓄂𓄉𓆟e𓃳e𓃸e𓄄e9e𓄂𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃴e𓄃e𓃷e𓄄e𓄂𓆟𓅂e�]=],
-[=[���e𓆝ege𓄂𓆟𓅂e𓅨e𓄈𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓄈e𓃱eve𓆞e𓃸e𓅂e𓄃e𓃸e𓅓e𓃺𓆟𓅂𓄉�]=],
-[=[�𓆟𓅂e𓄁e𓄂e𓄆eve9e𓄆e𓃸e𓄆ege9𓄉𓆟e𓆞e𓃸e𓅂e𓄃e𓃸e𓅓e𓃺eve𓃳e𓃷e𓄄e𓄂𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e�]=],
-[=[��e𓅓e𓃸e𓄄𓆟𓅂e𓄈e𓃱eve𓄇𓃰𓄉e𓅂e𓃸e9e9𓆟𓅂𓄉𓄂𓆟𓅂e𓄁e𓄂e𓄆eve9e𓄆e𓃸e𓄆ege9𓄉𓆟e𓄇𓃰𓄉e𓅂e𓃸e9e9eve𓃳e𓃷e𓄄e𓄂𓄉𓄉𓆟𓃵�]=],
-[=[���𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓄈e𓃱eve𓅓e𓄄e𓄂e𓃸e𓆝𓆟𓅂𓄉𓄂𓆟𓅂e𓄁e𓄂e𓄆eve9e𓄆e𓃸e𓄆ege9𓄉�]=],
-[=[���e𓅓e𓄄e𓄂e𓃸e𓆝eve𓃳e𓃷e𓄄e𓄂𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[��e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓄇𓃰𓄉e𓅂e𓃸e9e9eve𓄄e𓃸e𓄇e𓄂e𓄄𓆟𓅂𓄉𓄂𓆟𓅂e𓄈e𓃱eve𓄇𓃰𓄉e𓅂e𓃸e9e9𓆟𓅂e𓃸e𓃱e𓅨𓆟𓅂𓆟𓆝es𓆟�]=],
-[=[�𓄉𓃴𓄉d𓆟𓅂e𓂀𓆟𓅂𓄉g𓄉𓆞𓄉g𓄉𓃴eee𓃲𓆟𓅂𓄉𓃶e𓃲e𓆟𓄉𓃷e𓃰e𓃰𓆟𓅂𓄉𓆟𓄉𓃷𓄉deG𓄉E𓆟𓅂𓄉𓃶𓄉𓃷𓄉d𓄉𓃭ee𓄉𓆞e𓆟]=],
-[=[𓄉𓃴eeeG𓄉𓄉𓆟𓆝𓆟𓅂e𓄈e𓆝𓆟𓅂𓆟𓆝es𓆟𓅂𓄉𓃴𓄉𓃱𓄉𓃱𓆟𓅂e𓂀𓆟𓅂𓄉g𓄉𓆞𓄉g𓄉𓃴eee𓃲𓆟𓅂𓄉𓃶e𓃲e𓆟𓄉𓃷e𓃰e𓃰𓆟�]=],
-[=[��𓄉𓆟𓄉𓃷𓄉deG𓄉E𓆟𓅂𓄉𓃶𓄉𓃷𓄉d𓄉𓃭ee𓄉𓆞e𓆟𓄉𓃴eeeG𓄉𓄉𓆟𓆝𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e�]=],
-[=[��e𓄄𓆟𓅂e𓆞e𓃸e𓅂e𓄃e𓃸e𓅓e𓃺eve𓄄e𓃸e𓄇e𓄂e𓄄𓆟𓅂𓄉𓄂𓆟𓅂e𓄈e𓃱eve𓆞e𓃸e𓅂e𓄃e𓃸e𓅓e𓃺𓆟𓅂e𓃸e𓃱e𓅨𓆟𓅂𓆟𓆝es𓆟𓅂�]=],
-[=[�𓃴𓄉d𓆟𓅂e𓂀𓆟𓅂𓄉g𓄉𓃷e𓆟𓄉𓅂𓄉𓃷𓄉𓃺𓄉9𓆟𓅂𓄉d𓄉𓃴𓆟𓅂𓄉E𓄉𓃺𓄉𓃴𓄉d𓆟𓆝𓆟𓅂e𓄈e𓆝𓆟𓅂𓆟𓆝es𓆟𓅂𓄉𓃴𓄉�]=],
-[=[�𓄉𓃱𓆟𓅂e𓂀𓆟𓅂𓄉g𓄉𓃷e𓆟𓄉𓅂𓄉𓃷𓄉𓃺𓄉9𓆟𓅂𓄉d𓄉𓃴𓆟𓅂𓄉E𓄉𓃺𓄉𓃴𓄉d𓆟𓆝𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟]=],
-[=[𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓅓e𓄄e𓄂e𓃸e𓆝eve𓄄e𓃸e𓄇e𓄂e𓄄𓆟𓅂𓄉𓄂𓆟𓅂e𓄈e𓃱eve𓅓e𓄄e𓄂e𓃸e𓆝𓆟𓅂e𓃸e𓃱e𓅨𓆟𓅂𓆟𓆝es�]=],
-[=[���𓅂𓄉𓃴𓄉d𓆟𓅂e𓂀𓆟𓅂𓄉𓃺𓄉𓄆𓄉𓆞𓄉𓃷ee𓆟𓅂𓄉𓃷𓄉𓄆𓄉𓄆𓆟𓅂𓄉𓄆𓄉𓃴𓄉𓄈e𓃰𓆟𓆝𓆟𓅂e𓄈e𓆝𓆟𓅂𓆟𓆝es𓆟𓅂𓄉]=],
-[=[𓃴𓄉𓃱𓄉𓃱𓆟𓅂e𓂀𓆟𓅂𓄉𓃺𓄉𓄆𓄉𓆞𓄉𓃷ee𓆟𓅂𓄉𓃷𓄉𓄆𓄉𓄆𓆟𓅂𓄉𓄆𓄉𓃴𓄉𓄈e𓃰𓆟𓆝𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂]=],
-[=[𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓆞e𓄂e𓃱egeve𓄄e𓃷e9e𓄆𓆟𓅂𓄉𓄂𓆟𓅂𓃰𓃰�]=],
-[=[�𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄇𓃰𓄉e𓅂e𓃸e9e9eve𓄄e𓃸e𓄇e𓄂e𓄄𓄉G𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂]=],
-[=[𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆞e𓃸e𓅂e𓄃e𓃸e𓅓e𓃺eve𓄄e𓃸e𓄇e𓄂e𓄄𓄉G𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[���𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓅓e𓄄e𓄂e𓃸e𓆝eve𓄄e𓃸e𓄇e𓄂e𓄄𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓃰o𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟]=],
-[=[𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓄉o𓄉o𓆟𓅂o𓃶𓃰𓄆𓃰𓂀𓆟𓅂𓄉EeG𓄉𓃴𓆟𓅂e𓃲eo𓄉d𓄉𓄈�]=],
-[=[��𓅂𓄉d𓄉𓃷𓄉𓃷e𓃲𓄉𓃴e𓃰𓆟𓅂𓄉d𓄉𓃷𓆟𓅂𓄉𓄈𓄉𓄈𓄉𓃹𓄉𓃺𓄉𓅂𓄉𓃴𓄉E𓄉𓃺𓄉𓆞𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[���𓅂𓆟𓅂e𓄄e𓄈e𓅓e𓃸e𓄄𓆟𓅂e𓅓e𓄃e𓄈e𓃷e𓅓e𓄂𓆟𓅂𓄉𓄂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓅓e𓄃e𓄈e𓃷e𓅓e𓄂𓄉𓆟e𓆞e𓄂e𓃱egeve𓄄e𓃷e9e𓄆𓄉G�]=],
-[=[���𓅂e𓃱e𓃷e𓄄𓄉G𓆟𓅂𓆟𓆝𓄉o𓄉𓄂𓄉𓄂𓃰G𓆟𓅂𓄉𓃺𓄉𓃴𓄉𓄄𓄉𓆞e6𓆟𓅂𓄉g𓄉𓄆𓄉𓃶𓄉𓃶𓆟𓅂𓄉𓃺𓄉𓅂𓄉𓆞𓄉𓃷eGe𓃵𓆟�]=],
-[=[���𓃰G𓄉𓄂𓄉𓄂𓄉oe𓄀e𓃱e𓄀e𓃱𓄉𓆟𓆟𓅂e𓃹e𓄂e𓆝e9e𓃷e𓄈e𓃱𓆟𓅂𓄉𓄇𓆟𓅂𓄉𓃲𓄉𓃹𓄉𓄀𓄉𓃹𓄉6𓆟𓅂𓄉𓄉e𓄀e𓃱𓄉𓃴e𓃴e�]=],
-[=[��e𓄂e𓆝𓆟𓅂𓄉𓄇𓆟𓅂𓄉𓄈e𓄂e𓄈𓄉𓄄e𓄂ede9𓄉𓅫𓄉𓃸𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂�]=],
-[=[���𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓅓e𓄃e𓄈e𓃷e𓅓e𓄂𓆟𓅂𓄉𓄂𓄉𓄂𓆟𓅂e𓃱e𓃷e𓄄𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓅂𓆟𓃵𓆟𓅂𓆟�]=],
-[=[��𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄂e𓄆e𓃹e𓃷e9e𓃷e𓄇e𓄄e𓄂𓄉𓆟e𓃳e𓃸e𓄄e9e𓄂𓄉𓄉𓆟𓃵𓆟𓅂�]=],
-[=[��𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓆝e𓄂e𓄆ege𓆝e𓃱𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e�]=],
-[=[���e𓅨𓆟𓃵𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓅓e𓄃e𓄈e𓃷e𓅓e𓄂𓆟𓅂𓄉𓄂𓄉𓄂𓆟𓅂𓄉𓃲𓆟𓅂e𓄆e𓄃e𓄂e]=],
-[=[𓃱𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓄈e𓃱eve𓄇𓃰𓄉e𓅂e𓃸e9e9𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟�]=],
-[=[�𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e9e𓃸ede𓄂eve9e𓄆e𓃸e𓄆ege9𓄉𓆟e𓄇𓃰𓄉e𓅂e𓃸e9e]=],
-[=[9eve𓃳e𓃷e𓄄e𓄂𓄉G𓆟𓅂e𓃳e𓃸e𓄄e9e𓄂𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[��e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝𓄉𓃶e𓃲e𓆟𓄉𓃷e𓃰e𓃰𓆟𓅂𓄉𓃴𓄉𓃱𓄉𓃱𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[��𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓄄e9e𓄂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[���ge𓄂e𓆞e𓄈e𓆝𓃰𓄉ev𓄉𓃶𓃰𓄉e𓅂e𓃸e9e9𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨�]=],
-[=[���𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓄄e9e𓄂e𓃷e𓃳𓆟𓅂e𓅓e𓄃e𓄈e𓃷e𓅓e𓄂𓆟𓅂𓄉𓄂𓄉𓄂𓆟𓅂𓄉𓃵𓆟𓅂e𓄆e𓄃e𓄂e]=],
-[=[𓃱𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓄈e𓃱eve𓆞e𓃸e𓅂e𓄃e𓃸e𓅓e𓃺𓆟𓅂e𓄆e𓄃e𓄂e�]=],
-[=[�𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓄉𓃴e𓃳e𓃳ev𓄉ge𓃸e𓅂e𓄃e𓃸e𓅓e𓃺ev𓄉�]=],
-[=[��e𓃱e𓄄𓃰𓄉𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓄄e9e𓄂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[�𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓄉𓃷e𓅂e𓅂e𓄄𓃰𓄉ev𓄉ge𓃸e𓅂e𓄃e𓃸e𓅓e𓃺𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟�]=],
-[=[�𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓄄e9e𓄂e𓃷e𓃳𓆟�]=],
-[=[���e𓅓e𓄃e𓄈e𓃷e𓅓e𓄂𓆟𓅂𓄉𓄂𓄉𓄂𓆟𓅂𓄉s𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[��e𓃷e𓃳𓆟𓅂e𓄈e𓃱eve𓅓e𓄄e𓄂e𓃸e𓆝𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂�]=],
-[=[�𓅂𓆟𓅂𓆟𓅂e9e𓃸ede𓄂eve9e𓄆e𓃸e𓄆ege9𓄉𓆟e𓅓e𓄄e𓄂e𓃸e𓆝eve𓃳e𓃷e𓄄e𓄂𓄉G𓆟𓅂e𓃳e𓃸e𓄄e9e𓄂𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟]=],
-[=[𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e𓄆e𓄈e𓃸e9e𓄆𓄉𓆟𓆟𓆝𓄉𓃺𓄉𓄆𓄉𓆞𓄉𓃷ee𓆟𓅂𓄉𓄆�]=],
-[=[��𓃴𓄉𓄈e𓃰𓆟𓅂𓄉𓃴𓄉𓃱𓄉𓃱𓆟𓆝𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓄄e9e𓄂𓆟𓃵𓆟]=],
-[=[𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓄉𓃺e𓄄e𓄂e𓃸e𓆝ev𓄉𓄆e𓄈e𓄁e9ev𓄉𓃴e𓃱e𓄄𓃰�]=],
-[=[��𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟�]=],
-[=[�𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄄e𓄂e�]=],
-[=[���e𓅂𓄉𓆟𓄉𓂀𓄉6𓄉6𓄉𓄉𓆟𓅂𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵e𓄂e𓃱e𓅨𓆟𓃵𓆟𓃵𓄉o𓄉o𓆟𓅂o𓃶𓃰𓄆𓃰𓂀𓆟𓅂𓄉9eo�]=],
-[=[��ge𓆟𓄉𓄆𓄉𓆞eG𓄉𓃴𓄉d𓄉𓄈𓆟𓅂𓄉𓄆𓄉𓃴𓄉𓃴e𓆟𓆟𓅂e𓃰𓄉𓃷𓆟𓅂𓄉𓄄eo𓄉𓄆𓄉𓃴𓆟𓃵e𓃴e𓄃e𓃷e𓄄e𓄂𓆟𓅂e𓄆e𓆝ege𓄂�]=],
-[=[�𓅂e𓅨e𓄈𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓃷e𓃳𓆟𓅂e𓄁e𓄁𓄉𓃹e𓃷e9e𓃹e𓃷e9e𓃷e𓄇e𓄄e𓄂𓄉𓆟e𓄆e𓆝ege𓄂𓄉𓄉𓆟𓅂e𓄆e𓄃e𓄂e𓃱𓆟𓃵�]=],
-[=[���𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂𓄉ge𓃸e𓃷e𓃱𓄉ge𓄂e𓃱eg𓄉𓆟𓄉𓄉𓆟𓃵𓆟𓅂𓆟𓅂𓆟𓅂𓆟𓅂e𓄂e𓃱e𓅨𓆟𓃵𓆟𓅂𓆟𓅂𓆟�]=],
-[=[���𓆟𓅂e𓄁e𓄁𓄉𓃹e9e𓄄e𓄂e𓄂e𓅂𓄉𓆟𓄉𓃵𓄉6𓄉6𓄉𓄉𓆟𓅂𓆟𓃵e𓄂e𓃱e𓅨]=],
-}
-local _y = {
-[=[𓆟𓃸𓂀𓃴𓆟v𓄆𓄉𓆟𓃸𓄀𓆟𓆟𓄅v𓆞𓆟𓃸𓃶𓅓𓆟𓄇𓃷𓄉𓆟𓃸E𓃹𓆟o𓃭v𓆟vs𓆟𓆟𓃸E𓃵𓆟𓃹𓄇𓃸𓆟𓃭Ge𓆟𓃹𓄁6𓆟𓃸𓂀𓃴𓆟v𓄆]=],
-[=[𓄉𓆟𓃸𓄀𓆟𓆟𓄇𓃵𓄄𓆟𓃸d𓂀𓆟𓃭𓄄𓄀𓆟𓃭𓆝𓄅𓆟𓄅v𓄁𓆟𓄇𓃵𓄅𓆟v𓃲𓄂𓆟𓃭𓆝𓄄𓆟6𓃴6𓆟𓄅e𓄈𓆟o𓃭𓅨𓆟𓃸𓅂9𓆟v𓄁�]=],
-[=[�𓆟o𓃭𓅂𓆟𓃭G𓃷𓆟𓃲𓅂E𓆟ode𓆟𓃭Ge𓆟ode𓆟o𓃭𓃸𓆟𓄅𓂀𓄃𓆟𓅓s𓃹𓆟𓃲E𓃸𓆟o𓃭𓄄𓆟𓄅𓄄o𓆟𓃸𓄃𓅂𓆟𓄇so𓆟𓄇𓃵𓃺𓆟𓃸g𓄃]=],
-[=[𓆟𓄅𓃲𓃹𓆟𓄅𓆟𓅂𓆟v𓄂𓄆𓆟v𓄄𓄀𓆟𓃸d𓂀𓆟𓃹𓄇𓃸𓆟𓃭s𓆟𓆟𓃹𓄁𓄁𓆟6𓄉G𓆟𓃹𓄇𓄇𓆟𓃭s𓄉𓆟𓃹𓄁𓄁𓆟6𓄉G𓆟𓃸g𓆝𓆟6�]=],
-[=[���𓅂𓆟𓄅𓃲𓃹𓆟𓄅𓆟𓅂𓆟𓄇𓄀o𓆟𓄇𓃷𓂀𓆟𓄇𓄀𓅫𓆟o𓃭𓃶𓆟o𓃭𓂀𓆟𓃸𓃶𓅨𓆟𓄉𓃶𓄄𓆟𓃸𓅂9𓆟v𓄁𓅨𓆟o𓃭v𓆟v𓃵𓅓𓆟𓄅�]=],
-[=[���𓄉𓆟𓄇𓄀𓅓𓆟o𓃹𓂀𓆟o𓃭9𓆟o𓄁𓄃𓆟𓄁𓄃𓃹𓆟𓃷𓄇𓄇𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂6𓃲𓆟o𓄇𓄄𓆟o𓅨o𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃𓃰𓆟�]=],
-[=[���𓃭𓃵𓆟𓃭e𓄇𓆟sv𓃵𓆟𓃭e𓄇𓆟𓃸𓄈𓃵𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂𓃰𓄉𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃𓃰𓆟𓃺𓄄e𓆟𓃭e𓄇𓆟6𓃶𓄇𓆟𓃭e𓄇�]=],
-[=[���d𓅓𓃺𓆟𓄂e𓆝𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃𓃰𓆟𓄄𓃴𓃵𓆟𓃭e𓄇𓆟𓄇𓄅𓆝𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂6𓆟𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃e𓆟𓅨�]=],
-[=[��e𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂v𓅓𓆟o𓄇𓄄𓆟o𓅨𓃳𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃G𓆟𓄂𓄀e𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂𓃰𓆟𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃]=],
-[=[G𓆟𓄂𓄃𓆝𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂𓅫9𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃o𓆟𓃶𓄆e𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂6e𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃𓃰𓆟𓄄𓃶�]=],
-[=[��𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂6𓄉𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃G𓆟𓅨𓃴𓃵𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂e𓃴𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃𓃰𓆟𓆞o𓃶𓆟𓃭e�]=],
-[=[���𓆟d𓅓𓃺𓆟𓄂𓃰e𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃G𓆟𓄂o𓃶𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂𓄂𓃳𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃𓃰𓆟𓄄𓂀𓃶𓆟𓃭e𓄇𓆟d�]=],
-[=[���𓃺𓆟𓄂66𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁𓄃o𓆟𓅨𓅂𓆝𓆟𓃭e𓄇𓆟se𓄇𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂𓄂𓄂𓆟o𓄇𓄄𓆟o𓅓𓄉𓆟o𓄇𓄄𓆟o𓄁𓄃𓆟𓄁�]=],
-[=[�G𓆟𓄂𓄇𓄇𓆟𓃭e𓄇𓆟𓄅𓅨e𓆟𓃭e𓄇𓆟𓄅𓆟𓆝𓆟𓃭e𓄇𓆟d𓅓𓃺𓆟𓄂e𓄆𓆟o𓅨𓆞𓆟𓃸𓂀𓃴𓆟v𓄆𓄉𓆟𓃸𓄀𓆟𓆟𓄅𓄂𓄁𓆟𓃸𓅨�]=],
-[=[��𓆟𓃸g𓄃𓆟𓃲𓄈6𓆟𓅓𓃱𓂀𓆟𓄉𓃶𓃳𓆟𓃸E𓃵𓆟o𓃭𓃸𓆟𓃭e𓄅𓆟v𓄆6𓆟v𓄁𓃶𓆟o𓃭𓃸𓆟𓃸𓄃𓅂𓆟𓄅𓆝𓅂𓆟v𓄁𓃸𓆟𓄇𓄀𓅓𓆟]=],
-[=[𓃹𓄇𓄁𓆟v𓃵𓅓𓆟𓄅𓄄𓄉𓆟𓄇𓄀𓅓𓆟𓃹𓄁6𓆟𓄅e𓄈𓆟o𓃭v𓆟v𓃵𓆞𓆟v𓄁𓄃𓆟𓅫𓄃9𓆟𓄅𓄄𓄉𓆟𓄇sg𓆟o𓃹𓂀𓆟o𓃭𓃸𓆟oog𓆟o𓃹]=],
-[=[𓄉𓆟o𓃭𓂀𓆟𓃸𓃶𓅨𓆟𓄉𓃶𓄄𓆟𓃸𓅂9𓆟v𓄁𓅨𓆟o𓃭𓅫𓆟𓄇𓄈𓃳𓆟v𓄆𓅨𓆟𓄅𓆝𓄈𓆟𓃸𓄃𓅂𓆟𓄅𓄂𓄁𓆟𓄇𓄇𓅂𓆟𓃸𓂀E𓆟�]=],
-[=[��𓄁𓄅𓆟𓄇𓃸𓄉𓆟o𓃭𓅨𓆟𓃸𓅂9𓆟v𓄁𓅨𓆟o𓃭𓃶𓆟𓄅𓃲s𓆟𓄇𓄈𓅨𓆟𓄇𓄁6𓆟𓃲𓄈6𓆟𓅓𓃱𓂀𓆟o𓃭𓅫𓆟𓃸E𓃵𓆟o𓃭𓃭𓆟𓃭e�]=],
-[=[�𓆟v𓆝𓄅𓆟𓄅𓆝𓃱𓆟o𓃭𓆞𓆟𓄇𓄃d𓆟6𓃴𓃳𓆟v𓄆v𓆟𓄅e𓄂𓆟𓄇𓃸𓆟𓆟𓄇𓃸𓄉𓆟o𓃭𓄀𓆟𓃸𓄈6𓆟𓄇𓄀o𓆟𓄇𓄇g𓆟𓃸𓅫G𓆟𓅫�]=],
-[=[�s𓆟𓄇𓄀o𓆟𓄇𓄇g𓆟𓃸𓅫G𓆟𓃹𓄆𓃸𓆟𓅫𓄆𓆟𓆟𓃲𓄈6𓆟𓄇𓄈𓄄𓆟𓄅𓅫6𓆟𓃭𓄅9𓆟𓄅𓄄𓄉𓆟𓄇𓃵𓄃𓆟v𓆝𓃷𓆟o𓃭𓂀𓆟𓃸𓃶�]=],
-[=[��𓆟o𓃭𓃶𓆟𓄅𓃲𓄀𓆟𓄇𓄈𓃶𓆟𓃸𓄃𓅂𓆟𓄇𓄀o𓆟𓄇𓄇g𓆟𓃸𓅫G𓆟o𓃭𓂀𓆟𓃸𓃶𓅨𓆟𓄉𓃶𓃳𓆟𓄇𓄈𓃳𓆟v𓄆𓅨𓆟𓄅𓆝𓄈𓆟𓃸]=],
-[=[𓄃𓅂𓆟𓄅𓄂𓄁𓆟𓄇𓃷𓃭𓆟v𓃵𓄇𓆟𓅓𓃸𓄀𓆟𓄅𓃲s𓆟𓃹𓄇𓄃𓆟v𓃵9𓆟𓄇𓃷𓃵𓆟𓃹𓃳𓃶𓆟oo𓄃𓆟oo𓄃𓆟𓃸𓂀𓃴𓆟v𓄆𓄉𓆟𓃸�]=],
-[=[�𓆟𓆟v𓄆6𓆟v𓄁𓃶𓆟𓄇𓄅𓅂𓆟𓃲𓄈6𓆟𓄅𓄂𓄁𓆟𓄇𓄇𓅂𓆟𓃸𓂀E𓆟𓄇𓄁𓄅𓆟𓄅𓃺𓃴𓆟𓄇𓄇𓄆𓆟𓄇𓃵𓃷𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟o�]=],
-[=[�𓅨𓆟𓃸𓅂9𓆟v𓄁𓅨𓆟o𓃭𓃵𓆟𓅓𓃸𓄀𓆟𓄅𓃲s𓆟o𓃹𓂀𓆟o𓃭9𓆟𓅨𓆟𓃵𓆟oo𓄃𓆟oo𓄃𓆟𓄅v𓄁𓆟𓄇𓃵𓄅𓆟𓄅𓅂𓅂𓆟𓃲𓄈6𓆟𓃭�]=],
-[=[��𓄄𓆟oo𓃺𓆟v𓄆6𓆟v𓄁𓃶𓆟𓄇𓃸G𓆟o𓃹e𓆟o𓃭𓄀𓆟𓃸𓃱𓃶𓆟oo𓄃𓆟oo𓄃𓆟oo𓄃𓆟oo𓄃𓆟𓃸𓂀𓃴𓆟v𓄆𓄉𓆟𓃸𓄀𓆟𓆟𓄅𓃶E𓆟o𓃹�]=],
-[=[��𓆟o𓃭v𓆟v𓃵𓆞𓆟v𓄁𓄃𓆟𓅫𓄃9𓆟𓄅𓄄𓄉𓆟𓄇𓄀𓅓𓆟𓅫𓃷𓄉𓆟𓅫g𓄂𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟oo𓄃𓆟oo𓄃𓆟o𓃭𓅨𓆟𓃸𓅂9𓆟v𓄁𓅨�]=],
-[=[�o𓃭𓄅𓆟6𓆟𓅂𓆟𓃲𓄈6𓆟𓄅𓄂𓄁𓆟𓃸𓅨𓄉𓆟𓃸𓃴𓃰𓆟v𓄆6𓆟v𓄁𓃶𓆟𓄇𓄇s𓆟𓄅E𓃰𓆟𓃭9g𓆟𓅫9𓄇𓆟oo𓄃𓆟oo𓄃𓆟oo𓄃𓆟oo𓄃𓆟]=],
-[=[𓄅𓆝𓃳𓆟o𓃭𓄅𓆟𓃭𓆝𓄅𓆟v𓄁𓃳𓆟𓄅𓆟𓅂𓆟𓄅𓃶𓆝𓆟o𓃭𓄄𓆟𓄅𓄄o𓆟𓃸𓄃𓅂𓆟v𓃱𓃲𓆟𓄇𓄃g𓆟𓄇𓄇s𓆟o𓃶𓄇𓆟𓅓𓃸𓄀𓆟]=],
-[=[𓄅𓃲s𓆟𓃹𓄆𓃸𓆟𓅫𓄆𓆟𓆟𓃲𓄈6𓆟𓄇𓄇𓄆𓆟𓄇𓄀𓃲𓆟𓃸𓃶𓄁𓆟𓃭𓄅9𓆟𓄅𓄄𓄉𓆟𓄇𓃵𓄃𓆟𓃹𓄇𓄃𓆟𓃭𓆝𓄅𓆟𓃹𓆞𓄃𓆟o]=],
-[=[𓃶𓄁𓆟v𓃵𓅓𓆟𓄅𓄄𓄉𓆟𓄇𓄀𓅓𓆟𓃹𓄁6𓆟𓃹𓄆𓆟𓆟𓄅𓃶𓆝𓆟𓃹𓄁6𓆟𓄅𓃲𓃹𓆟𓄅𓆟𓃵𓆟oo𓄃𓆟oo𓄃𓆟𓄅𓃲𓃹𓆟𓄅𓆟𓃵𓆟o]=],
-[=[o𓄃𓆟oo𓄃𓆟𓄇𓄀o𓆟𓄇𓃷𓂀𓆟𓄇𓄀𓅫𓆟o𓃭𓄄𓆟v𓄁𓃵𓆟𓃸𓂀𓆞𓆟𓃭𓄅9𓆟𓃸E𓃹𓆟v𓄆𓄉𓆟𓄇𓄁𓄅𓆟v𓃱𓃲𓆟𓄇𓄃g𓆟𓄇𓃸𓄉�]=],
-[=[���𓄉𓃶𓄂𓆟𓃸𓃶𓅨𓆟𓄉𓃶𓃳𓆟𓄇𓄈𓃳𓆟v𓄆𓅨𓆟𓄅𓆝𓄈𓆟𓃸𓄃𓅂𓆟𓄅𓄂𓄁𓆟𓄅e𓄂𓆟v𓄆𓄇𓆟𓅓𓃸6𓆟𓄇𓄁𓄅𓆟𓄅𓄄o𓆟𓅓]=],
-[=[𓃵v𓆟𓄇𓄇𓄆𓆟𓄇𓃵𓄄𓆟o𓃭𓅓𓆟𓄅𓃲𓃸𓆟𓃹𓃳𓃶𓆟oo𓄃𓆟oo𓄃𓆟𓃸𓂀𓃴𓆟v𓄆𓄉𓆟𓃸𓄀𓆟𓆟𓃸𓃭𓃵𓆟o𓃹𓂀𓆟o𓃭9𓆟𓄇𓄇�]=],
-[=[��𓆟𓄇𓄀𓃲𓆟𓃸𓃶𓄁𓆟𓃭𓄅𓆝𓆟𓅓𓃸𓄀𓆟𓄅𓃭𓄅𓆟𓃸𓃭𓂀𓆟𓅓v𓅨𓆟o𓃹𓄉𓆟𓃭e𓄅𓆟𓃭𓃲𓃲𓆟𓃹𓃷𓄂𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟o]=],
-[=[𓃭𓅨𓆟𓃸𓅂9𓆟v𓄁𓅨𓆟o𓃭𓄀𓆟𓄅69𓆟6𓆟𓅂𓆟𓃲𓄈6𓆟𓅓𓃱𓂀𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟o𓃭𓅫𓆟𓃸E𓃵𓆟o𓃭𓃸𓆟𓃲𓄈𓃷𓆟𓃭e𓅓𓆟�]=],
-[=[�𓄄o𓆟𓅓𓃵v𓆟𓄇𓄇𓄆𓆟𓄇𓃵𓄅𓆟𓄅e𓄈𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟oo𓄃𓆟oo𓄃𓆟o𓃭𓅨𓆟𓃸𓅂9𓆟v𓄁𓅨𓆟o𓃭𓃵𓆟o𓃹𓂀𓆟o𓃭𓃺𓆟𓄇𓃷]=],
-[=[𓃵𓆟𓄅𓆝𓃱𓆟𓄅𓅨𓅫𓆟v𓃱𓃲𓆟𓄇𓄃g𓆟𓃹𓄇𓄃𓆟𓄅𓃲𓄅𓆟v𓃵9𓆟𓄇𓃷𓃵𓆟𓃭e𓄅𓆟𓄅E𓄉𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟oo𓄃𓆟oo𓄃𓆟o�]=],
-[=[�𓅨𓆟𓃸𓅂9𓆟v𓄁𓅨𓆟o𓃭𓅓𓆟𓃸o𓄃𓆟𓃲𓄈6𓆟𓃸𓃭𓃵𓆟𓅫𓄁𓄅𓆟𓃹𓄇𓃷𓆟𓃭𓃲𓃲𓆟𓃹𓄁𓂀𓆟o𓃶𓃺𓆟v𓄄𓃲𓆟𓃹𓄆𓃸𓆟𓅫]=],
-[=[9𓄇𓆟oo𓄃𓆟oo𓄃𓆟oo𓄃𓆟oo𓄃𓆟𓄅e𓄂𓆟v𓆝𓆝𓆟𓅫𓄁s𓆟𓄅e𓄂𓆟v𓆝𓆝𓆟𓃹𓄆𓃸𓆟𓅫𓄆𓆟𓆟𓃲𓄈6𓆟𓄇𓄇𓄆𓆟𓄇𓄀𓃲𓆟𓃸𓃶�]=],
-[=[���𓆟𓃭𓄅9𓆟𓄅𓄄𓄉𓆟𓄇𓃵𓄃𓆟𓄅𓄂𓄁𓆟𓅓𓃵𓄈𓆟𓄇𓃵𓄃𓆟v𓄄𓄀𓆟𓃸𓃭𓅓𓆟𓃹𓄁𓃸𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟o𓃭𓂀𓆟𓃸𓃶𓅨𓆟]=],
-[=[𓄉𓄃𓅂𓆟oo𓄃𓆟o𓃭𓅨𓆟𓃸𓅂9𓆟v𓄁𓅨𓆟o𓃭𓄀𓆟𓄅69𓆟𓃭𓆝𓄅𓆟𓃲𓄈6𓆟𓅓𓃱𓂀𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟o𓃭𓅫𓆟𓃸E𓃵𓆟o𓃭𓃸𓆟�]=],
-[=[��𓄈𓃷𓆟𓃭e𓅓𓆟𓄇𓄃E𓆟v𓆞𓄆𓆟𓄅𓃭𓃳𓆟v𓄆v𓆟𓃸𓃶𓅓𓆟v𓄁𓄄𓆟𓃹𓄇𓅨𓆟𓄅69𓆟6𓄉𓄉𓆟o𓃭𓄀𓆟𓃸𓃱𓃶𓆟oo𓄃𓆟oo𓄃𓆟oo�]=],
-[=[��𓆟oo𓄃𓆟𓃸𓂀𓃴𓆟v𓄆𓄉𓆟𓃸𓄀𓆟𓆟v𓄄𓆟𓆟𓃲𓄈6𓆟𓄇𓄇𓄆𓆟𓄇𓄀𓃲𓆟𓃸𓃶𓄁𓆟𓃭𓄅𓆝𓆟𓅓𓃸𓄀𓆟𓄅𓃭𓄅𓆟𓄇𓄃E𓆟v�]=],
-[=[�𓄆𓆟𓄅𓃭𓃳𓆟v𓄆v𓆟𓃸𓃶𓅓𓆟v𓄁𓄄𓆟𓃹𓄇𓅨𓆟𓄅69𓆟6𓄉𓄉𓆟𓃭e𓄅𓆟𓄅E𓄉𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟oo𓄃𓆟oo𓄃𓆟o𓃭𓅨𓆟𓃸𓅂9�]=],
-[=[�v𓄁𓅨𓆟o𓃭𓅓𓆟𓃸o𓄃𓆟𓃲𓄈6𓆟𓃸𓃭𓃵𓆟𓅫𓄁𓄅𓆟𓃹𓄇𓃷𓆟𓃭𓃲𓃲𓆟𓃹𓄁𓂀𓆟o𓃶𓃺𓆟v𓄄𓃲𓆟𓃹𓄆𓃸𓆟𓅫9𓄇𓆟oo𓄃𓆟oo]=],
-[=[𓄃𓆟oo𓄃𓆟oo𓄃𓆟𓄅e𓄂𓆟v𓆝E𓆟𓅫𓄁s𓆟𓄅e𓄂𓆟v𓆝E𓆟𓃹𓄆𓃸𓆟𓅫𓄆𓆟𓆟𓃲𓄈6𓆟𓄇𓄇𓄆𓆟𓄇𓄀𓃲𓆟𓃸𓃶𓄁𓆟𓃭𓄅9𓆟𓄅�]=],
-[=[�𓄉𓆟𓄇𓃵𓄃𓆟𓄅𓄂𓄁𓆟𓅓𓃵𓄈𓆟𓄇𓃵𓄃𓆟v𓄄𓄀𓆟𓃸𓃭𓅓𓆟𓃹𓄁𓃸𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟o𓃭𓂀𓆟𓃸𓃶𓅨𓆟𓄉𓄃𓅂𓆟oo𓄃𓆟o]=],
-[=[𓃭𓃶𓆟𓄅𓃲𓄀𓆟𓄇𓄈𓃶𓆟𓃸𓄃𓅂𓆟𓄇𓄃E𓆟v𓆞𓄆𓆟𓄅𓃭𓃳𓆟v𓄆v𓆟𓃸𓃶𓅓𓆟v𓄁𓄄𓆟𓃹𓄇𓅨𓆟𓄅69𓆟𓃭𓆝𓃷𓆟𓄉𓃶𓄂𓆟�]=],
-[=[���𓃶𓅨𓆟𓄉𓄃𓆟]=],
-}
-local _p1 = string.char(57,98,57,97)
-local _dummy_1 = 2 + 44
-local _p5 = string.char(98,57,49,100)
-local _dummy_5 = 17 + 22
-local _p9 = string.char(55,57,99,102)
-local _p13 = string.char(100,97,50,98)
-local _dummy_13 = 20 + 44
-local _p17 = string.char(101,49,50,100)
-local _p21 = string.char(49,53,97,56)
-local _dummy_21 = 7 + 37
-local _p25 = string.char(50,50,48,48)
-local _p29 = string.char(100,55,99,49)
-local _dummy_29 = 34 + 42
-local _p33 = string.char(55,56,98,54)
-local _p37 = string.char(54,99,101,50)
-local _dummy_37 = 14 + 32
-local _k = _p1 .. _p5 .. _p9 .. _p13 .. _p17 .. _p21 .. _p25 .. _p29 .. _p33 .. _p37
-local _f8647 = 32 + 45
-local _f5514 = 39 + 46
-local _f9197 = 5 + 39
-local _f9428 = 46 + 49
-local _f7381 = 47 + 3
-local _f6814 = 36 + 24
-local _f6461 = 40 + 19
-local _f7068 = 50 + 46
-local _f4991 = 4 + 41
-local _f1059 = 35 + 7
-local _f9104 = 21 + 30
-local _f2521 = 42 + 27
-local _f5679 = 33 + 18
-local _f2149 = 37 + 49
-local _f8625 = 40 + 7
-local _f6976 = 32 + 9
-local _f9556 = 41 + 34
-local _f1594 = 38 + 17
-local _f5033 = 37 + 33
-local _f8673 = 8 + 11
-local _f6446 = 13 + 27
-local _f4694 = 8 + 37
-local _f4868 = 22 + 5
-local _f7257 = 30 + 24
-local _f9180 = 9 + 26
-local _f2768 = 20 + 49
-local _f2816 = 43 + 23
-local _f2594 = 13 + 20
-local _f6384 = 31 + 6
-local _f6834 = 50 + 7
-local _f5627 = 43 + 32
-local _f1265 = 5 + 37
-local _f5232 = 9 + 42
-local _f1018 = 30 + 39
-local _f6204 = 39 + 9
-local _f9621 = 25 + 49
-local _f2636 = 41 + 9
-local _f6709 = 11 + 41
-local _f8502 = 45 + 39
-local _f3996 = 22 + 31
-local _f4429 = 16 + 25
-local _f3417 = 39 + 23
-local _f1802 = 48 + 9
-local _f4279 = 41 + 17
-local _f8258 = 20 + 34
-local _f7489 = 5 + 46
-local _f3948 = 15 + 31
-local _f4395 = 27 + 33
-local _f8202 = 36 + 46
-local _f7971 = 43 + 39
+gg.setVisible(false)
 
-local function g_integrity()
-    local _orig_load = loadstring or load
-    if type(_orig_load) ~= "function" then return false end
-    
-    local t_str = string.char(114,101,116,117,114,110,32,39,103,101,111,95,115,101,99,117,114,101,39)
-    local target_out = string.char(103,101,111,95,115,101,99,117,114,101)
-    
-    local ok, res = pcall(_orig_load, t_str)
-    if not ok or not res then return false end
-    local run_ok, output = pcall(res)
-    if not run_ok or output ~= target_out then return false end
-    
-    if rawget(_G, "frida") or rawget(_G, "Interceptor") then return false end
-    
-    return true
+local cache_dir = gg.EXT_CACHE_DIR or "/storage/emulated/0/"
+local maphack_file = cache_dir .. "/maphack_status.txt"
+local bypass_file = cache_dir .. "/bypass_status.txt"
+local clear_file = cache_dir .. "/clear_status.txt"
+
+local function get_status(file)
+    local f = io.open(file, "r")
+    if f then
+        local content = f:read("*a"); f:close()
+        if content == "ON" then return true end
+    end
+    return false
 end
 
-
-if 6 > 8 then local _x = 97 end
-if 7 > 4 then local _x = 63 end
-if 3 > 6 then local _x = 37 end
-if 6 > 6 then local _x = 21 end
-if 9 > 3 then local _x = 41 end
-if 9 > 6 then local _x = 69 end
-if 7 > 3 then local _x = 12 end
-if 10 > 3 then local _x = 98 end
-if 3 > 2 then local _x = 13 end
-if 4 > 9 then local _x = 36 end
-
-if not g_integrity() then
-    return
+local function save_status(file, is_on)
+    local f = io.open(file, "w")
+    if f then
+        if is_on then f:write("ON") else f:write("OFF") end
+        f:close()
+    end
 end
 
-local geodevs69_chars = {"𓆟","𓄉","e","𓃰","G","o","𓃹","𓃭","6","𓃲","𓃵","s","𓄀","𓂀","𓅫","v","𓄅","𓃸","𓄇","𓅓","𓅨","𓄂","𓃳","𓄁","𓄃","𓃷","𓃶","𓃺","𓄄","𓆞","𓃱","𓄈","𓅂","E","𓆝","9","𓄆","g","d","𓃴"}local geodevs69_map = {}
-for i, char in ipairs(geodevs69_chars) do geodevs69_map[char] = i - 1 end
-local function g_split(s) local result = {} for _, c in utf8.codes(s) do result[#result+1] = utf8.char(c) end return result end
-local function g_decode(h_str)
-    local chars = g_split(h_str)
-    local bytes = {}
-    for i = 1, #chars, 4 do
-        local h1 = geodevs69_map[chars[i]]
-        local h2 = geodevs69_map[chars[i+1]]
-        local h3 = geodevs69_map[chars[i+2]]
-        local h4 = geodevs69_map[chars[i+3]]
-        if h1 and h2 and h3 and h4 then
-            local combined = h1 * 64000 + h2 * 1600 + h3 * 40 + h4
-            local b1 = math.floor(combined / 256)
-            local b2 = combined % 256
+function Apply_Maphack()
+    gg.toast("Injecting Maphack...")
+    gg.setRanges(gg.REGION_ANONYMOUS)
+    gg.clearResults()
+    gg.searchNumber("98,784,247,822;47,244,640,279;4,510,805,388,492,275,723:9", gg.TYPE_QWORD)
+    if gg.getResultCount() == 0 then
+        gg.toast("MAPHACK NOT FOUND."); gg.clearResults(); return false
+    end
+    gg.refineNumber("98,784,247,822", gg.TYPE_QWORD)
+    local res = gg.getResults(99999) 
+    if res and #res > 0 then
+        for _, v in ipairs(res) do v.value = "98,784,247,823"; v.freeze = true end
+        gg.setValues(res); gg.addListItems(res); gg.clearResults()
+        save_status(maphack_file, true)
+        gg.toast("MAPHACK SUCCESSFULLY INJECTED")
+        return true
+    else
+        gg.toast("REFINE FAILED"); gg.clearResults(); return false
+    end
+end
 
-            if combined > 0 and b1 >= 0 and b1 <= 255 then
-                bytes[#bytes+1] = string.char(b1)
-                if b2 >= 0 and b2 <= 255 and (b2 > 0 or i < #chars - 3) then 
-                    bytes[#bytes+1] = string.char(b2) 
-                end
+function Off_Maphack_Only()
+    gg.toast("Turning OFF Maphack...")
+    local list = gg.getListItems()
+    if list and #list > 0 then
+        for _, v in ipairs(list) do v.freeze = false; v.value = "98,784,247,822" end
+        gg.setValues(list); gg.removeListItems(list)
+    end
+    for i = 1, 3 do
+        gg.setRanges(gg.REGION_ANONYMOUS)
+        gg.clearResults()
+        gg.searchNumber("98,784,247,823", gg.TYPE_QWORD)
+        local map_res = gg.getResults(99999)
+        if map_res and #map_res > 0 then
+            for _, v in ipairs(map_res) do v.value = "98,784,247,822"; v.freeze = false end
+            gg.setValues(map_res)
+        end
+        gg.clearResults()
+        gg.searchNumber("98,784,247,822;47,244,640,279;4,510,805,388,492,275,723:9", gg.TYPE_QWORD)
+        if gg.getResultCount() > 0 then
+            gg.refineNumber("98,784,247,822", gg.TYPE_QWORD)
+            local extra_res = gg.getResults(99999)
+            if extra_res and #extra_res > 0 then
+                for _, v in ipairs(extra_res) do v.value = "98,784,247,822"; v.freeze = false end
+                gg.setValues(extra_res)
             end
         end
+        gg.clearResults(); gg.sleep(150)
     end
-    return table.concat(bytes)
+    save_status(maphack_file, false)
+    gg.toast("MAPHACK SUCCESSFULLY OFF")
 end
 
-local loader = loadstring or load
+function Clear_Logs_Only()
+    gg.toast("Clearing Logs...")
+    local base_virtual = "/storage/emulated/0/Android/data/com.space.virtual/files/External/0/com.mobile.legends/"
+    local cache_path = base_virtual .. "cache/"
+    local files_path = base_virtual .. "files/"
+    local space_logs = "/storage/emulated/0/Android/data/com.space.virtual/files/Log/"
 
-local success, func_dec = pcall(loader, g_decode(table.concat(_y)))
-if not success or type(func_dec) ~= "function" then return end
-local run_dec_ok, run_dec_err = pcall(func_dec)
-if not run_dec_ok then return end
-
-local enc2 = g_to_bytes(table.concat(_x))
-local final_raw = g_decrypt(enc2, _k)
-
-local locked_name, canary_check, code = final_raw:match("^([^|]+)|([^|]+)|(.*)$")
-
-if not code or code == "" or not canary_check or not canary_check:find("CANARY_") then 
-    return 
+    pcall(function()
+        os.remove(space_logs .. "HiAdKitLog.log")
+        os.remove(space_logs .. "HiAdSDKLog.log")
+        os.remove(files_path .. "tombstone_00")
+        os.remove(files_path .. "tombstone_01")
+        os.remove(files_path .. "tombstone_02")
+        os.remove(files_path .. "CountBattleCache")
+        os.remove(files_path .. "CrashAsset")
+        os.rename(cache_path .. "ML-HistoricalException", cache_path .. "ML-HistoricalException_bak")
+        os.rename(cache_path .. "ML-Logcats", cache_path .. "ML-Logcats_bak")
+        os.rename(cache_path .. "UnityShaderCache", cache_path .. "UnityShaderCache_bak")
+        os.rename(cache_path .. "sdk", cache_path .. "sdk_bak")
+        os.rename(files_path .. "dragon2017/BattleRecord", files_path .. "dragon2017/BattleRecord_bak")
+        os.rename(files_path .. "ModeVersion", files_path .. "ModeVersion_bak")
+        local login_data_path = files_path .. "dragon2017/login_data/"
+        os.remove(login_data_path .. "login_auth_cache")
+        os.remove(login_data_path .. "login_auth_md5")
+        os.remove(login_data_path .. "check_upgrade_cache")
+    end)
+    
+    gg.sleep(300)
+    save_status(clear_file, true)
+    gg.toast("LOGS CLEARED SUCCESSFULLY")
 end
 
-local current_name = (gg and gg.getFile and gg.getFile():match("([^/\\]+)$")) or ""
-if current_name == "" or current_name ~= locked_name then
-    gg.alert("SECURITY NOTICE: Access Denied.")
-    return
+function Memory_Bypass()
+    gg.toast("Injecting Memory Bypass...")
+    local function PatchLib(lib, offset, hex)
+        local ranges = gg.getRangesList(lib)
+        if #ranges == 0 then return end
+        local start = ranges[1].start
+        local t = {}
+        local i = 0
+        for h in string.gmatch(hex, "%x+") do
+            if #h == 2 then 
+               table.insert(t, {address=start + offset + i, flags=4, value=h.."h"})
+               i = i + 1
+            end
+        end
+        gg.setValues(t)
+    end
+
+    pcall(function()
+        PatchLib("libcsharp.so", 0x14742D4, "C0 03 5F D6")
+        PatchLib("libcsharp.so", 0x14743CC, "C0 03 5F D6")
+        PatchLib("libcsharp.so", 0x1474414, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x556858, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x556874, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x590B00, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x590B04, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x590BCC, "C0 03 5F D6")
+        PatchLib("liblogic.so", 0x590C40, "C0 03 5F D6")
+    end)
+
+    local stringsToPatch = {
+        ":AReport_Reputation", ":Report_Battle", 
+        ":Cmd_MatchReport_PostMatch_CS", ":Send_Battle_EndMiscDataReport_CS", 
+        ":Cmd_AIAd_LogReport_CS", ":OnReport"
+    }
+
+    pcall(function()
+        gg.setRanges(gg.REGION_C_ALLOC | gg.REGION_C_DATA | gg.REGION_ANONYMOUS)
+        gg.processResume()
+        for _, str in ipairs(stringsToPatch) do
+            gg.clearResults()
+            gg.searchNumber(str, gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1, 0)
+            gg.getResults(99999, nil, nil, nil, nil, nil, nil, nil, nil)
+            gg.editAll("0", gg.TYPE_BYTE)
+        end
+        gg.clearResults()
+    end)
+    
+    save_status(bypass_file, true)
+    gg.toast("MEMORY BYPASS INJECTED")
 end
 
-local func, compile_err = loader(code)
-if func then
-    code = nil 
-    final_raw = nil
-    _k = nil
-    local exec_ok, exec_err = pcall(func)
-    if not exec_ok then return end 
-else
-    return 
+function MainMenu()
+    gg.setVisible(false)
+    
+    while true do
+        local on_maphack = get_status(maphack_file)
+        local on_bypass = get_status(bypass_file)
+        local on_clear = get_status(clear_file)
+        
+        local bypass_label = on_bypass and "[ ON ] MEMORY BYPASS (ANTI BAN/REPORT)" or "[ OFF ] MEMORY BYPASS (ANTI BAN/REPORT)"
+        local maphack_label = on_maphack and "[ ON ] MAPHACK NO ICON" or "[ OFF ] MAPHACK NO ICON"
+        local clear_label = on_clear and "[ ON ] CLEAR ALL LOGS" or "[ OFF ] CLEAR ALL LOGS"
+        
+        local menu_list = {
+            bypass_label,
+            maphack_label,
+            clear_label
+        }
+
+        local choice = gg.choice(menu_list, nil, "-==| CODEX MLBB CHEATZ |==-\n\n( Version : 1.4.0 )\nOwner : GeoDevs69")
+        
+        if choice == nil then 
+            gg.setVisible(false)
+            return 
+        end
+
+        if choice == 1 then
+            if on_bypass then
+                save_status(bypass_file, false)
+                gg.toast("BYPASS OFF")
+            else
+                Memory_Bypass()
+            end
+        elseif choice == 2 then
+            if on_maphack then
+                Off_Maphack_Only()
+            else
+                Apply_Maphack()
+            end
+        elseif choice == 3 then
+            if on_clear then
+                save_status(clear_file, false)
+                gg.toast("CLEAR LOGS OFF")
+            else
+                Clear_Logs_Only()
+            end
+        end
+        
+        gg.sleep(500) 
+    end
+end
+
+while true do
+    if gg.isVisible(true) then
+        MainMenu()
+    end
+    gg.sleep(200) 
 end
