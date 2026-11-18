@@ -1,224 +1,261 @@
-gg.setVisible(false)
+-- CODEX VIP OBFUSCATOR --
+-- Encrypted by: GeoDevs69 (GEO V18 - ASCII Edition)
+-- All Right Reserved (C) Codex Squad Penetrator - 2024
+local _x = {
+[=[fgfdfCfmkwfEflfbfNfEfgfqfmfofBkfcGfifMfoktcucbclcbfffjfEcjchcjcpcEcFktfyfycGfHfmfBfGfbfHfbfrfifmcwfxfofifHfmccwDwDfifdfgfofiwNfgfofgfqfmfEfCfbfvwNcmwNfyfycGcnfzftfEcucbcucNcnfEcicsffwNfdfvwNwvcAfHfBfd]=],
+[=[fvfofyfmcAfmfnfMfifofBfmfCcAczcAwvwDfifdfgfofiwNfnfofNfqfofgfufEfxfbfifmwNcmwNfgfofgfqfmfEfCfbfvwNcGcGwNwvcAfnfofNfqfofgfufEfHfBfofBfMfHcGfBkwfBwvwDfifdfgfofiwNfrkcfNfofHfHfEfxfbfifmwNcmwNfgfofgfqfmfE]=],
+[=[fCfbfvwNcGcGwNwvcAfrkcfNfofHfHfEfHfBfofBfMfHcGfBkwfBwvwDfifdfgfofiwNfgfifmfofvfEfxfbfifmwNcmwNfgfofgfqfmfEfCfbfvwNcGcGwNwvcAfgfifmfofvfEfHfBfofBfMfHcGfBkwfBwvwDwDfNfgfofificwfxfMfafgfBfbfdfacwccwDwNwN]=],
+[=[wNwNfdfHcGfvfmfnfdflfmcwfnfofNfqfofgfufEfxfbfifmccwDwNwNwNwNfdfHcGfvfmfnfdflfmcwfrkcfNfofHfHfEfxfbfifmccwDwNwNwNwNfdfHcGfvfmfnfdflfmcwfgfifmfofvfEfxfbfifmccwDfmfafCccwDwDfifdfgfofiwNfxfMfafgfBfbfdfawN]=],
+[=[fyfmfBfEfHfBfofBfMfHcwfxfbfifmccwDwNwNwNwNfifdfgfofiwNfxwNcmwNfbfdcGfdfNfmfacwfxfbfifmctwNwvfvwvccwDwNwNwNwNfbfxwNfxwNfBfqfmfawDwNwNwNwNwNwNwNwNfifdfgfofiwNfgfdfafBfmfafBwNcmwNfxcrfvfmfofCcwwvcffowvcc]=],
+[=[cgwNfxcrfgfifdfHfmcwccwDwNwNwNwNwNwNwNwNfbfxwNfgfdfafBfmfafBwNcmcmwNwvcIclwvwNfBfqfmfawNfvfmfBfMfvfawNfBfvfMfmwNfmfafCwDwNwNwNwNfmfafCwDwNwNwNwNfvfmfBfMfvfawNfxfofifHfmwDfmfafCwDwDfifdfgfofiwNfxfMfafg]=],
+[=[fBfbfdfawNfHfoflfmfEfHfBfofBfMfHcwfxfbfifmctwNfbfHfEfdfaccwDwNwNwNwNfifdfgfofiwNfxwNcmwNfbfdcGfdfNfmfacwfxfbfifmctwNwvfIwvccwDwNwNwNwNfbfxwNfxwNfBfqfmfawDwNwNwNwNwNwNwNwNfbfxwNfbfHfEfdfawNfBfqfmfawNfx]=],
+[=[crfIfvfbfBfmcwwvcIclwvccwNfmfifHfmwNfxcrfIfvfbfBfmcwwvcIcacawvccwNfmfafCwDwNwNwNwNwNwNwNwNfxcrfgfifdfHfmcwccwDwNwNwNwNfmfafCwDfmfafCwDwDfxfMfafgfBfbfdfawNcbfNfNfikcfEcMfofNfqfofgfucwccwDwNwNwNwNfyfycG]=],
+[=[fBfdfofHfBcwwvcsfafJfmfgfBfbfafywNcMfofNfqfofgfucGcGcGwvccwDwNwNwNwNfyfycGfHfmfBfffofafyfmfHcwfyfycGffcncdcscIclfEcbclcIclfjcMcIfKfkccwDwNwNwNwNfyfycGfgfifmfofvfffmfHfMfifBfHcwccwDwNwNwNwNfyfycGfHfmfo]=],
+[=[fvfgfqclfMfnfrfmfvcwwvcocpctcEcpcFctcDcFcEctcpcDcDcgcFcEctcDcFcFctchcFczctcDcEcocgcFctcecjczctcpczcectcLcpcpctcFcocDctcDcEcectcEcDcLcrcowvctwNfyfycGftfjfwcnfEfcfAcIffciccwDwNwNwNwNfbfxwNfyfycGfyfmfBff]=],
+[=[fmfHfMfifBcufdfMfafBcwccwNcmcmwNczwNfBfqfmfawDwNwNwNwNwNwNwNwNfyfycGfBfdfofHfBcwwvcMcbfwcNcbcucHwNclcIftwNcacIfKclcicGwvcccgwNfyfycGfgfifmfofvfffmfHfMfifBfHcwcccgwNfvfmfBfMfvfawNfxfofifHfmwDwNwNwNwNfm]=],
+[=[fafCwDwNwNwNwNfyfycGfvfmfxfbfafmclfMfnfrfmfvcwwvcocpctcEcpcFctcDcFcEctcpcDcDwvctwNfyfycGftfjfwcnfEfcfAcIffciccwDwNwNwNwNfifdfgfofiwNfvfmfHwNcmwNfyfycGfyfmfBfffmfHfMfifBfHcwcocococococcwNwDwNwNwNwNfbfx]=],
+[=[wNfvfmfHwNfofafCwNwHfvfmfHwNcxwNczwNfBfqfmfawDwNwNwNwNwNwNwNwNfxfdfvwNfEctwNflwNfbfawNfbfNfofbfvfHcwfvfmfHccwNfCfdwNflcGflfofifMfmwNcmwNwvcocpctcEcpcFctcDcFcEctcpcDcLwvcgwNflcGfxfvfmfmkffmwNcmwNfBfvfM]=],
+[=[fmwNfmfafCwDwNwNwNwNwNwNwNwNfyfycGfHfmfBfGfofifMfmfHcwfvfmfHcccgwNfyfycGfofCfCcBfbfHfBcsfBfmfnfHcwfvfmfHcccgwNfyfycGfgfifmfofvfffmfHfMfifBfHcwccwDwNwNwNwNwNwNwNwNfHfoflfmfEfHfBfofBfMfHcwfnfofNfqfofgfu]=],
+[=[fEfxfbfifmctwNfBfvfMfmccwDwNwNwNwNwNwNwNwNfyfycGfBfdfofHfBcwwvcMcbfwcNcbcucHwNfkfKcucucnfkfkcafKcBcBfjwNcsclcvcncuftcnciwvccwDwNwNwNwNwNwNwNwNfvfmfBfMfvfawNfBfvfMfmwDwNwNwNwNfmfifHfmwDwNwNwNwNwNwNwNwN]=],
+[=[fyfycGfBfdfofHfBcwwvffcncacsclcnwNcacbcscBcnciwvcccgwNfyfycGfgfifmfofvfffmfHfMfifBfHcwcccgwNfvfmfBfMfvfawNfxfofifHfmwDwNwNwNwNfmfafCwDfmfafCwDwDfxfMfafgfBfbfdfawNcIfxfxfEcMfofNfqfofgfufEcIfafikccwccwD]=],
+[=[wNwNwNwNfyfycGfBfdfofHfBcwwvftfMfvfafbfafywNcIcacawNcMfofNfqfofgfucGcGcGwvccwDwNwNwNwNfifdfgfofiwNfifbfHfBwNcmwNfyfycGfyfmfBcBfbfHfBcsfBfmfnfHcwccwDwNwNwNwNfbfxwNfifbfHfBwNfofafCwNwHfifbfHfBwNcxwNczwN]=],
+[=[fBfqfmfawDwNwNwNwNwNwNwNwNfxfdfvwNfEctwNflwNfbfawNfbfNfofbfvfHcwfifbfHfBccwNfCfdwNflcGfxfvfmfmkffmwNcmwNfxfofifHfmcgwNflcGflfofifMfmwNcmwNwvcocpctcEcpcFctcDcFcEctcpcDcDwvwNfmfafCwDwNwNwNwNwNwNwNwNfyfy]=],
+[=[cGfHfmfBfGfofifMfmfHcwfifbfHfBcccgwNfyfycGfvfmfnfdflfmcBfbfHfBcsfBfmfnfHcwfifbfHfBccwDwNwNwNwNfmfafCwDwNwNwNwNfxfdfvwNfbwNcmwNcjctwNcLwNfCfdwDwNwNwNwNwNwNwNwNfyfycGfHfmfBfffofafyfmfHcwfyfycGffcncdcscI]=],
+[=[clfEcbclcIclfjcMcIfKfkccwDwNwNwNwNwNwNwNwNfyfycGfgfifmfofvfffmfHfMfifBfHcwccwDwNwNwNwNwNwNwNwNfyfycGfHfmfofvfgfqclfMfnfrfmfvcwwvcocpctcEcpcFctcDcFcEctcpcDcLwvctwNfyfycGftfjfwcnfEfcfAcIffciccwDwNwNwNwN]=],
+[=[wNwNwNwNfifdfgfofiwNfnfofNfEfvfmfHwNcmwNfyfycGfyfmfBfffmfHfMfifBfHcwcocococococcwDwNwNwNwNwNwNwNwNfbfxwNfnfofNfEfvfmfHwNfofafCwNwHfnfofNfEfvfmfHwNcxwNczwNfBfqfmfawDwNwNwNwNwNwNwNwNwNwNwNwNfxfdfvwNfEct]=],
+[=[wNflwNfbfawNfbfNfofbfvfHcwfnfofNfEfvfmfHccwNfCfdwNflcGflfofifMfmwNcmwNwvcocpctcEcpcFctcDcFcEctcpcDcDwvcgwNflcGfxfvfmfmkffmwNcmwNfxfofifHfmwNfmfafCwDwNwNwNwNwNwNwNwNwNwNwNwNfyfycGfHfmfBfGfofifMfmfHcwfn]=],
+[=[fofNfEfvfmfHccwDwNwNwNwNwNwNwNwNfmfafCwDwNwNwNwNwNwNwNwNfyfycGfgfifmfofvfffmfHfMfifBfHcwccwDwNwNwNwNwNwNwNwNfyfycGfHfmfofvfgfqclfMfnfrfmfvcwwvcocpctcEcpcFctcDcFcEctcpcDcDcgcFcEctcDcFcFctchcFczctcDcEco]=],
+[=[cgcFctcecjczctcpczcectcLcpcpctcFcocDctcDcEcectcEcDcLcrcowvctwNfyfycGftfjfwcnfEfcfAcIffciccwDwNwNwNwNwNwNwNwNfbfxwNfyfycGfyfmfBfffmfHfMfifBcufdfMfafBcwccwNcxwNczwNfBfqfmfawDwNwNwNwNwNwNwNwNwNwNwNwNfyfy]=],
+[=[cGfvfmfxfbfafmclfMfnfrfmfvcwwvcocpctcEcpcFctcDcFcEctcpcDcDwvctwNfyfycGftfjfwcnfEfcfAcIffciccwDwNwNwNwNwNwNwNwNwNwNwNwNfifdfgfofiwNfmkwfBfvfofEfvfmfHwNcmwNfyfycGfyfmfBfffmfHfMfifBfHcwcocococococcwDwNwN]=],
+[=[wNwNwNwNwNwNwNwNwNwNfbfxwNfmkwfBfvfofEfvfmfHwNfofafCwNwHfmkwfBfvfofEfvfmfHwNcxwNczwNfBfqfmfawDwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNfxfdfvwNfEctwNflwNfbfawNfbfNfofbfvfHcwfmkwfBfvfofEfvfmfHccwNfCfdwNflcGflfo]=],
+[=[fifMfmwNcmwNwvcocpctcEcpcFctcDcFcEctcpcDcDwvcgwNflcGfxfvfmfmkffmwNcmwNfxfofifHfmwNfmfafCwDwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNfyfycGfHfmfBfGfofifMfmfHcwfmkwfBfvfofEfvfmfHccwDwNwNwNwNwNwNwNwNwNwNwNwNfmfafC]=],
+[=[wDwNwNwNwNwNwNwNwNfmfafCwDwNwNwNwNwNwNwNwNfyfycGfgfifmfofvfffmfHfMfifBfHcwcccgwNfyfycGfHfifmfmfNcwcjceczccwDwNwNwNwNfmfafCwDwNwNwNwNfHfoflfmfEfHfBfofBfMfHcwfnfofNfqfofgfufEfxfbfifmctwNfxfofifHfmccwDwN]=],
+[=[wNwNwNfyfycGfBfdfofHfBcwwvcMcbfwcNcbcucHwNfkfKcucucnfkfkcafKcBcBfjwNcIcacawvccwDfmfafCwDwDfxfMfafgfBfbfdfawNcufifmfofvfEcBfdfyfHfEcIfafikccwccwDwNwNwNwNfyfycGfBfdfofHfBcwwvcufifmfofvfbfafywNcBfdfyfHcG]=],
+[=[cGcGwvccwDwNwNwNwNfifdfgfofiwNfrfofHfmfEflfbfvfBfMfofiwNcmwNwvcAfHfBfdfvfofyfmcAfmfnfMfifofBfmfCcAczcAcbfafCfvfdfbfCcAfCfofBfocAfgfdfncGfHfNfofgfmcGflfbfvfBfMfoficAfxfbfifmfHcAcnkwfBfmfvfafoficAczcAfg]=],
+[=[fdfncGfnfdfrfbfifmcGfifmfyfmfafCfHcAwvwDwNwNwNwNfifdfgfofiwNfgfofgfqfmfEfNfofBfqwNcmwNfrfofHfmfEflfbfvfBfMfofiwNcGcGwNwvfgfofgfqfmcAwvwDwNwNwNwNfifdfgfofiwNfxfbfifmfHfEfNfofBfqwNcmwNfrfofHfmfEflfbfvfB]=],
+[=[fMfofiwNcGcGwNwvfxfbfifmfHcAwvwDwNwNwNwNfifdfgfofiwNfHfNfofgfmfEfifdfyfHwNcmwNwvcAfHfBfdfvfofyfmcAfmfnfMfifofBfmfCcAczcAcbfafCfvfdfbfCcAfCfofBfocAfgfdfncGfHfNfofgfmcGflfbfvfBfMfoficAfxfbfifmfHcAcBfdfy]=],
+[=[cAwvwDwDwNwNwNwNfNfgfofificwfxfMfafgfBfbfdfacwccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfnfdflfmcwfHfNfofgfmfEfifdfyfHwNcGcGwNwvcNfbcbfCcHfbfBcBfdfycGfifdfywvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfnfdflfmcwfHfNfofgfmfEfi]=],
+[=[fdfyfHwNcGcGwNwvcNfbcbfCfkcicHcBfdfycGfifdfywvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfnfdflfmcwfxfbfifmfHfEfNfofBfqwNcGcGwNwvfBfdfnfrfHfBfdfafmfEczczwvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfnfdflfmcwfxfbfifmfHfEfNfofB]=],
+[=[fqwNcGcGwNwvfBfdfnfrfHfBfdfafmfEczcjwvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfnfdflfmcwfxfbfifmfHfEfNfofBfqwNcGcGwNwvfBfdfnfrfHfBfdfafmfEczcDwvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfnfdflfmcwfxfbfifmfHfEfNfofBfqwNcGcG]=],
+[=[wNwvcufdfMfafBcJfofBfBfifmcufofgfqfmwvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfnfdflfmcwfxfbfifmfHfEfNfofBfqwNcGcGwNwvcufvfofHfqcbfHfHfmfBwvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfafofnfmcwfgfofgfqfmfEfNfofBfqwNcGcGwNwv]=],
+[=[cMcBcKcNfbfHfBfdfvfbfgfoficnkwfgfmfNfBfbfdfawvctwNfgfofgfqfmfEfNfofBfqwNcGcGwNwvcMcBcKcNfbfHfBfdfvfbfgfoficnkwfgfmfNfBfbfdfafEfrfofuwvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfafofnfmcwfgfofgfqfmfEfNfofBfqwNcGcG]=],
+[=[wNwvcMcBcKcBfdfyfgfofBfHwvctwNfgfofgfqfmfEfNfofBfqwNcGcGwNwvcMcBcKcBfdfyfgfofBfHfEfrfofuwvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfafofnfmcwfgfofgfqfmfEfNfofBfqwNcGcGwNwvfKfafbfBkcfkfqfofCfmfvcufofgfqfmwvctwNfg]=],
+[=[fofgfqfmfEfNfofBfqwNcGcGwNwvfKfafbfBkcfkfqfofCfmfvcufofgfqfmfEfrfofuwvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfafofnfmcwfgfofgfqfmfEfNfofBfqwNcGcGwNwvfHfCfuwvctwNfgfofgfqfmfEfNfofBfqwNcGcGwNwvfHfCfufEfrfofuwvcc]=],
+[=[wDwNwNwNwNwNwNwNwNfdfHcGfvfmfafofnfmcwfxfbfifmfHfEfNfofBfqwNcGcGwNwvfCfvfofyfdfacDczcjcEcAcJfofBfBfifmfffmfgfdfvfCwvctwNfxfbfifmfHfEfNfofBfqwNcGcGwNwvfCfvfofyfdfacDczcjcEcAcJfofBfBfifmfffmfgfdfvfCfEfr]=],
+[=[fofuwvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfafofnfmcwfxfbfifmfHfEfNfofBfqwNcGcGwNwvcMfdfCfmfGfmfvfHfbfdfawvctwNfxfbfifmfHfEfNfofBfqwNcGcGwNwvcMfdfCfmfGfmfvfHfbfdfafEfrfofuwvccwDwNwNwNwNwNwNwNwNfifdfgfofiwNfi]=],
+[=[fdfyfbfafEfCfofBfofEfNfofBfqwNcmwNfxfbfifmfHfEfNfofBfqwNcGcGwNwvfCfvfofyfdfacDczcjcEcAfifdfyfbfafEfCfofBfocAwvwDwNwNwNwNwNwNwNwNfdfHcGfvfmfnfdflfmcwfifdfyfbfafEfCfofBfofEfNfofBfqwNcGcGwNwvfifdfyfbfafE]=],
+[=[fofMfBfqfEfgfofgfqfmwvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfnfdflfmcwfifdfyfbfafEfCfofBfofEfNfofBfqwNcGcGwNwvfifdfyfbfafEfofMfBfqfEfnfCcewvccwDwNwNwNwNwNwNwNwNfdfHcGfvfmfnfdflfmcwfifdfyfbfafEfCfofBfofEfNfofB]=],
+[=[fqwNcGcGwNwvfgfqfmfgfufEfMfNfyfvfofCfmfEfgfofgfqfmwvccwDwNwNwNwNfmfafCccwDwNwNwNwNwDwNwNwNwNfyfycGfHfifmfmfNcwcLczczccwDwNwNwNwNfHfoflfmfEfHfBfofBfMfHcwfgfifmfofvfEfxfbfifmctwNfBfvfMfmccwDwNwNwNwNfyfy]=],
+[=[cGfBfdfofHfBcwwvcBcIcdfkwNcucBcncbffcnciwNfkfKcucucnfkfkcafKcBcBfjwvccwDfmfafCwDwDfxfMfafgfBfbfdfawNcMfmfnfdfvkcfEcJkcfNfofHfHcwccwDwNwNwNwNfyfycGfBfdfofHfBcwwvcsfafJfmfgfBfbfafywNcMfmfnfdfvkcwNcJkcfN]=],
+[=[fofHfHcGcGcGwvccwDwNwNwNwNfifdfgfofiwNfxfMfafgfBfbfdfawNfwfofBfgfqcBfbfrcwfifbfrctwNfdfxfxfHfmfBctwNfqfmkwccwDwNwNwNwNwNwNwNwNfifdfgfofiwNfvfofafyfmfHwNcmwNfyfycGfyfmfBfffofafyfmfHcBfbfHfBcwfifbfrccwD]=],
+[=[wNwNwNwNwNwNwNwNfbfxwNwHfvfofafyfmfHwNcmcmwNczwNfBfqfmfawNfvfmfBfMfvfawNfmfafCwDwNwNwNwNwNwNwNwNfifdfgfofiwNfHfBfofvfBwNcmwNfvfofafyfmfHfLcjfecGfHfBfofvfBwDwNwNwNwNwNwNwNwNfifdfgfofiwNfBwNcmwNkkkKwDwN]=],
+[=[wNwNwNwNwNwNwNfifdfgfofiwNfbwNcmwNczwDwNwNwNwNwNwNwNwNfxfdfvwNfqwNfbfawNfHfBfvfbfafycGfyfnfofBfgfqcwfqfmkwctwNwvwMkwckwvccwNfCfdwDwNwNwNwNwNwNwNwNwNwNwNwNfbfxwNwHfqwNcmcmwNcDwNfBfqfmfawNwDwNwNwNwNwNwN]=],
+[=[wNwNwNwNwNwNwNwNwNfBfofrfifmcGfbfafHfmfvfBcwfBctwNkkfofCfCfvfmfHfHcmfHfBfofvfBwNckwNfdfxfxfHfmfBwNckwNfbctwNfxfifofyfHcmcFctwNflfofifMfmcmfqcGcGwvfqwvkKccwDwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNfbwNcmwNfbwNck]=],
+[=[wNcjwDwNwNwNwNwNwNwNwNwNwNwNwNfmfafCwDwNwNwNwNwNwNwNwNfmfafCwDwNwNwNwNwNwNwNwNfyfycGfHfmfBfGfofifMfmfHcwfBccwDwNwNwNwNfmfafCwDwDwNwNwNwNfNfgfofificwfxfMfafgfBfbfdfacwccwDwNwNwNwNwNwNwNwNfwfofBfgfqcBfb]=],
+[=[frcwwvfifbfrfgfHfqfofvfNcGfHfdwvctwNczkwcjcFcEcFcDcicFctwNwvcuczwNczcLwNcecawNcichwvccwDwNwNwNwNwNwNwNwNfwfofBfgfqcBfbfrcwwvfifbfrfgfHfqfofvfNcGfHfdwvctwNczkwcjcFcEcFcLcucuctwNwvcuczwNczcLwNcecawNcich]=],
+[=[wvccwDwNwNwNwNwNwNwNwNfwfofBfgfqcBfbfrcwwvfifbfrfgfHfqfofvfNcGfHfdwvctwNczkwcjcFcEcFcFcjcFctwNwvcuczwNczcLwNcecawNcichwvccwDwNwNwNwNwNwNwNwNfwfofBfgfqcBfbfrcwwvfifbfrfifdfyfbfgcGfHfdwvctwNczkwcecechcp]=],
+[=[cecpctwNwvcuczwNczcLwNcecawNcichwvccwDwNwNwNwNwNwNwNwNfwfofBfgfqcBfbfrcwwvfifbfrfifdfyfbfgcGfHfdwvctwNczkwcecechcpcEcFctwNwvcuczwNczcLwNcecawNcichwvccwDwNwNwNwNwNwNwNwNfwfofBfgfqcBfbfrcwwvfifbfrfifdfy]=],
+[=[fbfgcGfHfdwvctwNczkwcecoczcJczczctwNwvcuczwNczcLwNcecawNcichwvccwDwNwNwNwNwNwNwNwNfwfofBfgfqcBfbfrcwwvfifbfrfifdfyfbfgcGfHfdwvctwNczkwcecoczcJczcFctwNwvcuczwNczcLwNcecawNcichwvccwDwNwNwNwNwNwNwNwNfwfo]=],
+[=[fBfgfqcBfbfrcwwvfifbfrfifdfyfbfgcGfHfdwvctwNczkwcecoczcJcucuctwNwvcuczwNczcLwNcecawNcichwvccwDwNwNwNwNwNwNwNwNfwfofBfgfqcBfbfrcwwvfifbfrfifdfyfbfgcGfHfdwvctwNczkwcecoczcucFczctwNwvcuczwNczcLwNcecawNci]=],
+[=[chwvccwDwNwNwNwNfmfafCccwDwDwNwNwNwNfifdfgfofiwNfHfBfvfbfafyfHftfdfwfofBfgfqwNcmwNkkwDwNwNwNwNwNwNwNwNwvcrcbfffmfNfdfvfBfEfffmfNfMfBfofBfbfdfawvctwNwvcrfffmfNfdfvfBfEcJfofBfBfifmwvctwNwDwNwNwNwNwNwNwN]=],
+[=[wNwvcrcufnfCfEcMfofBfgfqfffmfNfdfvfBfEfwfdfHfBcMfofBfgfqfEcufkwvctwNwvcrfkfmfafCfEcJfofBfBfifmfEcnfafCcMfbfHfgcifofBfofffmfNfdfvfBfEcufkwvctwNwDwNwNwNwNwNwNwNwNwvcrcufnfCfEcbcscbfCfEcBfdfyfffmfNfdfvfB]=],
+[=[fEcufkwvctwNwvcrcIfafffmfNfdfvfBwvwDwNwNwNwNkKwDwDwNwNwNwNfNfgfofificwfxfMfafgfBfbfdfacwccwDwNwNwNwNwNwNwNwNfyfycGfHfmfBfffofafyfmfHcwfyfycGffcncdcscIclfEcufEcbcBcBcIcuwNktwNfyfycGffcncdcscIclfEcufEci]=],
+[=[cbftcbwNktwNfyfycGffcncdcscIclfEcbclcIclfjcMcIfKfkccwDwNwNwNwNwNwNwNwNfyfycGfNfvfdfgfmfHfHfffmfHfMfnfmcwccwDwNwNwNwNwNwNwNwNfxfdfvwNfEctwNfHfBfvwNfbfawNfbfNfofbfvfHcwfHfBfvfbfafyfHftfdfwfofBfgfqccwNfC]=],
+[=[fdwDwNwNwNwNwNwNwNwNwNwNwNwNfyfycGfgfifmfofvfffmfHfMfifBfHcwccwDwNwNwNwNwNwNwNwNwNwNwNwNfyfycGfHfmfofvfgfqclfMfnfrfmfvcwfHfBfvctwNfyfycGftfjfwcnfEcJfjftcnctwNfxfofifHfmctwNfyfycGfkcscdclfEcnfcfKcbcBct]=],
+[=[wNczctwNcKcjctwNczccwDwNwNwNwNwNwNwNwNwNwNwNwNfyfycGfyfmfBfffmfHfMfifBfHcwcocococococtwNfafbfictwNfafbfictwNfafbfictwNfafbfictwNfafbfictwNfafbfictwNfafbfictwNfafbficcwDwNwNwNwNwNwNwNwNwNwNwNwNfyfycGfm]=],
+[=[fCfbfBcbfificwwvczwvctwNfyfycGftfjfwcnfEcJfjftcnccwDwNwNwNwNwNwNwNwNfmfafCwDwNwNwNwNwNwNwNwNfyfycGfgfifmfofvfffmfHfMfifBfHcwccwDwNwNwNwNfmfafCccwDwNwNwNwNwDwNwNwNwNfHfoflfmfEfHfBfofBfMfHcwfrkcfNfofHfH]=],
+[=[fEfxfbfifmctwNfBfvfMfmccwDwNwNwNwNfyfycGfBfdfofHfBcwwvcMcncMcIfffjwNcJfjfwcbfkfkwNcsclcvcncuftcnciwvccwDfmfafCwDwDfxfMfafgfBfbfdfawNcMfofbfacMfmfafMcwccwDwNwNwNwNfyfycGfHfmfBfGfbfHfbfrfifmcwfxfofifHfm]=],
+[=[ccwDwNwNwNwNwDwNwNwNwNfIfqfbfifmwNfBfvfMfmwNfCfdwDwNwNwNwNwNwNwNwNfifdfgfofiwNfdfafEfnfofNfqfofgfuwNcmwNfyfmfBfEfHfBfofBfMfHcwfnfofNfqfofgfufEfxfbfifmccwDwNwNwNwNwNwNwNwNfifdfgfofiwNfdfafEfrkcfNfofHfH]=],
+[=[wNcmwNfyfmfBfEfHfBfofBfMfHcwfrkcfNfofHfHfEfxfbfifmccwDwNwNwNwNwNwNwNwNfifdfgfofiwNfdfafEfgfifmfofvwNcmwNfyfmfBfEfHfBfofBfMfHcwfgfifmfofvfEfxfbfifmccwDwNwNwNwNwNwNwNwNwDwNwNwNwNwNwNwNwNfifdfgfofiwNfrkc]=],
+[=[fNfofHfHfEfifofrfmfiwNcmwNfdfafEfrkcfNfofHfHwNfofafCwNwvfLwNcIclwNfewNcMcncMcIfffjwNcJfjfwcbfkfkwNcwcbclftcswNcJcbclcAffcnfwcIffftccwvwNfdfvwNwvfLwNcIcacawNfewNcMcncMcIfffjwNcJfjfwcbfkfkwNcwcbclftcswN]=],
+[=[cJcbclcAffcnfwcIffftccwvwDwNwNwNwNwNwNwNwNfifdfgfofiwNfnfofNfqfofgfufEfifofrfmfiwNcmwNfdfafEfnfofNfqfofgfuwNfofafCwNwvfLwNcIclwNfewNcMcbfwcNcbcucHwNclcIwNcscucIclwvwNfdfvwNwvfLwNcIcacawNfewNcMcbfwcNcb]=],
+[=[cucHwNclcIwNcscucIclwvwDwNwNwNwNwNwNwNwNfifdfgfofiwNfgfifmfofvfEfifofrfmfiwNcmwNfdfafEfgfifmfofvwNfofafCwNwvfLwNcIclwNfewNcucBcncbffwNcbcBcBwNcBcIcdfkwvwNfdfvwNwvfLwNcIcacawNfewNcucBcncbffwNcbcBcBwNcB]=],
+[=[cIcdfkwvwDwNwNwNwNwNwNwNwNwDwNwNwNwNwNwNwNwNfifdfgfofiwNfnfmfafMfEfifbfHfBwNcmwNkkwDwNwNwNwNwNwNwNwNwNwNwNwNfrkcfNfofHfHfEfifofrfmfictwDwNwNwNwNwNwNwNwNwNwNwNwNfnfofNfqfofgfufEfifofrfmfictwDwNwNwNwNwN]=],
+[=[wNwNwNwNwNwNwNfgfifmfofvfEfifofrfmfiwDwNwNwNwNwNwNwNwNkKwDwDwNwNwNwNwNwNwNwNfifdfgfofiwNfgfqfdfbfgfmwNcmwNfyfycGfgfqfdfbfgfmcwfnfmfafMfEfifbfHfBctwNfafbfictwNwvcKcmcmktwNcucIcicnfzwNcMcBcJcJwNcucNcncb]=],
+[=[ftfDwNktcmcmcKfFfafFfacwwNfGfmfvfHfbfdfawNcrwNcjcGcFcGczwNccfFfacIfIfafmfvwNcrwNcdfmfdcifmflfHchcowvccwDwNwNwNwNwNwNwNwNwDwNwNwNwNwNwNwNwNfbfxwNfgfqfdfbfgfmwNcmcmwNfafbfiwNfBfqfmfawNwDwNwNwNwNwNwNwNwN]=],
+[=[wNwNwNwNfyfycGfHfmfBfGfbfHfbfrfifmcwfxfofifHfmccwDwNwNwNwNwNwNwNwNwNwNwNwNfvfmfBfMfvfawNwDwNwNwNwNwNwNwNwNfmfafCwDwDwNwNwNwNwNwNwNwNfbfxwNfgfqfdfbfgfmwNcmcmwNcjwNfBfqfmfawDwNwNwNwNwNwNwNwNwNwNwNwNfbfx]=],
+[=[wNfdfafEfrkcfNfofHfHwNfBfqfmfawDwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNfHfoflfmfEfHfBfofBfMfHcwfrkcfNfofHfHfEfxfbfifmctwNfxfofifHfmccwDwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNfyfycGfBfdfofHfBcwwvcJfjfwcbfkfkwNcIcaca]=],
+[=[wvccwDwNwNwNwNwNwNwNwNwNwNwNwNfmfifHfmwDwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNcMfmfnfdfvkcfEcJkcfNfofHfHcwccwDwNwNwNwNwNwNwNwNwNwNwNwNfmfafCwDwNwNwNwNwNwNwNwNfmfifHfmfbfxwNfgfqfdfbfgfmwNcmcmwNcDwNfBfqfmfawD]=],
+[=[wNwNwNwNwNwNwNwNwNwNwNwNfbfxwNfdfafEfnfofNfqfofgfuwNfBfqfmfawDwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNcIfxfxfEcMfofNfqfofgfufEcIfafikccwccwDwNwNwNwNwNwNwNwNwNwNwNwNfmfifHfmwDwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNcb]=],
+[=[fNfNfikcfEcMfofNfqfofgfucwccwDwNwNwNwNwNwNwNwNwNwNwNwNfmfafCwDwNwNwNwNwNwNwNwNfmfifHfmfbfxwNfgfqfdfbfgfmwNcmcmwNcLwNfBfqfmfawDwNwNwNwNwNwNwNwNwNwNwNwNfbfxwNfdfafEfgfifmfofvwNfBfqfmfawDwNwNwNwNwNwNwNwN]=],
+[=[wNwNwNwNwNwNwNwNfHfoflfmfEfHfBfofBfMfHcwfgfifmfofvfEfxfbfifmctwNfxfofifHfmccwDwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNwNfyfycGfBfdfofHfBcwwvcucBcncbffwNcBcIcdfkwNcIcacawvccwDwNwNwNwNwNwNwNwNwNwNwNwNfmfifHfmwDwN]=],
+[=[wNwNwNwNwNwNwNwNwNwNwNwNwNwNwNcufifmfofvfEcBfdfyfHfEcIfafikccwccwDwNwNwNwNwNwNwNwNwNwNwNwNfmfafCwDwNwNwNwNwNwNwNwNfmfafCwDwNwNwNwNwNwNwNwNwDwNwNwNwNwNwNwNwNfyfycGfHfifmfmfNcwceczczccwNwDwNwNwNwNfmfafC]=],
+[=[wDfmfafCwDwDfIfqfbfifmwNfBfvfMfmwNfCfdwDwNwNwNwNfbfxwNfyfycGfbfHfGfbfHfbfrfifmcwfBfvfMfmccwNfBfqfmfawDwNwNwNwNwNwNwNwNfNfgfofificwcMfofbfacMfmfafMccwNwDwNwNwNwNfmfafCwDwNwNwNwNwDwNwNwNwNfNfgfofificwfx]=],
+[=[fMfafgfBfbfdfacwccwNfyfycGfHfifmfmfNcwcDczczccwNfmfafCccwDfmfafC]=],
+}
+local _y = {
+[=[woeIwEBcwoFwwpEnwoJgwrbcwosGwKAEwELwwosDwGrowAtfwGyzwoeIwEBcwoFwwrDiwolewAiFwAvpwpEywrDpwEjmwAviwzIzwpfdwKACwoNHwEyCwKANwAtbwjNswKlfwAtfwKlfwKAowpeqwgLGwjsowKAiwpiKwoqNwrLKwrDuwoMqwpjGwpwNwEmBwEiFwole]=],
+[=[wGrowALwwGyywzctwGrrwALcwGyywzctwoMvwzwNwpjGwpwNwrFKwrbewrFhwKAJwKAewoJCwcJiwoNHwEyCwKAEwEDgwpicwrFgwKGewKAHwKCywKriwKCkwKriwKCGwKriwKCLwKriwKCCwKriwKggwKriwKgEwKriwKgjwKriwKCJwKriwKCDwKriwKgFwKriwKgC]=],
+[=[wKriwKghwKriwKCKwKriwKCzwKriwKgewKriwKCpwKriwKCEwKriwKCrwKriwKCAwKriwKgLwKriwKCewKriwKCqwKriwKCbwKriwKCowKriwKCfwKriwKgrwKriwKCmwKriwKCjwKriwKChwKriwKCcwKriwKCtwKriwKgxwKriwKCgwKriwKCxwKriwKgpwKriwKgD]=],
+[=[wKriwKgmwKriwKCFwKriwKgowKCnwoeIwEBcwoFwwpmywoCcwoMqwjdzwgaewcJxwosDwKAowAfpwEBzwEyJwKAowoqNwpvNwEyowrFgwGrywEDgwpicwrFgwGyzwpfdwKAEwEDnwEyqwhqHwpicwrLMwKGewKAowKKMwKGcwKAewoJCwcJiwoNHwEyCwKAhwrdxwEBC]=],
+[=[wpvdwoqNwpmywrrNwoeswrypwrocwKACwoNHwEyCwKAJwpjLwrdCwryzwjdzwgaewKAhwosDwKAAwAfpwEvpwpvawKAnwrqlwzIxwEBEwpfmwrowwrocwKAFwodzwrFKwrrMwohtwhyLwrFKwrrMwohtwGBowhBwwjdzwrdiwphzwApHwpicwrDqwEvbwKAewoJCwKAJ]=],
+[=[wpjFwrdJwoqNwrFKwrrMwohtwKAewoJCwcJxwrdxwEBCwpvdwoqNwpmywrbAwEDrwgoFwpjLwGrqwEDHwrbDwGxJwKKqwKKqwoeIwEBcwoFwwEBzwEyJwrpNwjdzwpmywrrNwoeswrypwpuIwrrBwrDbwcqNwKKqwKACwoNHwEyCwKADwgoFwpjLwKGewKAHwCwDwKKq]=],
+[=[wKKqwpEywrDpwpNNwjdzwAviwKKuwEBzwEyJwrotwKGfwKAFwoaJwKKqwKKqwKKqwKKqwoeIwEBcwoFwwpJswKGewKAEwEDnwEyqwhqHwpicwrFgwhbcwhMmwcqNwKKqwKKqwKKqwKACwoNHwEyCwKApwzwNwjdzwpmywoCcwoIkwEBzwEyJwrrLwpskwAHMwhHrwKKq]=],
+[=[wKKqwKKqwKKqwpvxwKApwAvpwEyxwpwNwpJvwKAiwpiKwoqNwEajwrqMwrrLwKJrwgoFwpjLwGBowhBwwjdzwrrBwrFjwoJywApHwpicwrDqwGrqwAvpwGnqwKJywEDgwpicwrFgwGyzwGBwwpJvwGyzwpjGwpwDwKKqwKKqwpjGwpwDwKKqwKKqwrFKwrbewrFhwKAi]=],
+[=[wEyDwoenwApHwosGwEBcwrypwEajwrqMwrocwcJmwoJCwcJxwrdxwEBCwpvdwoqNwpmywpfmwEBrwgozwrypwpiKwgDEwrrBwrDiwKAgwpjowGxJwKKqwKKqwoeIwEBcwoFwwoADwKGewKAHwrrBwrFjwoJywApvwgoFwpApwoAewgECwKGcwAfpwAjjwGbmwcqNwKKq]=],
+[=[wKACwoNHwEyCwKAFwpzHwzwNwjdzwgaewcqNwKKqwKAhwosDwKAowjdbwAfgwpiKwgDEwrrBwrDpwpfdwcqNwKKqwKKqwKKqwKACwoNHwEyCwKADwKGewKAuwrbDwpvawpChwEajwrqMwGrqwpjpwEDHwrbDwAfpwpscwcqNwKKqwKKqwKKqwKACwoNHwEyCwKAgwoKq]=],
+[=[wjdzwoADwhypwGrbwAjjwGyewKJuwEijwGBowhHrwKKqwKKqwKKqwKKqwpfmwEvvwhyLwpfmwEvvwGBowhBwwjdzwrrBwrFjwoJywApHwpicwrDqwpmywgDdwrDqwEiFwoAgwGyowcqNwKKqwKAewoJCwcqNwKKqwKACwoNHwEyCwKAFwpzHwAvpwjdzwgaewcqNwKKq]=],
+[=[wKAhwosDwKAowjdbwAfgwrqswEnBwpAxwEBEwoJgwEyiwGrCwpzHwzccwKAFwoaJwKKqwKKqwKKqwKKqwoeIwEBcwoFwwEiwwjdzwrrBwrFjwoJywApvwgoFwpApwrqswEnBwpAxwEBEwoJgwEyiwGrCwpzHwzccwAfpwpscwcqNwKKqwKKqwKKqwKACwoNHwEyCwKAg]=],
+[=[woKqwjdzwoADwhypwGrbwAjjwGyewKJuwEijwGBowhHrwKKqwKKqwKKqwKKqwpfmwEvswhyLwpfmwEvswGBowhBwwjdzwrrBwrFjwoJywApHwpicwrDqwpmywgDdwrDqwEiFwoAgwGyowcqNwKKqwKAewoJCwcqNwKKqwKAJwpjFwrdJwoqNwrqswEnBwpAxwEBEwoJg]=],
+[=[wEyiwGrCwpzHwAvbwcJmwoJCwcqw]=],
+}
+local _p1 = string.char(51,99,98,51)
+local _dummy_1 = 16 + 41
+local _p5 = string.char(54,54,100,52)
+local _p9 = string.char(53,99,56,49)
+local _dummy_9 = 37 + 38
+local _p13 = string.char(50,100,101,56)
+local _dummy_13 = 2 + 44
+local _p17 = string.char(48,57,53,99)
+local _p21 = string.char(57,53,56,53)
+local _p25 = string.char(54,98,51,100)
+local _dummy_25 = 28 + 49
+local _p29 = string.char(97,55,97,51)
+local _dummy_29 = 26 + 37
+local _p33 = string.char(56,98,51,99)
+local _dummy_33 = 37 + 46
+local _p37 = string.char(56,99,55,100)
+local _k = _p1 .. _p5 .. _p9 .. _p13 .. _p17 .. _p21 .. _p25 .. _p29 .. _p33 .. _p37
+local _f9553 = 18 + 2
+local _f3818 = 47 + 48
+local _f6517 = 36 + 49
+local _f6806 = 27 + 32
+local _f9071 = 42 + 28
+local _f2719 = 40 + 19
+local _f8127 = 8 + 30
+local _f7852 = 26 + 34
+local _f1550 = 2 + 47
+local _f4717 = 5 + 21
+local _f9124 = 24 + 34
+local _f9993 = 4 + 43
+local _f1957 = 43 + 34
+local _f7598 = 32 + 41
+local _f3299 = 5 + 10
+local _f7334 = 49 + 27
+local _f6138 = 42 + 14
+local _f4552 = 2 + 39
+local _f3911 = 20 + 15
+local _f9692 = 5 + 34
+local _f5386 = 37 + 7
+local _f4803 = 28 + 37
+local _f6198 = 6 + 50
+local _f9543 = 21 + 50
+local _f1694 = 48 + 20
+local _f6630 = 29 + 12
+local _f5442 = 26 + 8
+local _f8412 = 45 + 46
+local _f8746 = 49 + 1
+local _f2130 = 8 + 9
+local _f3058 = 27 + 12
+local _f1033 = 37 + 4
+local _f4046 = 4 + 42
+local _f8755 = 43 + 46
+local _f1023 = 40 + 13
+local _f7284 = 44 + 21
+local _f4799 = 2 + 23
+local _f9004 = 42 + 27
+local _f1697 = 24 + 24
+local _f1272 = 18 + 35
+local _f5212 = 1 + 5
+local _f5809 = 19 + 28
+local _f9810 = 41 + 7
+local _f8701 = 17 + 47
+local _f4004 = 8 + 32
+local _f7989 = 36 + 25
+local _f9152 = 39 + 37
+local _f2847 = 18 + 12
+local _f2236 = 38 + 50
+local _f2732 = 13 + 17
 
-local cache_dir = gg.EXT_CACHE_DIR or "/storage/emulated/0/"
-local maphack_file = cache_dir .. "/maphack_status.txt"
-local bypass_file = cache_dir .. "/bypass_status.txt"
-local clear_file = cache_dir .. "/clear_status.txt"
-
-pcall(function()
-    os.remove(maphack_file)
-    os.remove(bypass_file)
-    os.remove(clear_file)
-end)
-
-local function get_status(file)
-    local f = io.open(file, "r")
-    if f then
-        local content = f:read("*a"); f:close()
-        if content == "ON" then return true end
-    end
-    return false
-end
-
-local function save_status(file, is_on)
-    local f = io.open(file, "w")
-    if f then
-        if is_on then f:write("ON") else f:write("OFF") end
-        f:close()
-    end
-end
-
-function Apply_Maphack()
-    gg.toast("Injecting Maphack...")
-    gg.setRanges(gg.REGION_ANONYMOUS)
-    gg.clearResults()
-    gg.searchNumber("98,784,247,822;47,244,640,279;4,510,805,388,492,275,723:9", gg.TYPE_QWORD)
-    if gg.getResultCount() == 0 then
-        gg.toast("MAPHACK NOT FOUND."); gg.clearResults(); return false
-    end
-    gg.refineNumber("98,784,247,822", gg.TYPE_QWORD)
-    local res = gg.getResults(99999) 
-    if res and #res > 0 then
-        for _, v in ipairs(res) do v.value = "98,784,247,823"; v.freeze = true end
-        gg.setValues(res); gg.addListItems(res); gg.clearResults()
-        save_status(maphack_file, true)
-        gg.toast("MAPHACK SUCCESSFULLY INJECTED")
-        return true
-    else
-        gg.toast("REFINE FAILED"); gg.clearResults(); return false
-    end
-end
-
-function Off_Maphack_Only()
-    gg.toast("Turning OFF Maphack...")
-    local list = gg.getListItems()
-    if list and #list > 0 then
-        for _, v in ipairs(list) do v.freeze = false; v.value = "98,784,247,822" end
-        gg.setValues(list); gg.removeListItems(list)
-    end
-    for i = 1, 3 do
-        gg.setRanges(gg.REGION_ANONYMOUS)
-        gg.clearResults()
-        gg.searchNumber("98,784,247,823", gg.TYPE_QWORD)
-        local map_res = gg.getResults(99999)
-        if map_res and #map_res > 0 then
-            for _, v in ipairs(map_res) do v.value = "98,784,247,822"; v.freeze = false end
-            gg.setValues(map_res)
-        end
-        gg.clearResults()
-        gg.searchNumber("98,784,247,822;47,244,640,279;4,510,805,388,492,275,723:9", gg.TYPE_QWORD)
-        if gg.getResultCount() > 0 then
-            gg.refineNumber("98,784,247,822", gg.TYPE_QWORD)
-            local extra_res = gg.getResults(99999)
-            if extra_res and #extra_res > 0 then
-                for _, v in ipairs(extra_res) do v.value = "98,784,247,822"; v.freeze = false end
-                gg.setValues(extra_res)
-            end
-        end
-        gg.clearResults(); gg.sleep(150)
-    end
-    save_status(maphack_file, false)
-    gg.toast("MAPHACK SUCCESSFULLY OFF")
-end
-
-function Clear_Logs_Only()
-    gg.toast("Clearing Logs...")
-    local base_virtual = "/storage/emulated/0/Android/data/com.space.virtual/files/External/0/com.mobile.legends/"
-    local cache_path = base_virtual .. "cache/"
-    local files_path = base_virtual .. "files/"
-    local space_logs = "/storage/emulated/0/Android/data/com.space.virtual/files/Log/"
-
-    pcall(function()
-        os.remove(space_logs .. "HiAdKitLog.log")
-        os.remove(space_logs .. "HiAdSDKLog.log")
-        os.remove(files_path .. "tombstone_00")
-        os.remove(files_path .. "tombstone_01")
-        os.remove(files_path .. "tombstone_02")
-        os.remove(files_path .. "CountBattleCache")
-        os.remove(files_path .. "CrashAsset")
-        os.rename(cache_path .. "ML-HistoricalException", cache_path .. "ML-HistoricalException_bak")
-        os.rename(cache_path .. "ML-Logcats", cache_path .. "ML-Logcats_bak")
-        os.rename(cache_path .. "UnityShaderCache", cache_path .. "UnityShaderCache_bak")
-        os.rename(cache_path .. "sdk", cache_path .. "sdk_bak")
-        os.rename(files_path .. "dragon2017/BattleRecord", files_path .. "dragon2017/BattleRecord_bak")
-        os.rename(files_path .. "ModeVersion", files_path .. "ModeVersion_bak")
-        local login_data_path = files_path .. "dragon2017/login_data/"
-        os.remove(login_data_path .. "login_auth_cache")
-        os.remove(login_data_path .. "login_auth_md5")
-        os.remove(login_data_path .. "check_upgrade_cache")
-    end)
+local function g_integrity()
+    local _orig_load = loadstring or load
+    if type(_orig_load) ~= "function" then return false end
     
-    gg.sleep(300)
-    save_status(clear_file, true)
-    gg.toast("LOGS CLEARED SUCCESSFULLY")
+    local t_str = string.char(114,101,116,117,114,110,32,39,103,101,111,95,115,101,99,117,114,101,39)
+    local target_out = string.char(103,101,111,95,115,101,99,117,114,101)
+    
+    local ok, res = pcall(_orig_load, t_str)
+    if not ok or not res then return false end
+    local run_ok, output = pcall(res)
+    if not run_ok or output ~= target_out then return false end
+    
+    if rawget(_G, "frida") or rawget(_G, "Interceptor") then return false end
+    
+    return true
 end
 
-function Memory_Bypass()
-    gg.toast("Injecting Memory Bypass...")
-    local function PatchLib(lib, offset, hex)
-        local ranges = gg.getRangesList(lib)
-        if #ranges == 0 then return end
-        local start = ranges[1].start
-        local t = {}
-        local i = 0
-        for h in string.gmatch(hex, "%x+") do
-            if #h == 2 then 
-               table.insert(t, {address=start + offset + i, flags=4, value=h.."h"})
-               i = i + 1
-            end
-        end
-        gg.setValues(t)
-    end
 
-    pcall(function()
-        PatchLib("libcsharp.so", 0x14742D4, "C0 03 5F D6")
-        PatchLib("libcsharp.so", 0x14743CC, "C0 03 5F D6")
-        PatchLib("libcsharp.so", 0x1474414, "C0 03 5F D6")
-        PatchLib("liblogic.so", 0x556858, "C0 03 5F D6")
-        PatchLib("liblogic.so", 0x556874, "C0 03 5F D6")
-        PatchLib("liblogic.so", 0x590B00, "C0 03 5F D6")
-        PatchLib("liblogic.so", 0x590B04, "C0 03 5F D6")
-        PatchLib("liblogic.so", 0x590BCC, "C0 03 5F D6")
-        PatchLib("liblogic.so", 0x590C40, "C0 03 5F D6")
-    end)
+if 8 > 6 then local _x = 81 end
+if 9 > 3 then local _x = 6 end
+if 3 > 5 then local _x = 97 end
+if 9 > 10 then local _x = 43 end
+if 3 > 6 then local _x = 62 end
+if 3 > 3 then local _x = 46 end
+if 4 > 9 then local _x = 49 end
+if 2 > 10 then local _x = 98 end
+if 4 > 8 then local _x = 69 end
+if 6 > 9 then local _x = 87 end
 
-    local stringsToPatch = {
-        ":AReport_Reputation", ":Report_Battle", 
-        ":Cmd_MatchReport_PostMatch_CS", ":Send_Battle_EndMiscDataReport_CS", 
-        ":Cmd_AIAd_LogReport_CS", ":OnReport"
-    }
-
-    pcall(function()
-        gg.setRanges(gg.REGION_C_ALLOC | gg.REGION_C_DATA | gg.REGION_ANONYMOUS)
-        gg.processResume()
-        for _, str in ipairs(stringsToPatch) do
-            gg.clearResults()
-            gg.searchNumber(str, gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1, 0)
-            gg.getResults(99999, nil, nil, nil, nil, nil, nil, nil, nil)
-            gg.editAll("0", gg.TYPE_BYTE)
-        end
-        gg.clearResults()
-    end)
-    
-    save_status(bypass_file, true)
-    gg.toast("MEMORY BYPASS INJECTED")
+if not g_integrity() then
+    return
 end
 
-function MainMenu()
-    gg.setVisible(false)
-    
-    while true do
-        local on_maphack = get_status(maphack_file)
-        local on_bypass = get_status(bypass_file)
-        local on_clear = get_status(clear_file)
-        
-        local bypass_label = on_bypass and "[ ON ] MEMORY BYPASS (ANTI BAN/REPORT)" or "[ OFF ] MEMORY BYPASS (ANTI BAN/REPORT)"
-        local maphack_label = on_maphack and "[ ON ] MAPHACK NO ICON" or "[ OFF ] MAPHACK NO ICON"
-        local clear_label = on_clear and "[ ON ] CLEAR ALL LOGS" or "[ OFF ] CLEAR ALL LOGS"
-        
-        local menu_list = {
-            bypass_label,
-            maphack_label,
-            clear_label
-        }
+local geodevs69_chars = {"w","c","f","k","t","K","G","A","z","j","D","L","F","e","h","E","p","o","r","g","C","m","x","y","q","b","J","u","i","n","a","d","N","s","v","H","B","M","l","I"}local geodevs69_map = {}
+for i, char in ipairs(geodevs69_chars) do geodevs69_map[char] = i - 1 end
+local function g_split(s) local result = {} for _, c in utf8.codes(s) do result[#result+1] = utf8.char(c) end return result end
+local function g_decode(h_str)
+    local chars = g_split(h_str)
+    local bytes = {}
+    for i = 1, #chars, 4 do
+        local h1 = geodevs69_map[chars[i]]
+        local h2 = geodevs69_map[chars[i+1]]
+        local h3 = geodevs69_map[chars[i+2]]
+        local h4 = geodevs69_map[chars[i+3]]
+        if h1 and h2 and h3 and h4 then
+            local combined = h1 * 64000 + h2 * 1600 + h3 * 40 + h4
+            local b1 = math.floor(combined / 256)
+            local b2 = combined % 256
 
-        local choice = gg.choice(menu_list, nil, "-==| CODEX MLBB CHEATZ |==-\n\n( Version : 1.4.0 )\nOwner : GeoDevs69")
-        
-        if choice == nil then 
-            gg.setVisible(false)
-            return 
-        end
-
-        if choice == 1 then
-            if on_bypass then
-                save_status(bypass_file, false)
-                gg.toast("BYPASS OFF")
-            else
-                Memory_Bypass()
-            end
-        elseif choice == 2 then
-            if on_maphack then
-                Off_Maphack_Only()
-            else
-                Apply_Maphack()
-            end
-        elseif choice == 3 then
-            if on_clear then
-                save_status(clear_file, false)
-                gg.toast("CLEAR LOGS OFF")
-            else
-                Clear_Logs_Only()
+            if combined > 0 and b1 >= 0 and b1 <= 255 then
+                bytes[#bytes+1] = string.char(b1)
+                if b2 >= 0 and b2 <= 255 and (b2 > 0 or i < #chars - 3) then 
+                    bytes[#bytes+1] = string.char(b2) 
+                end
             end
         end
-        
-        gg.sleep(500) 
     end
+    return table.concat(bytes)
 end
 
-while true do
-    if gg.isVisible(true) then
-        pcall(MainMenu) 
-    end
-    
-    pcall(function() gg.sleep(200) end)
+local loader = loadstring or load
+
+local success, func_dec = pcall(loader, g_decode(table.concat(_y)))
+if not success or type(func_dec) ~= "function" then return end
+local run_dec_ok, run_dec_err = pcall(func_dec)
+if not run_dec_ok then return end
+
+local enc2 = g_to_bytes(table.concat(_x))
+local final_raw = g_decrypt(enc2, _k)
+
+local locked_name, canary_check, code = final_raw:match("^([^|]+)|([^|]+)|(.*)$")
+
+if not code or code == "" or not canary_check or not canary_check:find("CANARY_") then 
+    return 
+end
+
+local current_name = (gg and gg.getFile and gg.getFile():match("([^/\\]+)$")) or ""
+if current_name == "" or current_name ~= locked_name then
+    gg.alert("SECURITY NOTICE: Access Denied.")
+    return
+end
+
+local func, compile_err = loader(code)
+if func then
+    code = nil 
+    final_raw = nil
+    _k = nil
+    local exec_ok, exec_err = pcall(func)
+    if not exec_ok then return end 
+else
+    return 
 end
