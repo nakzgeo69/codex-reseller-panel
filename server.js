@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Palitan mo ito kung iba ang Main API URL mo sa Render
 const MAIN_PANEL_URL = process.env.MAIN_PANEL_URL || "https://codex-license-api.onrender.com";
 const ADMIN_PASS = process.env.ADMIN_PASS || "CodexSquad101"; 
 
@@ -16,7 +17,6 @@ async function fetchWithRetry(url, options, retries = 3, delay = 3000) {
     for (let i = 0; i < retries; i++) {
         try {
             const response = await fetch(url, options);
-            // Kung 502, 503, 504 (nagigising pa ang Render), maghintay at subukan muli
             if ([502, 503, 504].includes(response.status) && i < retries - 1) {
                 await new Promise(r => setTimeout(r, delay));
                 continue;
@@ -150,13 +150,14 @@ app.get('/delete', async (req, res) => {
 });
 
 // ==========================================
-// 6. GET LATEST SCRIPT (AUTO-UPDATE)
+// 6. GET LATEST SCRIPT (AUTO-UPDATE) - WITH BASE64 ENCODING
 // ==========================================
 app.post('/get-latest-script', async (req, res) => {
     const { key, hwid } = req.body;
     if (!key || !hwid) return res.status(400).json({ status: "error", message: "Missing Data" });
 
     try {
+        // 1. I-VERIFY MUNA SA MAIN PANEL KUNG VALID YUNG KEY
         const verifyRes = await fetchWithRetry(`${MAIN_PANEL_URL}/verify`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -168,15 +169,22 @@ app.post('/get-latest-script', async (req, res) => {
             return res.status(403).json({ status: "error", message: verifyData.message || "Invalid Key" });
         }
 
+        // 2. KUNIN YUNG SCRIPT FILE (PURO HAYOP)
         const scriptPath = path.join(__dirname, 'latest_script.lua');
         if (!fs.existsSync(scriptPath)) {
             return res.status(500).json({ status: "error", message: "Script file not found on server." });
         }
 
         const scriptContent = fs.readFileSync(scriptPath, 'utf8');
-        return res.json({ status: "success", script: scriptContent });
+        
+        // 3. I-CONVERT SA BASE64 PARA HINDI MAG-CRASH SA JSON/UTF-8
+        const base64Script = Buffer.from(scriptContent, 'utf8').toString('base64');
+
+        // 4. IPADALA
+        return res.json({ status: "success", script: base64Script });
 
     } catch (err) {
+        console.error("Get Script Error:", err);
         res.status(500).json({ status: "error", message: "Server Error" });
     }
 });
