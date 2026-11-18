@@ -5,6 +5,12 @@ local maphack_file = cache_dir .. "/maphack_status.txt"
 local bypass_file = cache_dir .. "/bypass_status.txt"
 local clear_file = cache_dir .. "/clear_status.txt"
 
+pcall(function()
+    os.remove(maphack_file)
+    os.remove(bypass_file)
+    os.remove(clear_file)
+end)
+
 local function get_status(file)
     local f = io.open(file, "r")
     if f then
@@ -211,7 +217,8 @@ end
 
 while true do
     if gg.isVisible(true) then
-        MainMenu()
+        pcall(MainMenu) 
     end
-    gg.sleep(200) 
+    
+    pcall(function() gg.sleep(200) end)
 end
