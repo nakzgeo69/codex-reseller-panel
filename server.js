@@ -28,7 +28,6 @@ async function fetchWithRetry(url, options, retries = 3, delay = 3000) {
     }
 }
 
-// FIXED: IPAPASA ANG EXPIRES MULA SA MAIN PANEL
 app.post('/verify', async (req, res) => {
     const { key, hwid } = req.body;
     if (!key || !hwid) return res.status(400).json({ status: "error", message: "Missing Data" });
@@ -41,12 +40,8 @@ app.post('/verify', async (req, res) => {
         });
         const data = await response.json();
         
-        // Ipapasa ang buong data (kasama ang expires) pabalik sa Lua
-        if (response.ok) {
-            return res.json(data);
-        } else {
-            return res.status(response.status).json(data);
-        }
+        // IPAPASA ANG EXPIRES AT ANG TAMANG STATUS
+        return res.status(response.status).json(data);
     } catch (err) {
         res.status(500).json({ status: "error", message: "Main Panel is waking up. Please try again." });
     }
