@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Tiyakin na tama ang URL ng Main Panel mo
 const MAIN_PANEL_URL = process.env.MAIN_PANEL_URL || "https://codex-license-api.onrender.com";
 const ADMIN_PASS = process.env.ADMIN_PASS || "CodexSquad101"; 
 
@@ -28,6 +29,7 @@ async function fetchWithRetry(url, options, retries = 3, delay = 3000) {
     }
 }
 
+// 1. VERIFY ENDPOINT
 app.post('/verify', async (req, res) => {
     const { key, hwid } = req.body;
     if (!key || !hwid) return res.status(400).json({ status: "error", message: "Missing Data" });
@@ -40,13 +42,14 @@ app.post('/verify', async (req, res) => {
         });
         const data = await response.json();
         
-        // IPAPASA ANG EXPIRES AT ANG TAMANG STATUS
-        return res.status(response.status).json(data);
+        if (response.ok) return res.json(data);
+        else return res.status(response.status).json(data);
     } catch (err) {
         res.status(500).json({ status: "error", message: "Main Panel is waking up. Please try again." });
     }
 });
 
+// 2. LIST KEYS
 app.get('/list', async (req, res) => {
     const resellerKey = req.query.password;
     let deviceHwid = req.query.hwid;
@@ -76,6 +79,7 @@ app.get('/list', async (req, res) => {
     }
 });
 
+// 3. GENERATE KEY
 app.get('/generate', async (req, res) => {
     const { password, duration, unit, hwid } = req.query;
     try {
@@ -97,6 +101,7 @@ app.get('/generate', async (req, res) => {
     } catch (err) { res.status(500).json({ status: "error", message: "Server Error" }); }
 });
 
+// 4. TOGGLE PAUSE
 app.get('/toggle-pause', async (req, res) => {
     const { password, key, hwid } = req.query;
     try {
@@ -114,6 +119,7 @@ app.get('/toggle-pause', async (req, res) => {
     } catch (err) { res.status(500).json({ status: "error" }); }
 });
 
+// 5. DELETE KEY
 app.get('/delete', async (req, res) => {
     const { password, key, hwid } = req.query;
     try {
@@ -131,6 +137,7 @@ app.get('/delete', async (req, res) => {
     } catch (err) { res.status(500).json({ status: "error" }); }
 });
 
+// 6. GET LATEST SCRIPT
 app.post('/get-latest-script', async (req, res) => {
     const { key, hwid } = req.body;
     if (!key || !hwid) return res.status(400).json({ status: "error", message: "Missing Data" });
